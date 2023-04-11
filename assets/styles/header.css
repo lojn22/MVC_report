@@ -1,0 +1,63 @@
+/** header.css */
+
+/*
+ * Set colors, size and prepare positioning.
+ */
+.header {
+    background-color: rgb(255 255 255);
+    border-bottom: 4px solid var(--dark-color);
+    position: relative;
+}
+
+/*
+ * Position and size the logo.
+ */
+.header .logo {
+    width: 150px;
+
+    position: relative;
+    top: 5px;
+    left: 20px;
+}
+
+/*
+ * Modify and position the title.
+ */
+.header .title {
+    color: var(--dark-color);
+    font-size: 36px;
+    text-shadow: 2px 2px 2px rgb(159, 159, 159);
+
+    position: relative;
+    top: -90px;
+    left: 200px;
+}
+
+/*
+ * Modify and position the subtitle.
+ */
+.header .subtitle {
+    color: var(--dark-color);
+    font-size: 24px;
+
+    display: inline-block;
+    transform: rotate(0deg);
+
+    position: relative;
+    top: -70px;
+    left: 120px;
+}
+/*
+ * Add background image.
+ */
+.header {
+    background-color: var(--light-color);
+    border-bottom: 4px solid var(--dark-color);
+    position: relative;
+
+    /* background-image: url("../img/orchid.webp"); */
+    background-repeat: no-repeat;
+    /* background-attachment: fixed; */
+    background-position: center;
+    background-size: cover;
+}

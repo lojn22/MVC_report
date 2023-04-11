@@ -1,0 +1,26 @@
+body {
+    background-color: rgb(255, 252, 252);
+}
+
+body {
+    margin: 0 auto;
+}
+
+main {
+    margin: 40px;
+    max-width: 900px;
+}
+
+h1 {
+    border-bottom: 4px double #ccc;
+}
+
+.site-header {
+    background-size: cover;
+    height: 100px;
+}
+
+.site-title {
+    font-size: 2em;
+}
+

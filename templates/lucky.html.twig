@@ -1,11 +1,13 @@
 {% extends "base.html.twig" %}
 
-{% block title %}Lucky{% endblock %}
+{% block title %}Magic number{% endblock %}
 
 {% block body %}
-    <h1>Lucky</h1>
-    <p>An image which can be clicked on.</p>
-    <a href="{{ asset('img/glider.svg') }}">
-        <img src="{{ asset('img/glider.svg') }}" alt="">
-    </a>
+    <h1>Magic number</h1>
+    <p>Welcome to my awesome magical homepage.</p>
+    <p>This is the current magic number: {{ number }}</p>
+
+    <a href="{{ asset('img/butterfly.webp') }}">
+        <img src="{{ asset('img/butterfly.webp') }}" alt="">
+    </a
 {% endblock %}
