@@ -22,47 +22,104 @@
         <main class="main">
             <h1>Report</h1>
             <h2 id="kmom01">Kmom01</h2>
-                <p>Berätta kort om dina förkunskaper och tidigare erfarenheter kring objektorientering.
-                
+                <p>
                 Tidigare erfarenhet av objektorientering fick jag i kursen OOP som vi hade förra läsperioden.
                 Där skapade vi olika klasser och objekt.
                 Vi gick igenom lite hur klasserna kunde ärva från varandra och vilka relationer de kunde ha till varandra.
-                
                 </p>
 
-                <p>Berätta kort om PHPs modell för klasser och objekt. 
-                Vilka är de grunder man behöver veta/förstå för att kunna komma igång och skapa sina första klasser?
-                
+                <p>
                 En klass är som en mall för objekt där man utifrån klassen skapar objektet.
-                För att jobba med objektet så kan man skapa metoder som ger objektet en funktion.
+                För att jobba med objektet så kan man skapa metoder som ger objektet funktion.
                 I ett objekt kan man ha en eller flera properties som även anger objektets värde.
                 Man kan ha publika, skyddade och privata veriabler.
                 Den kod man inte vill att användaren ska kunna ändra på gör man skyddad eller privat.
-                
+                För att kalla/anropa ett objekt använder man sig av veriabeln $this som pekar på objektets värde.
+                Nyckelordet "new" måste man använda när man ska skapa en ny instans av en klass.
                 </p>
 
-                <p>Reflektera kort över den kodbas, koden, strukturen som användes till uppgiften me/report, hur uppfattar du den?
-                
-
+                <p>
+                Det kändes först lite överväldigande med alla mappar man skulle ha koll på, och vart alla filer man använder
+                ligger. Tillsut så fick man någorlunda koll på strukturen. Vi har i tidigare kurser jobbat med andra ramverk 
+                där man också använder sig av routes så det känndes inte helt främmande men det tar ändå ett tag in man kommer in 
+                i rätt tänkande.
                 </p>
 
-                <p>Med tanke på artikeln “PHP The Right Way”, vilka delar in den finner du extra intressanta och värdefulla? 
-                Är det några särskilda områden som du känner att du vill veta mer om? 
-                Lyft fram några delar av artikeln som du känner mer värdefulla.
-
-                
+                <p>
+                Jag gick in på länken till artikeln "PHP The Right Way" och kollade i innehållsförteckningen för att se vad som kunde täkas
+                vara intressant att läsa lite mer om.
+                Jag hittade rubriken Templating och kollade närmre på det. 
+                Hittade även länkar under Programming Paradigms som länkade till phps sida om objektorientering vilket var det som 
+                känndes mest relavant och intressant att kunna läsa om från denna artikel. 
+                Kan tänka mig att artikeln kan vara bra att ha till hands om man vill får lite mer information om hur vissa saker fungerar i PHP.
                 </p>
 
-                <p>Vilken är din TIL för detta kmom?
 
-                Min TIL för detta kmom är att 
+                <p>
+                Min TIL för detta kmom är att jag lärde mig lite mer om github. Hur man laddar upp det till Github och hur man taggar saker.
                 </p>
 
             <h2 id="kmom02">Kmom02</h2>
-                <p></p>
-                <p></p>
-                <p></p>
-                <p></p>
+                <p>Förklara kort de objektorienterade konstruktionerna arv, komposition, interface och trait och
+                hur de används i PHP.
+                
+                Man vill skapa återanvändbar kod. Man jobbar mycket med inkapssling för att dölja inplemntationesdelen
+                i en klass så att man kan koda det som man vill och sedan ger man ett publikt API till utvändigt till 
+                användaren. En klass ska bara göra en sak.
+                Cohesion är ett kvalitetsmått på hur väl metoder och veriabler hänger ihop tillsammans i en klass.
+                Coupling är också ett kvalitetsmått på hur mycket en klass använder sig av andra klasser och hur den är 
+                beroende av andra klasser för att utöva sitt jobb. Har man en hög coupling så kan det vara svårt att underhålla
+                koden.
+
+                Arv(inheritance) 
+                Relation som man kallar "är en". En subklass ärver från en basklass/superklass/föräldrarklass. Vår subklass
+                ska förlänga eller specialceras. En subklass ska kunna erästta basklassen på alla ställen där den finns.
+                Arv i PHP görs med nyckelordet extends. Alla publika och skyddade variabler och methoder i basklassen är synliga i subklassen.
+                De privata veriblerna i basklassen kommer man inte åt i subklassen. Vill man öppna upp det så får man göra det med skyddad veriabel.
+                Man kan skriva över basklassens funktioner med nya. Man kan öppna upp de skyddade veriablerna i subklasssen men man 
+                kan inte göra det publika i bas privat i subklassen.
+
+                Scope Resolution Operator ::
+                Dubbla kolon ger tillgång till statiska, konstanter och överskrivna veriabler eller metoder av en klass.
+
+                Komposition(composition)
+                Relationen som man säger "har en, innehåller, använder sig av". En klass använder sig utav andra klasser. Om
+                objektet inte kan finnas utan basobjektet så kallas det komposition.
+                Aggregation är när ett objektet kan existera utan det ägda bas objektet.
+
+                OO preferences
+                Föredrar komposition över arv.
+
+                Kontrakt(interface)
+                Ett kotrakt på hur strukturen av en klass ska vara.
+                Objekt interface tillåter oss att skapa en koddel som döpts till interface som vissar vilka metoder som
+                ska implenteras. Om en klass väljer att implemneter ett interface så lovar den att alla metoder som finns i 
+                interface ska uppfyllas. Alla metoder som man deklarera i interface är publika. Det är bara metoder som finns i ett 
+                interface.
+
+                Trait
+                Återanvändbar koddel som är fristående. Man kan lägga till trait till klasser. Klasser låna implemntationen från
+                traits. Multiplet arv är när en subklass kan äva från flera basklasser, det går inte i PHP därför använder man trait.
+                
+                Trait histogram
+                
+                </p>
+
+                <p>Berätta om din implementation från uppgiften. Hur löste du uppgiften, är du nöjd/missnöjd,
+                vilken förbättringspotential ser du i din koden och dina klasser?
+                
+                </p>
+
+                <p>Berätta hur det kändes att modellera ett kortspel med flödesdiagram och psuedokod.
+                Var det något som du tror stödjer dig i din problemlösning och tankearbete för att strukturera
+                koden kring en applikation?
+
+                </p>
+
+                <p>Vilken är din TIL för detta kmom?
+                
+                </p>
+
             <h2 id="kmom03">Kmom03</h2>
                 <p></p>
             <h2 id="kmom04">Kmom04</h2>
