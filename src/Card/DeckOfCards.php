@@ -4,34 +4,54 @@ namespace App\Card;
 
 class DeckOfCards
 {
+    protected $deck;
+    protected $drawnCard;
+
     public function __construct()
     {
-        $this->value = null;
+        $this->deck = [
+        '♥️A','♥️2','♥️3','♥️4','♥️5','♥️6','♥️7','♥️8','♥️9','♥️10','♥️J','♥️Q','♥️K',
+        '♦️A','♦️2','♦️3','♦️4','♦️5','♦️6','♦️7','♦️8','♦️9','♦️10','♦️J','♦️Q','♦️K',
+        '♠️A','♠️2','♠️3','♠️4','♠️5','♠️6','♠️7','♠️8','♠️9','♠️10','♠️J','♠️Q','♠️K',
+        '♣️A','♣️2','♣️3','♣️4','♣️5','♣️6','♣️7','♣️8','♣️9','♣️10','♣️J','♣️Q','♣️K',
+        ];
+
+        $this->drawnCard = [];
     }
 
-    public function deck()
+    public function getDeck(): array
     {
-        $colors = ['♥', '♦', '♠', '♣'];
-        $values = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'];
+        return $this->deck;
+    }
+    
+    public function deckShuffle()
+    {
+        shuffle($this->deck);
+    }
 
-        $deck = [];
-        foreach ($colors as $color) {
-            foreach ($values as $value) {
-                $deck[] = $value . '' . $color;
-            }
+    public function drawRandom()
+    {
+        if (count($this->deck) > 0)
+        {
+            $randomCard = array_rand($this->deck, 1);
+            $card = $this->deck[$randomCard];
+            array_push($this->drawnCard, $card);
+            return $card;
         }
-        $this->$deck;
+        
+    }
+    public function leftOfDeck()
+    {
+        $index = array_search($card, $this->deck);
+        if (index !==false)
+        {
+            unset($this->deck[index]);
+            return $this->deck;
+        }
     }
 
-    public function getDeck()
+    public function getDrawnCard()
     {
-        foreach ($deck as $card) {
-            return $this->$card;
-            }
+        return $this->drawnCard;
     }
 }
-
-
-
-
-

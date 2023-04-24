@@ -3,19 +3,16 @@
 {% block title %}Card{% endblock %}
 
 {% block body %}
-<h1>Cards</h1>
+<h1>Card game</h1>
 
-<p>Cards</a>.</p>
-
-<p>These are the routes used in developing this exercise and game.</p>
 
 <ul>
-    <li><a href="{{ path('card') }}">Landing page</li>
-    <li><a href="{{ path('deck') }}">Shows all cards in the deck sorted by color and value</li>
-    <li><a href="{{ path('shuffle', {num: 52}) }}">Cards shuffled</li>
-    <li><a href="{{ path('draw', {num: 5}) }}">Takes out one card from the deck</li>
-    <li><a href="{{ path('number', {num: 5}) }}"> Draws x number cards out of the deck</li>
-    {# <li><a href="{{ path('play') }}"> Play a card game</li> #}
+    {# <li><a href="{{ path('card') }}">Landing page</li> #}
+    <li><a href="{{ path('deck') }}">Deck</li>
+    <li><a href="{{ path('shuffle') }}">Shuffle</li>
+    <li><a href="{{ path('draw') }}">Draw one card</li>
+    {# <li><a href="{{ path('draw_many') }}">Draw many cards</li> #}
+    <li><a href="{{ path('card_init_get') }}">Game Card Start</li>
 </ul>
 
 {% endblock %}

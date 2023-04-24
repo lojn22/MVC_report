@@ -1,0 +1,31 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Card Game{% endblock %}
+
+{% block body %}
+<h1>Card game [PLAYING]</h1>
+
+<p>Draw the cards or save the points you have.</p>
+
+<p>You are playing with {{ cardCards }} cards.</p>
+
+<p>Round: {{ cardRound }}</p>
+<p>Total: {{ cardTotal }}</p>
+
+<form method="post" action="">
+    <p>
+        <input type="submit" name="draw" value="Draw"
+            onClick="this.form.action='{{ path('card_draw') }}';"
+        >
+        <input type="submit" name="save" value="Save"
+            onClick="this.form.action='{{ path('card_save') }}';"
+        >
+        <input type="submit" name="restart" value="Restart"
+            onClick="this.form.action='{{ path('card_init_get') }}';this.form.method='get';"
+        >
+    </p>
+</form>
+
+{{ include('flash.html.twig') }}
+
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Draw Card{% endblock %}
+
+{% block body %}
+<div class="two-col-layout">
+            <aside class="aside">
+                <div class="">
+                    <h2> Meny</h2>
+                        <ul>
+                            <li><a href="{{ path('card') }}">Landing page</li>
+                            <li><a href="{{ path('deck') }}">Deck</li>
+                            <li><a href="{{ path('shuffle') }}">Shuffles</li>
+                            <li><a href="{{ path('draw') }}">Draw</a></li>
+                            {# <li><a href="{{ path('draw_many') }}">Draw many</a></li> #}
+                        </ul>
+                </div>
+            </aside>
+
+    <main class="main">
+        <h1>Drawn card</h1>
+
+        <ul>
+        {% for card in deck %}
+                {{card}}
+            {%endfor%}
+        </ul>
+    </main>
+</div>
+{% endblock %}

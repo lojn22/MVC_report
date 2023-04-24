@@ -13,14 +13,14 @@ class CardHand
         $this->hand[] = $card;
     }
 
-    public function roll(): void
+    public function draw(): void
     {
         foreach ($this->hand as $card) {
-            $card->roll();
+            $card->draw();
         }
     }
 
-    public function getNumberDices(): int
+    public function getNumberCards(): int
     {
         return count($this->hand);
     }
