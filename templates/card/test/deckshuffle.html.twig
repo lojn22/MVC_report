@@ -24,7 +24,21 @@
 
 
         {% for card in deck %}
-        {{card}}
+            {% if '♥' in card %}
+                <div class="red">
+                    {{card}}
+                </div>
+
+            {% elseif '♦️' in card %}
+                <div class="red">
+                    {{card}}
+                </div>
+
+            {% else %}
+                <div>
+                    {{card}}
+                </div>
+            {% endif %}
         {%endfor%}
     </main>
 </div>

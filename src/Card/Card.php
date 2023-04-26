@@ -5,12 +5,12 @@ namespace App\Card;
 class Card
 {
     protected $value;
-    // protected $suit;
+    protected $suit;
 
     public function __construct()
     {
         $this->value = null;
-        // $this->suit = $suit;
+        $this->suit = $suit;
     }
 
     public function getValue()
@@ -18,12 +18,10 @@ class Card
         return $this->value;
     }
     
-    // public function getSuit()
-    // {
-    //     return $this->suit;
-    // }
-
-
+    public function getSuit()
+    {
+        return $this->suit;
+    }
 }
 
 // $this->deck = [

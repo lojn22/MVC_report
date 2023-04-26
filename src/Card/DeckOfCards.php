@@ -17,6 +17,7 @@ class DeckOfCards
         ];
 
         $this->drawnCard = [];
+        $this->cardsLeft = [];
     }
 
     public function getDeck(): array
@@ -29,25 +30,37 @@ class DeckOfCards
         shuffle($this->deck);
     }
 
-    public function drawRandom()
+    public function drawRandom(int $amount=1)
     {
         if (count($this->deck) > 0)
         {
-            $randomCard = array_rand($this->deck, 1);
-            $card = $this->deck[$randomCard];
-            array_push($this->drawnCard, $card);
-            return $card;
+            if ($amount ==1){
+
+                $randomCard[] = array_rand($this->deck, $amount);
+            }
+            else {
+
+                $randomCard = array_rand($this->deck, $amount);
+            }
+
+            // $card = $this->deck[$randomCard];
+            // array_push($this->drawnCard, $card);
+            return $this->deck[$randomCard[0]];
         }
-        
     }
     public function leftOfDeck()
     {
+        $randomCard = array_rand($this->deck, 1);
+        $card = $this->deck[$randomCard];
         $index = array_search($card, $this->deck);
-        if (index !==false)
+        $count =0;
+        while ($index !==false)
         {
-            unset($this->deck[index]);
-            return $this->deck;
+            unset($this->deck[$index]);
+            $count++;
+            $index =array_search($card, $this->deck);
         }
+        return array($count, $card);
     }
 
     public function getDrawnCard()

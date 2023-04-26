@@ -1,0 +1,26 @@
+{% extends "base.html.twig" %}
+
+{% block title %}API{% endblock %}
+
+{% block body %}
+    <h1>API</h1>
+    <a href="{{ asset('img/hearts.jpg') }}">
+        <img src="{{ asset('img/hearts.jpg') }}" alt="">
+    </a>
+
+    <li><a href="{{ path('quote') }}">Kmom01, quote</a></li>
+    <p>En router som skriver ut citat, dagens datum och klockslag.</p>
+    
+    <li><a href="{{ path('api_deck') }}">Kortlek</a></li>
+    <p>Kortlek sorterad per färg och värde.</p>
+    
+    <li><a href="{{ path('api_shuffle') }}">Blanda kort</a></li>
+    <p>Blandar kortleken.</p>
+    
+    <li><a href="{{ path('api_draw') }}">Dra kort</a></li>
+    <p>Dra kort från kortleken och visar upp dem.</p>
+    
+    <li><a href="{{ path('api_number') }}">Dra flera kort</a></li>
+    <p>Dra flera kort.</p>
+
+{% endblock %}

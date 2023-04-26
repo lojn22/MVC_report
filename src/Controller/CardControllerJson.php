@@ -8,6 +8,12 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class CardControllerJson
 {
+    // #[Route("/api", name: "api")]
+    // public function api(): Response
+    // {
+    //     return $this->render('card/api.html.twig');
+    // }
+
     #[Route("/api/deck", name: "api_deck")]
     public function jsonNumber(): Response
     {
@@ -34,8 +40,9 @@ class CardControllerJson
     }
 
     #[Route("/api/deck/shuffle", name: "api_shuffle")]
-        public function number(): Response
+        public function jsonShuffle(): Response
         {
+            $deck =
             $shuffleDeck = shuffle($this->deck);
 
         $data = [

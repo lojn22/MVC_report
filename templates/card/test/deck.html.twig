@@ -22,10 +22,22 @@
 
         <p>Here is the deck sort in color and value.</p>
 
-        {# <div class="deck"> #}
             {% for card in deck %}
-            {# <div class="card">A♥</div> #}
-                {{card}}
+                {% if '♥' in card %}
+                    <div class="red">
+                        {{card}}
+                    </div>
+
+                {% elseif '♦️' in card %}
+                    <div class="red">
+                        {{card}}
+                    </div>
+
+                {% else %}
+                    <div>
+                        {{card}}
+                    </div>
+                {% endif %}
             {%endfor%}
     </main>
 </div>

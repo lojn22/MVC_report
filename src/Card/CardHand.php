@@ -8,16 +8,20 @@ class CardHand
 {
     private $hand = [];
 
-    public function add(Card $card): void
+    public function add(DeckOfCards $deck): void
     {
-        $this->hand[] = $card;
+        $this->hand[] = $deck;
     }
 
-    public function draw(): void
+    public function draw()
     {
-        foreach ($this->hand as $card) {
-            $card->draw();
-        }
+        $card = $this->hand[0]->drawRandom();
+        var_dump($card);
+        // foreach ($this->hand as $card) {
+        //     $card->draw();
+        // }
+        return $card;
+
     }
 
     public function getNumberCards(): int
@@ -43,3 +47,29 @@ class CardHand
         return $values;
     }
 }
+
+// public function drawRandom()
+    // {
+    //     if (count($this->deck) > 0)
+    //     {
+    //         $randomCard = array_rand($this->deck, 1);
+    //         $card = $this->deck[$randomCard];
+    //         array_push($this->drawnCard, $card);
+    //         return $card;
+    //     }
+        
+    // }
+    // public function leftOfDeck()
+    // {
+    //     $index = array_search($card, $this->deck);
+    //     if (index !==false)
+    //     {
+    //         unset($this->deck[index]);
+    //         return $this->deck;
+    //     }
+    // }
+
+    // public function getDrawnCard()
+    // {
+    //     return $this->drawnCard;
+    // }

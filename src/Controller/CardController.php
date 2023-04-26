@@ -49,29 +49,44 @@ class CardController extends AbstractController
     #[Route("/card/deck/draw", name: "draw")]
     public function cardDraw(): Response
     {
-        $deck = new DeckOfCards();
-
+        $hand = new CardHand();
+        $hand->add(new DeckOfCards());
+        $test =$hand->draw();
         $data = [
-            "draw" => $deck->drawRandom(),
-            "deck" => $deck->getDrawnCard(),
-            // "num_cards" => count($card),
+            // "draw" => $deck->drawRandom(),
+            "deck" => $test,
+            // "num_cards_in_deck" => $deck->leftOfDeck(),
+            // "left_deck" => count($deck->getDeck()),
         ];
-
+        var_dump($test);
+        echo $test;
         return $this->render('card/test/draw.html.twig', $data);
     }
 
-    // #[Route("/card/deck/draw/{num<\d+>}", name: "draw_many")]
-    // public function drawMany(int $num): Response
-    // {
-    
+    #[Route("/card/deck/draw/{num<\d+>}", name: "draw_many")]
+    public function drawMany(int $num): Response
+    {
+        if ($num > 52) {
+            throw new \Exception("Can not draw more than 52 cards!");
+        }
+        $hand = new CardHand();
+        for ($i = 1; $i <= $num; $i++) {
+            if ($i % 2 === 1) {
+                $hand->add(new CardGraphic());
+            } else {
+                $hand->add(new Card());
+            }
+        }
 
-    //     $data = [
-    //         "num_cards" => $hand->getNumberCards(),
-    //         "cardDraw" => $hand->getString(),
-    //     ];
+        $hand->draw();
 
-    //     return $this->render('card/test/draw_many.html.twig', $data);
-    // }
+        $data = [
+            "num_cards" => $hand->getNumberCards(),
+            "cardDrawn" => $hand->getString(),
+        ];
+
+        return $this->render('card/test/draw_many.html.twig', $data);
+    }
 
     #[Route("/card/init", name: "card_init_get", methods: ['GET'])]
     public function init(): Response
@@ -86,16 +101,16 @@ class CardController extends AbstractController
     ): Response {
         $numCard = $request->request->get('num_cards');
 
-        $hand = new CardHand();
+        $deck = new DeckOfCards();
         for ($i = 1; $i <= $numCard; $i++) {
-            $hand->add(new CardGraphic());
+            $deck->add(new CardGraphic());
         }
-        $hand->draw();
+        $deck->draw();
 
-        $session->set("card_cardhand", $hand);
+        $session->set("deck_of_cards", $deck);
         $session->set("card_cards", $numCard);
-        $session->set("card_round", 0);
-        $session->set("card_total", 0);
+        $session->set("card_drawn", 0);
+        $session->set("card_left", 0);
 
         return $this->redirectToRoute('card_play');
     }
@@ -160,5 +175,11 @@ class CardController extends AbstractController
         );
 
         return $this->redirectToRoute('card_play');
+    }
+
+    #[Route("/api", name: "api")]
+    public function api(): Response
+    {
+        return $this->render('card/api.html.twig');
     }
 }
