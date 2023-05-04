@@ -8,7 +8,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class QuoteControllerJson
 {
-    #[Route("/api/quote", name: "quote" )]
+    #[Route("/api/quote", name: "quote")]
     public function jsonNumber(): Response
     {
         $number = random_int(0, 2);

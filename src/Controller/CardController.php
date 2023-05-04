@@ -30,27 +30,27 @@ class CardController extends AbstractController
         } else {
             $deck = new DeckOfCards();
         }
-        
+
         $data = [
             "deck" => $deck->getDeck(),
         ];
         $session->set("deck_of_cards", $deck);
-        
+
         return $this->render('card/deck.html.twig', $data);
     }
-    
+
     #[Route("/card/deck/joker", name: "joker")]
     public function deckCardsJoker(): Response
     {
         $deck = new DeckJoker();
-    
+
         $data = [
             "deck" => $deck->getDeck(),
         ];
-        
-        return $this->render('card/deck.html.twig', $data);
+
+        return $this->render('card/joker.html.twig', $data);
     }
-    
+
     #[Route("/card/deck/shuffle", name: "shuffle")]
     public function shuffleDeck(Request $request): Response
     {
@@ -70,27 +70,25 @@ class CardController extends AbstractController
     public function cardDraw(
         Request $request,
         SessionInterface $session
-    ): Response
-    {
+    ): Response {
         $deckOfCards = $session->get("deck_of_cards");
         $card = $deckOfCards->drawCard();
         $drawCard = $session->set("deck_of_cards", $deckOfCards);
         $cardsLeft = count($deckOfCards->getDeck());
 
-        
+
         $data = [
             "card" => $card,
             "card_left" => $cardsLeft
         ];
-        
+
         return $this->render('card/draw.html.twig', $data);
     }
     #[Route("/card/reset", name: "reset")]
     public function resetDeck(
         Request $request,
         SessionInterface $session
-    ): Response
-    {
+    ): Response {
         $session->clear();
 
         return $this->redirectToRoute('deck');
@@ -98,11 +96,10 @@ class CardController extends AbstractController
 
     #[Route("/card/deck/draw/{num<\d+>}", name: "draw_many")]
     public function drawMany(
-        int $num, 
+        int $num,
         Request $request,
         SessionInterface $session
-    ): Response
-    {
+    ): Response {
         if ($num > 52) {
             throw new \Exception("Can not draw more than 52 cards!");
         }

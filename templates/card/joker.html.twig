@@ -1,6 +1,6 @@
 {% extends "base.html.twig" %}
 
-{% block title %}Card Shuffle{% endblock %}
+{% block title %}Deck Of Cards{% endblock %}
 
 {% block body %}
 <div class="two-col-layout">
@@ -13,36 +13,34 @@
                             <li><a href="{{ path('joker') }}">Joker</li>
                             <li><a href="{{ path('shuffle') }}">Shuffles</li>
                             <li><a href="{{ path('draw') }}">Draw</a></li>
-                            <li><a href="{{ path('draw_many', {num: 2}) }}">Draw many cards</li>
+                            <li><a href="{{ path('draw_many', {num: 2}) }}">Draw many</a></li>
                             <li><a href="{{ path('reset') }}">Reset</a></li>
-                            {# <li><a href="{{ path('draw_many') }}">Draw many</a></li> #}
                         </ul>
                 </div>
             </aside>
 
     <main class="main">
-        <h1>Deck</h1>
+        <h1>Deck with Joker</h1>
 
-        <p>Here is the deck shuffled.</p>
+        <p>Here is the deck with joker.</p>
 
-        {% for card in deck %}
-            {% if '♥' in card %}
-                <div class="red">
-                    {{card}}
-                </div>
+            {% for card in deck %}
+                {% if '♥' in card %}
+                    <div class="red">
+                        {{card}}
+                    </div>
 
-            {% elseif '♦️' in card %}
-                <div class="red">
-                    {{card}}
-                </div>
+                {% elseif '♦️' in card %}
+                    <div class="red">
+                        {{card}}
+                    </div>
 
-            {% else %}
-                <div>
-                    {{card}}
-                </div>
-            {% endif %}
-        {%endfor%}
+                {% else %}
+                    <div>
+                        {{card}}
+                    </div>
+                {% endif %}
+            {%endfor%}
     </main>
 </div>
-
 {% endblock %}

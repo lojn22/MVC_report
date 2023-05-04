@@ -17,7 +17,7 @@ class Card
     {
         return $this->value;
     }
-    
+
     public function getSuit()
     {
         return $this->suit;
