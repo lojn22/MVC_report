@@ -3,13 +3,13 @@
 {% block title %}Card Game{% endblock %}
 
 {% block body %}
-<h1>Card game [START]</h1>
+<h1>Draw Card</h1>
 
 <p>How many cards do you want to draw from the hand with deck of cards?</p>
 
 <form method="post" action="">
     <input type="number" name="num_dices" min="1" max="52" value="1">
-    <input type="submit" name="do_it" value="Start playing">
+    <input type="submit" name="do_it" value="Draw cards">
 </form>
 
 {% endblock %}

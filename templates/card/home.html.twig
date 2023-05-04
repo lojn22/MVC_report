@@ -3,16 +3,17 @@
 {% block title %}Card{% endblock %}
 
 {% block body %}
-<h1>Card game</h1>
+<h1>Card</h1>
 
 
 <ul>
     {# <li><a href="{{ path('card') }}">Landing page</li> #}
     <li><a href="{{ path('deck') }}">Deck</li>
+    <li><a href="{{ path('joker') }}">Joker</li>
     <li><a href="{{ path('shuffle') }}">Shuffle</li>
     <li><a href="{{ path('draw') }}">Draw one card</li>
-    {# <li><a href="{{ path('draw_many') }}">Draw many cards</li> #}
-    <li><a href="{{ path('card_init_get') }}">Game Card Start</li>
+    <li><a href="{{ path('draw_many', {num: 2}) }}">Draw many cards</li>
+    <li><a href="{{ path('reset') }}">Reset</li>
 </ul>
 
 {% endblock %}

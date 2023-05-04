@@ -12,6 +12,7 @@
                             <li><a href="{{ path('deck') }}">Deck</li>
                             <li><a href="{{ path('shuffle') }}">Shuffles</li>
                             <li><a href="{{ path('draw') }}">Draw</a></li>
+                            <li><a href="{{ path('reset') }}">Reset</a></li>
                             {# <li><a href="{{ path('draw_many') }}">Draw many</a></li> #}
                         </ul>
                 </div>
@@ -21,9 +22,23 @@
         <h1>Drawn card</h1>
 
         <ul>
-        {% for card in deck %}
-                {{card}}
-            {%endfor%}
+                {% if '♥' in card %}
+                    <div class="red">
+                        <li>{{card}}</li>
+                    </div>
+
+                {% elseif '♦️' in card %}
+                    <div class="red">
+                        <li>{{card}}</li>
+                    </div>
+
+                {% else %}
+                    <div>
+                        <li>{{card}}</li>
+                    </div>
+                {% endif %}
+                
+                <li>Antal kort kvar {{card_left}}</li>
         </ul>
     </main>
 </div>

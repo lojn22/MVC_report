@@ -2,7 +2,7 @@
 
 namespace App\Card;
 
-use App\Card\Card;
+use App\Card\DeckOfCards;
 
 class CardHand
 {
@@ -13,22 +13,11 @@ class CardHand
         $this->hand[] = $deck;
     }
 
-    public function draw()
-    {
-        $card = $this->hand[0]->drawRandom();
-        var_dump($card);
-        // foreach ($this->hand as $card) {
-        //     $card->draw();
-        // }
-        return $card;
-
-    }
-
     public function getNumberCards(): int
     {
         return count($this->hand);
     }
-
+    
     public function getValues(): array
     {
         $values = [];
@@ -37,17 +26,27 @@ class CardHand
         }
         return $values;
     }
-
+    
     public function getString(): array
     {
         $values = [];
         foreach ($this->hand as $card) {
-            $values[] = $card->getAsString();
+            $values[] = $deck->getAsString();
         }
         return $values;
     }
 }
 
+// public function draw()
+// {
+//     $card = $this->hand[0]->drawRandom();
+//     var_dump($card);
+//     // foreach ($this->hand as $card) {
+//     //     $card->draw();
+//     // }
+//     return $card;
+
+// }
 // public function drawRandom()
     // {
     //     if (count($this->deck) > 0)
@@ -57,7 +56,7 @@ class CardHand
     //         array_push($this->drawnCard, $card);
     //         return $card;
     //     }
-        
+
     // }
     // public function leftOfDeck()
     // {

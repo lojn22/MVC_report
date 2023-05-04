@@ -7,9 +7,9 @@ class Card
     protected $value;
     protected $suit;
 
-    public function __construct()
+    public function __construct($value, $suit)
     {
-        $this->value = null;
+        $this->value = $value;
         $this->suit = $suit;
     }
 
