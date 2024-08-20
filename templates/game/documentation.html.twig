@@ -1,0 +1,105 @@
+{% extends "base.html.twig" %}
+
+{% block title %}21{% endblock %}
+
+{% block body %}
+    <div class="two-col-layout">
+            <aside class="aside">
+                <div class="">
+                    <h2> Innehåll</h2>
+                        <ul>
+                            <li><a href="#kmom01">Flödesschema</a></li>
+                            <li><a href="#kmom02">Psuedokod</a></li>
+                            <li><a href="#kmom03">Klasser</a></li>
+                            <li><a href="#kmom04">UML?</a></li>
+                        </ul>
+                </div>
+            </aside>
+
+        <main class="main">
+            <h1>Spel 21</h1>
+            <h2 id="kmom01">Flödesschema</h2>
+            <a href="{{ asset('img/flödesschema.png') }}">
+                <img src="{{ asset('img/flödesschema.png') }}" alt="">
+            </a>
+
+            <h2 id="kmom02">Psuedokod</h2>
+            <pre>
+                Starta spelet:
+                Spelplanen visas.
+                Visar att spelaren och banken inte har några kort.
+                Initiera spelarens hand: cardHand=[]
+                Blanda kortleken
+            </pre>
+            <pre>
+                Spelarens tur:
+                Spelaren klickar på 'Dra kort'
+                
+                Om spelaren klickar på 'Dra kort':
+                    function drawCard() anropas
+
+                Lägg till det dragna kortet i cardHand[]
+                Visa cardHand()
+
+                Kontrollera om sum(cardHand) > 21:
+                Om ja, print 'Du fick mer än 21 och förlorade' och avsluta spelarens tur.
+                    Visa 'Ny omgång' och 'Avsluta'
+
+                Om användaren klickar på 'Stanna':
+                    function stay() anropas
+                    Turen går vidare till banken
+            </pre>
+            <pre>
+                Bankens tur:
+                Initierar bankens hand: bankHand=[]
+                Banken drar kort tills den stannar eller får över 21:
+
+                Loop for i=0, i <= 21, i++
+                Funktionen drawCard() anropas
+                
+                Om sum(bankHand[]) är mellan 17 och 21:
+                    Stanna och avsluta bankens tur
+                
+                Om sum(bankHand[]) är > 21:
+                    Print 'Banken fick mer än 21 och du vann'
+                    Visa 'Ny omgång' och 'Avsluta'
+                
+                Om sum(bankHand[]) < sum(cardHand[])
+                    print 'Du vann'
+                
+                Om sum(bankHand[]) >= sum(cardHand[])
+                    print 'Banken vinner'
+                    Visa 'Ny omgång' och 'Avsluta'
+            </pre>
+            <pre>
+                Om användaren klickar på 'Ny omgång' startas spelet igen från början
+                Om användaren klickar på 'Avsluta' avsluta spelet och omdirigerar till introduktionssidan.
+            </pre>
+
+            <h2 id="kmom03">Klasser</h2>
+                <p>
+                    Card: Representerar ett enskilt kort i spelet.
+                </p>
+                <p>
+                    CardHand: Representerar en samling kort som tillhör en spelare eller banken.
+                </p>
+                <p>
+                    DeckOfCard: Representerer en kortlek.
+                </p>
+                <p>
+                    Player: Representerar en spelare i spelet.
+                </p>
+                <p>
+                    Bank: Representerar banken/dealer i spelet.
+                </p>
+                <p>
+                    Game: Hanterar spelets logik.
+                </p>
+
+            <h2 id="kmom04">UML?</h2>
+                <ul>
+                    <a href="{{ path('deck') }}">Deck</a>
+                </ul>
+        </main>
+    </div>
+{% endblock %}

@@ -61,49 +61,49 @@
 
             <h2 id="kmom02">Kmom02</h2>
                 <p>
-                Arv(inheritance) 
+                Arv(inheritance) <br>
                 Relation som man kallar "är en". En subklass ärver från en basklass/superklass/föräldrarklass. Vår subklass
-                ska förlänga eller specialceras. En subklass ska kunna erästta basklassen på alla ställen där den finns.
+                ska förlänga eller specialceras. En subklass ska kunna ersätta basklassen på alla ställen där den finns.
                 Arv i PHP görs med nyckelordet extends. Alla publika och skyddade variabler och methoder i basklassen är synliga i subklassen.
-                De privata veriblerna i basklassen kommer man inte åt i subklassen. Vill man öppna upp det så får man göra det med skyddad veriabel.
-                Man kan skriva över basklassens funktioner med nya. Man kan öppna upp de skyddade veriablerna i subklasssen men man 
-                kan inte göra det publika i bas privat i subklassen.
+                De privata variblerna i basklassen kommer man inte åt i subklassen. Vill man öppna upp det så får man göra det med skyddad veriabel.
+                Man kan skriva över basklassens funktioner med nya. Man kan öppna upp de skyddade variablerna i subklasssen men man 
+                kan inte göra det publika i bas privat i subklassen.<br>
 
-                Scope Resolution Operator ::
-                Dubbla kolon ger tillgång till statiska, konstanter och överskrivna veriabler eller metoder av en klass.
+                Scope Resolution Operator ::<br>
+                Dubbla kolon ger tillgång till statiska, konstanter och överskrivna veriabler eller metoder av en klass.<br>
 
-                Komposition(composition)
+                Komposition(composition)<br>
                 Relationen som man säger "har en, innehåller, använder sig av". En klass använder sig utav andra klasser. Om
                 objektet inte kan finnas utan basobjektet så kallas det komposition.
-                Aggregation är när ett objektet kan existera utan det ägda bas objektet.
+                Aggregation är när ett objektet kan existera utan det ägda bas objektet.<br>
 
-                OO preferences
-                Föredrar komposition över arv.
+                OO preferences<br>
+                Föredrar komposition över arv.<br>
 
-                Kontrakt(interface)
+                Kontrakt(interface)<br>
                 Ett kotrakt på hur strukturen av en klass ska vara.
-                Objekt interface tillåter oss att skapa en koddel som döpts till interface som vissar vilka metoder som
-                ska implenteras. Om en klass väljer att implemneter ett interface så lovar den att alla metoder som finns i 
+                Objekt interface tillåter oss att skapa en koddel som döpts till interface som visar vilka metoder som
+                ska implenteras. Om en klass väljer att implemenetera ett interface så lovar den att alla metoder som finns i 
                 interface ska uppfyllas. Alla metoder som man deklarera i interface är publika. Det är bara metoder som finns i ett 
-                interface.
+                interface.<br>
 
-                Trait
+                Trait<br>
                 Återanvändbar koddel som är fristående. Man kan lägga till trait till klasser. Klasser lånar implemntationen från
-                traits. Multiplet arv är när en subklass kan äva från flera basklasser, det går inte i PHP därför använder man trait.
+                traits. Multiplet arv är när en subklass kan ärva från flera basklasser, det går inte i PHP därför använder man trait.
                 </p>
 
                 <p>
                 Jag fick mycket hjälp av Marie för att lösa uppgiften. Jag försökte även kolla på hur piggame var
                 uppbyggd för att försöka förstå hur jag skulle få fram kort och kortleken. Jag är väl nöjd med mina kod och mina klasser
                 eftersom de fungerar men jag känner att jag saknar kunskapen för att kunna analysera vidare på om den hade kunnat 
-                förbättras. Men jag tänker att ens kod kan väl alltid förbättras programeringssprken verkar ju hela tiden utvecklas
-                så då borde man kunna utveckla sin egn kod med. Det jag tänker på är att jag hade ju kunnat gjort en egen klass för vad
+                förbättras. Men jag tänker att ens kod kan väl alltid förbättras programeringsspråken verkar ju hela tiden utvecklas
+                så då borde man kunna utveckla sin egen kod med. Det jag tänker på är att jag hade ju kunnat gjort en egen klass för vad
                 man kan göra med kortleken istället för att ha allt i klassen DeckOfCards.
                 </p>
 
                 <p>
-                    Min reflektion av att jobba med symfoni enligt MVc är att jag tycker det är lite många filer att hålla koll på som man ska jobba i,
-                    men kan förstå konceptet att det ska vara mer strukturerart att arbeta enligt MVC där man sammlar alla router i en controller som
+                    Min reflektion av att jobba med symfoni enligt MVC är att jag tycker det är lite många filer att hålla koll på som man ska jobba i,
+                    men kan förstå konceptet att det ska vara mer strukturerat att arbeta enligt MVC där man sammlar alla router i en controller som
                     bestämmer vilken data som ska synas på hemsidan. Alla vyer skapas i olika templets för sig där man bestämmer hur en sida ska se ut.
                 </p>
 

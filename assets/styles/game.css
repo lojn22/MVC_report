@@ -1,0 +1,94 @@
+/* body {
+    font-family: Arial, sans-serif;
+    background-color: #007700;
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+} */
+
+.game-board {
+    background-color: #28a745; /* Grön bakgrund */
+    border: 2px solid #218838; /* Mörkare grön kant */
+    border-radius: 15px; /* Rundade hörn */
+    padding: 20px; /* Inre marginaler för innehållet */
+    margin: 20px auto; /* Centrera spelplanen på sidan */
+    max-width: 800px; /* Maximal bredd för spelplanen */
+    color: white; /* Vit text för kontrast */
+}
+
+.game-board h2 {
+    margin-top: 0;
+}
+
+.top-left {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
+.button {
+    background-color: #ffcc00;
+    color: black;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.bank, .player {
+    text-align: center;
+    margin: 20px;
+}
+
+.bank {
+    position: absolute;
+    top: 50px;
+    width: 100%;
+}
+
+.player {
+    position: absolute;
+    bottom: 50px;
+    width: 100%;
+}
+
+.deck {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    cursor: pointer;
+}
+
+.deck img {
+    width: 100px;
+    height: auto;
+}
+
+.hand {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex; /* Använder flexbox för att placera elementen i rad */
+    gap: 10px;
+}
+
+.hand li {
+    display: inline-block;
+    margin: 5px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.result {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+

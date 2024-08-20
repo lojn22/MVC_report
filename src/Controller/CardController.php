@@ -131,8 +131,15 @@ class CardController extends AbstractController
         $numCard = $request->request->get('num_cards');
 
         $deck = new DeckOfCards();
+        // Nytt
+        $suits = ['♥️', '♦️', '♠️', '♣️'];
+        $ranks = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'];
+
         for ($i = 1; $i <= $numCard; $i++) {
-            $deck->add(new CardGraphic());
+            // Nytt
+            $suit = $suits[array_rand($suits)];
+            $rank = $ranks[array_rand($ranks)];
+            $deck->add(new CardGraphic($suit, $rank));
         }
         $deck->drawCard();
 

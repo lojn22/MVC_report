@@ -22,6 +22,24 @@ class Card
     {
         return $this->suit;
     }
+
+    public function getValueAsNumber(): int
+    {
+        // Map face card values to integers
+        switch ($this->value) {
+            case 'J':
+                return 11;
+            case 'Q':
+                return 12;
+            case 'K':
+                return 13;
+            case 'A':
+                // Return a special case or handle Ace value separately
+                return 1; // default to 1, handle Ace separately in game logic
+            default:
+                return (int)$this->value; // Convert numeric value to integer
+        }
+    }
 }
 
 // $this->deck = [

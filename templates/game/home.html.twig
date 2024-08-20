@@ -1,0 +1,77 @@
+{% extends "base.html.twig" %}
+
+{% block title %}21{% endblock %}
+
+{% block body %}
+    <div class="two-col-layout">
+            <aside class="aside">
+                <div class="">
+                    <h2> Innehåll</h2>
+                        <ul>
+                            <li><a href="#kmom01">Bakgrund</a></li>
+                            <li><a href="#kmom02">Spelets gång</a></li>
+                            <li><a href="#kmom03">Spelets avslut</a></li>
+                            <li><a href="#kmom04">Spela 21</a></li>
+                            <li><a href="#kmom05">Källa</a></li>
+                            <li><a href="#kmom05">Dokumentation</a></li>
+                            <li><a href="#kmom05">kmom07</a></li>
+                        </ul>
+                </div>
+            </aside>
+
+        <main class="main">
+            <h1>Spel 21</h1>
+            <h2 id="kmom01">Bakgrund</h2>
+            <p>
+                Tjugoett är ett kortspel som är den svenska motsvarigheten till det internationellt spridda 
+                kortspelet Black Jack. De viktigaste skillnaderna mellan dessa två spel är dels kortens värde,
+                dels att bankiren i tjugoett spelar mot en spelare i taget och inte som i Black Jack mot alla på en
+                gång. Båda spelen leder sitt ursprung till vingt-et-un, som spelades vid det franska hovet på
+                1700-talet.
+            </p>
+
+            <p>
+                Spelets idé är att med två eller flera kort försöka uppnå det sammanlagda värdet 21, eller komma så
+                nära som möjligt utan att överskrida 21. Essen är värda valfritt 1 eller 14, kungarna 13, damerna 12,
+                knektarna 11. Nummerkorten har samma värden som valören.
+            </p>
+
+            <h2 id="kmom02">Spelets gång</h2>
+            <p>
+                En av deltagarna utses till bankir. Spelet börjar med att bankiren lägger en insats i banken,
+                det vill säga potten som det spelas om, och därefter ger varje spelare utom sig själv ett kort.
+                Spelarna spelar sedan mot bankiren en i taget. Den spelare som är i tur tittar på sitt kort och
+                satsar ett valfritt belopp, som dock inte får vara större än vad som finns i banken, och får
+                därefter ytterligare ett kort.
+            </p>
+
+            <p>
+                Om summan av korten är 21 vinner spelaren från banken ett belopp lika stort som insatsen.
+                Är summan större än 21 har spelaren ”spruckit” eller ”blivit tjock” och förlorar sin insats till
+                banken. Om summan är under 21 kan spelaren antingen förklara sig nöjd eller begära ytterligare kort
+                för att komma närmare 21, men då också riskera att spricka. 
+            </p>
+
+            <h2 id="kmom03">Spelets avslut</h2>
+                <p>
+                    Om spelaren förklarat sig nöjd, ska
+                    bankiren straffa spelaren, det vill säga spela ut egna kort från leken, ett i taget med framsidan
+                    uppåt. Spricker bankiren, vinner spelaren lika mycket som sin insats. När bankiren förklarat sig
+                    nöjd, visar spelaren sina kort. Den som har högst vinner. Har båda lika är det bankiren som vinner,
+                    likaså om bankiren fått 21.
+                </p>
+            <h2 id="kmom04">Spela 21</h2>
+                <a href="{{ path('play', { 'action': 'start' }) }}">Starta spelet</a>
+           
+            <h2 id="kmom05">Källa</h2>
+                <p>Wikipedia</p>
+                https://sv.wikipedia.org/wiki/Tjugoett_(kortspel)
+           
+            <h2 id="kmom06">Dokumentation</h2>
+                <a href="{{ path('documentation') }}">Document</a>
+            
+            <h2 id="kmom07">Kmom07</h2>
+                <p></p>
+        </main>
+    </div>
+{% endblock %}

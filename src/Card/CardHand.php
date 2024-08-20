@@ -3,14 +3,15 @@
 namespace App\Card;
 
 use App\Card\DeckOfCards;
+// use App\Card\Card;
 
 class CardHand
 {
     private $hand = [];
 
-    public function add(DeckOfCards $deck): void
+    public function addCard(Card $card): void
     {
-        $this->hand[] = $deck;
+        $this->hand[] = $card;
     }
 
     public function getNumberCards(): int
@@ -31,44 +32,42 @@ class CardHand
     {
         $values = [];
         foreach ($this->hand as $card) {
-            $values[] = $deck->getAsString();
+            $values[] = $card->getAsString();
         }
         return $values;
     }
+
+    public function getSum(): int
+    {
+        $sum = 0;
+        $aces = 0;
+
+        foreach ($this->hand as $card) {
+            $value = $card->getValueAsNumber();
+            $sum += $value;
+
+            // Count the number of aces for later adjustment
+            if ($card->getValueAsNumber() === 1) {
+                $aces++;
+            }
+        }
+
+        // Adjust for Aces: Each Ace can be 1 or 14
+        while ($aces > 0 && $sum <= 11) {
+            $sum += 13;
+            $aces--;
+        }
+
+        return $sum;
+    }
+
+    public function resetHand(): void
+    {
+        $this->hand = [];
+    }
+
+    public function getCards(): array
+    {
+        return $this->hand;
+    }
 }
-
-// public function draw()
-// {
-//     $card = $this->hand[0]->drawRandom();
-//     var_dump($card);
-//     // foreach ($this->hand as $card) {
-//     //     $card->draw();
-//     // }
-//     return $card;
-
-// }
-// public function drawRandom()
-// {
-//     if (count($this->deck) > 0)
-//     {
-//         $randomCard = array_rand($this->deck, 1);
-//         $card = $this->deck[$randomCard];
-//         array_push($this->drawnCard, $card);
-//         return $card;
-//     }
-
-// }
-// public function leftOfDeck()
-// {
-//     $index = array_search($card, $this->deck);
-//     if (index !==false)
-//     {
-//         unset($this->deck[index]);
-//         return $this->deck;
-//     }
-// }
-
-// public function getDrawnCard()
-// {
-//     return $this->drawnCard;
-// }

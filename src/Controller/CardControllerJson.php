@@ -7,8 +7,13 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
-class CardControllerJson
+use App\Card\DeckOfCards;
+use App\Card\CardHand;
+use App\Card\CardGraphic;
+
+class CardControllerJson extends AbstractController
 {
     #[Route("/api/deck", name: "api_deck")]
     public function jsonDeck(
@@ -116,19 +121,29 @@ class CardControllerJson
 
     #[Route("/api/init", name: "api_card_init_post", methods: ['POST'])]
         public function jsonDrawNumber(
-            int $num,
+            // int $num,
             Request $request,
             SessionInterface $session
         ): Response {
             $numCards = $request->request->get('num_cards');
             $hand = new CardHand();
-            for ($i = 1; $i <= $numDice; $i++) {
-                $hand->add(new DeckOfCards());
+
+            for ($i = 1; $i <= $numCards; $i++) {
+                // $hand->add(new DeckOfCards());
+                $suit = ['♥️', '♦️', '♠️', '♣️'][array_rand(['♥️', '♦️', '♠️', '♣️'])];
+                $rank = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'][array_rand(['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'])];
+                $hand->add(new CardGraphic($suit, $rank));
             }
-            $hand->drawCard();
+            // $hand->drawCard();
+            $drawnCard = $hand->drawCard();
 
             $session->set("card_hand", $hand);
             $session->set("cards", $numCards);
+
+            $data = [
+                'cards_in_hand' => $hand->getNumberCards(),
+                'drawn_card' => $drawnCard->getAsString(),
+            ];
 
             $response = new JsonResponse($data);
             $response->setEncodingOptions(
@@ -137,4 +152,47 @@ class CardControllerJson
             return $response;
         }
 
+        #[Route('api/game', name: 'api_game')]
+        public function jsonGame(
+            SessionInterface $session
+        ): JsonResponse {
+            // Kontrollera om spelet finns i sessionen
+            if (!$session->has('game')) {
+                return new JsonResponse(['error' => 'Spelet är inte initierat'], Response::HTTP_NOT_FOUND);
+            }
+
+            // Hämta spelet från sessionen
+            $game = $session->get('game');
+
+            // Hämta information om spelets status
+            $playerHand = $game->getPlayer()->getHand();
+            $bankHand = $game->getBank()->getHand();
+            $winner = $game->getWinner();
+
+            // Skapa data-array med spelets status
+            $data = [
+                'playerHand' => array_map(function($card) {
+                    return [
+                        'value' => $card->getValue(),
+                        'suit' => $card->getSuit(),
+                    ];
+                }, $playerHand->getCards()),
+                'playerSum' => $playerHand->getSum(),
+                'bankHand' => array_map(function($card) {
+                    return [
+                        'value' => $card->getValue(),
+                        'suit' => $card->getSuit(),
+                    ];
+                }, $bankHand->getCards()),
+                'bankSum' => $bankHand->getSum(),
+                'winner' => $winner,
+            ];
+
+            // Returnera data i JSON-format
+            $response = new JsonResponse($data);
+            $response->setEncodingOptions(
+                $response->getEncodingOptions() | JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES
+            );
+            return $response;
+}
 }

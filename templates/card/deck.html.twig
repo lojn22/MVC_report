@@ -25,22 +25,25 @@
         <p>Here is the deck sort in color and value.</p>
 
             {% for card in deck %}
-                {% if '♥' in card %}
-                    <div class="red">
-                        {{card}}
+                {% set suit = card.getSuit() %}
+                {% set value = card.getValue() %}
+                
+                {# Testutskrift 
+                <div>
+                    <p>{{ value }}{{ suit }} - Suit: {{ suit }}</p>
+                </div> #}
+                
+                {% if suit == '♥️' or suit == '♦️' %}
+                    <div class="card red">
+                        {{ value }}{{ suit }}
                     </div>
-
-                {% elseif '♦️' in card %}
-                    <div class="red">
-                        {{card}}
-                    </div>
-
                 {% else %}
-                    <div>
-                        {{card}}
+                    <div class="card">
+                        {{ value }}{{ suit }}
                     </div>
                 {% endif %}
-            {%endfor%}
+            {% endfor %}
+
     </main>
 </div>
 {% endblock %}

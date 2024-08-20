@@ -2,7 +2,7 @@
 
 namespace App\Card;
 
-class CardGraphic extends Card
+class CardGraphic extends Card implements \JsonSerializable
 {
     private $representation = [
         "♥️A","♥️2","♥️3","♥️4","♥️5","♥️6","♥️7","♥️8","♥️9","♥️10","♥️J","♥️Q","♥️K",
@@ -11,13 +11,38 @@ class CardGraphic extends Card
         "♣️A","♣️2","♣️3","♣️4","♣️5","♣️6","♣️7","♣️8","♣️9","♣️10","♣️J","♣️Q","♣️K",
     ];
 
-    public function __construct()
+    public function __construct($suit, $value)
     {
-        parent::__construct();
+        parent::__construct($value, $suit);
     }
 
     public function getAsString(): string
     {
-        return $this->representation[$this->value - 1];
+        // $index = array_search($this->suit . $this->value, $this->representation);
+        // return $this->representation[$index];
+
+        // Skapa strängen som vi vill hitta
+        $cardString = $this->getSuit() . $this->getValue();
+
+        // Leta upp index i representation arrayen
+        $index = array_search($cardString, $this->representation);
+
+        // Om index hittas, returnera rätt representation
+        if ($index !== false) {
+            return $this->representation[$index];
+        }
+
+        // Om inte, returnera en standardtext för att indikera problem
+        return $cardString;
+    }
+
+    public function __toString(): string
+    {
+        return $this->getAsString();
+    }
+
+    public function jsonSerialize()
+    {
+        return $this->getAsString();
     }
 }

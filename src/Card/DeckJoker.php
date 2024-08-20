@@ -14,7 +14,7 @@ class DeckJoker extends DeckOfCards
     {
         parent::__construct();
         $this->deck = parent::getDeck();
-        $this->deck = array_merge($this->deckArray, $this->joker);
+        $this->deck = array_merge($this->deck, $this->joker);
     }
 
     public function getDeck(): array
