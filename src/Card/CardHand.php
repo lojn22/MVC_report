@@ -2,7 +2,6 @@
 
 namespace App\Card;
 
-// use App\Card\Card;
 
 class CardHand
 {
@@ -47,13 +46,11 @@ class CardHand
             $value = $card->getValueAsNumber();
             $sum += $value;
 
-            // Count the number of aces for later adjustment
             if (1 === $card->getValueAsNumber()) {
                 ++$aces;
             }
         }
 
-        // Adjust for Aces: Each Ace can be 1 or 14
         while ($aces > 0 && $sum <= 11) {
             $sum += 13;
             --$aces;

@@ -34,7 +34,6 @@ class Game
     {
         $this->bank->playTurn($this->deck);
 
-        // Determine the winner
         $this->determineWinner();
     }
 
@@ -45,10 +44,8 @@ class Game
 
     public function bankPlay(): void
     {
-        // Låt banken spela sin tur, kanske genom att dra kort tills en viss summa nås
         $this->bank->playTurn($this->deck);
 
-        // Efter att banken har spelat kan du eventuellt avgöra om någon har vunnit
         $this->determineWinner();
     }
 

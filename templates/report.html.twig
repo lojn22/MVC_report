@@ -113,24 +113,40 @@
                 </p>
 
             <h2 id="kmom03">Kmom03</h2>
-                <p>Berätta hur det kändes att modellera ett kortspel med flödesdiagram och psuedokod.
-                Var det något som du tror stödjer dig i din problemlösning och tankearbete för att
-                strukturera koden kring en applikation?
-
-                Efter att ha gjort flödesschemat känndes det lättare att 
+                <p>
+                Efter att ha gjort flödesschemat känndes det lättare att arbeta fram hur man skulle skriva sin kod 
+                för spelet. Känndes som om man fick bra koll på hur flödet i spelet skulle fungera. Ser nu i efterhand
+                att jag hade kunnat utvecklat det lite mer med att lägga till ett utfall för spelaren där den får 21 och vinner.<br>
+                <br>
+                När man hade skrivit psuedokoden så fick man en överblick om vilka funktioner man kunde tänka sig att
+                använda sig utav när man sedan skulle börja koda.<br>
+                <br>
+                Flödesschemaat var det verktyg som jag kände kan vara bra att ta med sig framöver. Det sammlar ens tankar och 
+                det blir lättare att komma igång med tankearbetet och logiken i ens projekt.
                 </p>
 
-                <p>Berätta om din implementation från uppgiften. Hur löste du uppgiften, är du nöjd/missnöjd,
-                vilken förbättringspotential ser du i din koden, dina klasser och applikationen som helhet?
+                <p>
+                Till uppgiften skapade jag tre nya klasser. Jag skapade klassen Player som representerar en spelare i spelet
+                som kan dra kort från en kortlek och ha en hand av kort. Bank klassen representerar banken i spelet och
+                kan också dra kort. Banken drar kort sålänge summan är under 17 och sedan stannar den. Den sista klassen jag
+                skapa är Game som tillhandarhåller logik till spelet. Här finns bl.a kontroller som kollar om spelaren eller banken
+                har mer än 21 på sina händer, vem av spelaren som har närmast 21 och utser sedan vinnaren. Förutom de nya
+                klasserna har jag använt mig utav de befintliga klasserna som CardHand som representera en han med kort och
+                DeckOfCards som representerar en kortlek. Slutligen skapade jag en GameController med routes till de olika sidorna
+                på webben som jag strukturerar upp i min twig filer.<br>
+                <br>
+                Jag är nöjd med min lösning för uppgiften. Min kod är väl strukturerad och uppdelad i olika moduler så det är enkelt
+                att navigerar runt i när man jobbar med projektet.
                 </p>
 
-                <p>Vilken är din känsla för att koda i ett ramverk som Symfony, så här långt in i kursen?
-                Det känns som om den inte vill läsa in min css kod ibland och därför känss det svårt att designa
-                sidorna som man vill.
+                <p>
+                Det känns som om den inte vill läsa in min css kod ibland och därför känns det svårt att designa
+                sidorna som man vill. Jag försöker med att rensa cachen eftersom det är det jag har kunnat läsa
+                mig till att det kan hänga på och ibland känns det som det hjälper men ibland gör det ingen skillnad.
                 </p>
 
-                <p>Vilken är din TIL för detta kmom?
-                Min TIL för detta kmom var att skapa ett flödesdiagram och skriva psuedokod. 
+                <p>
+                Min TIL för detta kmom var att skapa ett flödesdiagram och skriva psuedokod.
                 </p>
 
             <h2 id="kmom04">Kmom04</h2>
