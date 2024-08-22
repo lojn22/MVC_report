@@ -26,7 +26,8 @@ class DeckOfCards
                 // Debugging: Skriv ut suit och value
                 // echo "Card: " . $card->getAsString() . " - Suit: " . $suit . " - Value: " . $value . "<br>";
                 // Debugging: Skriv ut kortets representation
-                // echo "Card2: " . $card->getAsString() . " - Suit: " . $card->getSuit() . " - Value: " . $card->getValue() . "<br>";
+                // echo "Card2: " . $card->getAsString() .
+                // " - Suit: " . $card->getSuit() . " - Value: " . $card->getValue() . "<br>";
             }
         }
     }
@@ -51,9 +52,11 @@ class DeckOfCards
         if (count($this->deck) > 0) {
             // return array_shift($this->deck);
             $card = array_shift($this->deck);
+
             // echo "Drar kort: " . $card->getAsString() . "\n"; // Debugging: Skriv ut vilket kort som dras
             return $card;
         }
+
         return null;
     }
 
@@ -68,12 +71,12 @@ class DeckOfCards
 
         // return $cards;
         $cards = [];
-        for ($i = 0; $i < $num && count($this->deck) >0; $i++) {
+        for ($i = 0; $i < $num && count($this->deck) > 0; ++$i) {
             $cards[] = array_shift($this->deck);
         }
+
         return $cards;
     }
-    
 
     // public function drawRandom()
     // {

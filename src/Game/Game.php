@@ -1,8 +1,9 @@
 <?php
 
 namespace App\Game;
-use App\Card\DeckOfCards;
+
 use App\Card\CardHand;
+use App\Card\DeckOfCards;
 
 class Game
 {
@@ -22,7 +23,7 @@ class Game
     {
         $this->player->drawCard($this->deck);
 
-        if ($this->player->getHandValue() === 21) {
+        if (21 === $this->player->getHandValue()) {
             $this->winner = 'Player';
         } elseif ($this->player->isBusted()) {
             $this->winner = 'Banken';
@@ -53,7 +54,7 @@ class Game
 
     public function getBankHand(): CardHand
     {
-        return $this->bankHand;
+        return $this->bank->getHand();
     }
 
     public function determineWinner(): void
@@ -65,9 +66,9 @@ class Game
             $this->winner = 'Banken'; // Spelaren har över 21, banken vinner
         } elseif ($bankValue > 21) {
             $this->winner = 'Player'; // Banken har över 21, spelaren vinner
-        } elseif ($playerValue === 21 && $bankValue !== 21) {
+        } elseif (21 === $playerValue && 21 !== $bankValue) {
             $this->winner = 'Player'; // Spelaren har 21 och banken har inte 21
-        } elseif ($bankValue === 21 && $playerValue !== 21) {
+        } elseif (21 === $bankValue && 21 !== $playerValue) {
             $this->winner = 'Banken'; // Banken har 21 och spelaren har inte 21
         } elseif ($playerValue > $bankValue && $playerValue <= 21) {
             $this->winner = 'Player'; // Spelaren har högre värde än banken

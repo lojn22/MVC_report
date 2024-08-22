@@ -8,7 +8,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class QuoteControllerJson
 {
-    #[Route("/api/quote", name: "quote")]
+    #[Route('/api/quote', name: 'quote')]
     public function jsonNumber(): Response
     {
         $number = random_int(0, 2);
@@ -20,11 +20,11 @@ class QuoteControllerJson
         $today = date('Y-m-d H:i:s');
 
         // Citat
-        $citat = array(
+        $citat = [
             'Det är bättre att vara tyst och betraktad som en dåre än att tala och ta bort alla tvivel.',
             'En pessimist är en person som tvingats lyssna på för många optimister.',
-            'Jag lagar mat med vin, ibland tillsätter jag det till och med i maten.'
-        );
+            'Jag lagar mat med vin, ibland tillsätter jag det till och med i maten.',
+        ];
 
         $randomCitat = array_rand($citat, 1);
         // print_r($randomCitat);
@@ -40,6 +40,7 @@ class QuoteControllerJson
         $response->setEncodingOptions(
             $response->getEncodingOptions() | JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES
         );
+
         return $response;
     }
 }

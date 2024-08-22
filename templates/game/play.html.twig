@@ -43,9 +43,8 @@
         {% else %}
             <!-- Kortleken i mitten -->
             <div class="deck" onclick="window.location.href='{{ path('play', {'action': 'draw'}) }}'">
-                <img src="{{ asset('img/deck.png') }}" alt="Kortlek" style="width: 50px; height: auto;">
-
-                <p>Klicka för att dra ett kort</p>
+                <img src="{{ asset('img/deck.png') }}" alt="Kortlek" class="deck-image">
+                <p class="deck-text">Klicka för att dra ett kort</p>
             </div>
         {% endif %}
 

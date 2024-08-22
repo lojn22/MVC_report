@@ -5,10 +5,10 @@ namespace App\Card;
 class CardGraphic extends Card implements \JsonSerializable
 {
     private $representation = [
-        "♥️A","♥️2","♥️3","♥️4","♥️5","♥️6","♥️7","♥️8","♥️9","♥️10","♥️J","♥️Q","♥️K",
-        "♦️A","♦️2","♦️3","♦️4","♦️5","♦️6","♦️7","♦️8","♦️9","♦️10","♦️J","♦️Q","♦️K",
-        "♠️A","♠️2","♠️3","♠️4","♠️5","♠️6","♠️7","♠️8","♠️9","♠️10","♠️J","♠️Q","♠️K",
-        "♣️A","♣️2","♣️3","♣️4","♣️5","♣️6","♣️7","♣️8","♣️9","♣️10","♣️J","♣️Q","♣️K",
+        '♥️A', '♥️2', '♥️3', '♥️4', '♥️5', '♥️6', '♥️7', '♥️8', '♥️9', '♥️10', '♥️J', '♥️Q', '♥️K',
+        '♦️A', '♦️2', '♦️3', '♦️4', '♦️5', '♦️6', '♦️7', '♦️8', '♦️9', '♦️10', '♦️J', '♦️Q', '♦️K',
+        '♠️A', '♠️2', '♠️3', '♠️4', '♠️5', '♠️6', '♠️7', '♠️8', '♠️9', '♠️10', '♠️J', '♠️Q', '♠️K',
+        '♣️A', '♣️2', '♣️3', '♣️4', '♣️5', '♣️6', '♣️7', '♣️8', '♣️9', '♣️10', '♣️J', '♣️Q', '♣️K',
     ];
 
     public function __construct($suit, $value)
@@ -28,7 +28,7 @@ class CardGraphic extends Card implements \JsonSerializable
         $index = array_search($cardString, $this->representation);
 
         // Om index hittas, returnera rätt representation
-        if ($index !== false) {
+        if (false !== $index) {
             return $this->representation[$index];
         }
 
@@ -41,7 +41,7 @@ class CardGraphic extends Card implements \JsonSerializable
         return $this->getAsString();
     }
 
-    public function jsonSerialize()
+    public function jsonSerialize(): mixed
     {
         return $this->getAsString();
     }

@@ -2,7 +2,6 @@
 
 namespace App\Card;
 
-use App\Card\DeckOfCards;
 // use App\Card\Card;
 
 class CardHand
@@ -25,6 +24,7 @@ class CardHand
         foreach ($this->hand as $card) {
             $values[] = $card->getValue();
         }
+
         return $values;
     }
 
@@ -34,6 +34,7 @@ class CardHand
         foreach ($this->hand as $card) {
             $values[] = $card->getAsString();
         }
+
         return $values;
     }
 
@@ -47,15 +48,15 @@ class CardHand
             $sum += $value;
 
             // Count the number of aces for later adjustment
-            if ($card->getValueAsNumber() === 1) {
-                $aces++;
+            if (1 === $card->getValueAsNumber()) {
+                ++$aces;
             }
         }
 
         // Adjust for Aces: Each Ace can be 1 or 14
         while ($aces > 0 && $sum <= 11) {
             $sum += 13;
-            $aces--;
+            --$aces;
         }
 
         return $sum;

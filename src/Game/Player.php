@@ -3,7 +3,6 @@
 namespace App\Game;
 
 use App\Card\CardHand;
-use App\Card\Card;
 use App\Card\DeckOfCards;
 
 class Player

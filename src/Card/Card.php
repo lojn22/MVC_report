@@ -37,7 +37,7 @@ class Card
                 // Return a special case or handle Ace value separately
                 return 1; // default to 1, handle Ace separately in game logic
             default:
-                return (int)$this->value; // Convert numeric value to integer
+                return (int) $this->value; // Convert numeric value to integer
         }
     }
 }
