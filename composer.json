@@ -11,7 +11,6 @@
         "ext-iconv": "*",
         "amphp/http-client": "^4.2.1",
         "doctrine/annotations": "^2.0",
-        "doctrine/doctrine-bundle": "^2.9",
         "doctrine/doctrine-migrations-bundle": "^3.2",
         "doctrine/orm": "^2.14",
         "phpdocumentor/reflection-docblock": "^5.3",
@@ -103,8 +102,10 @@
         ],
         
         "csfix:dry": "tools/php-cs-fixer/vendor/bin/php-cs-fixer fix src --dry-run -v",
-         "lint": "vendor/bin/phpcs --standard=PSR12 src",
-        "csfix": "php-cs-fixer fix"
+        "lint": "vendor/bin/phpcs --standard=PSR12 src",
+        "csfix": "php-cs-fixer fix",
+        "phpdoc": "tools/phpdoc/phpdoc --config=tools/phpdoc/phpdoc.xml",
+        "phpunit": "XDEBUG_MODE=coverage vendor/bin/phpunit"
     },
     "conflict": {
         "symfony/symfony": "*"

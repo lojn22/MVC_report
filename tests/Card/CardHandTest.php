@@ -3,15 +3,13 @@
 namespace App\Card;
 
 use PHPUnit\Framework\TestCase;
-use App\Card\Card;
-use App\Card\CardHand;
 
 /**
  * Test cases for CarHand class.
  */
 class CardHandTest extends TestCase
 {
-     /**
+    /**
      * Test that a card can be added to the hand and that the hand size is correct.
      */
     public function testAddCardAndGetNumberCards()

@@ -17,7 +17,7 @@ class CardControllerJson extends AbstractController
     #[Route('/api/deck', name: 'api_deck')]
     public function jsonDeck(
         Request $request,
-        SessionInterface $session
+        SessionInterface $session,
     ): Response {
         if ($session->get('deck_of_cards')) {
             $deck = $session->get('deck_of_cards');
@@ -41,7 +41,7 @@ class CardControllerJson extends AbstractController
     #[Route('/api/deck/shuffle', name: 'api_shuffle')]
     public function jsonShuffle(
         Request $request,
-        SessionInterface $session
+        SessionInterface $session,
     ): Response {
         $deck = $session->get('deck_of_cards');
         $deck->deckshuffle();
@@ -62,7 +62,7 @@ class CardControllerJson extends AbstractController
     #[Route('/api/deck/draw', name: 'api_draw')]
     public function jsonDraw(
         Request $request,
-        SessionInterface $session
+        SessionInterface $session,
     ): Response {
         $deckOfCards = $session->get('deck_of_cards');
         $card = $deckOfCards->drawCard();
@@ -86,7 +86,7 @@ class CardControllerJson extends AbstractController
     public function jsonDrawMany(
         int $num,
         Request $request,
-        SessionInterface $session
+        SessionInterface $session,
     ): Response {
         if ($num > 52) {
             throw new \Exception('Can not draw more than 52 cards!');
@@ -126,7 +126,7 @@ class CardControllerJson extends AbstractController
     public function jsonDrawNumber(
         // int $num,
         Request $request,
-        SessionInterface $session
+        SessionInterface $session,
     ): Response {
         $numCards = $request->request->get('num_cards');
         $hand = new CardHand();
@@ -159,7 +159,7 @@ class CardControllerJson extends AbstractController
 
     #[Route('api/game', name: 'api_game')]
     public function jsonGame(
-        SessionInterface $session
+        SessionInterface $session,
     ): JsonResponse {
         // Kontrollera om spelet finns i sessionen
         if (!$session->has('game')) {

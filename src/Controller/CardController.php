@@ -67,7 +67,7 @@ class CardController extends AbstractController
     #[Route('/card/deck/draw', name: 'draw')]
     public function cardDraw(
         Request $request,
-        SessionInterface $session
+        SessionInterface $session,
     ): Response {
         $deckOfCards = $session->get('deck_of_cards');
         $card = $deckOfCards->drawCard();
@@ -85,7 +85,7 @@ class CardController extends AbstractController
     #[Route('/card/reset', name: 'reset')]
     public function resetDeck(
         Request $request,
-        SessionInterface $session
+        SessionInterface $session,
     ): Response {
         $session->clear();
 
@@ -96,7 +96,7 @@ class CardController extends AbstractController
     public function drawMany(
         int $num,
         Request $request,
-        SessionInterface $session
+        SessionInterface $session,
     ): Response {
         if ($num > 52) {
             throw new \Exception('Can not draw more than 52 cards!');
@@ -124,7 +124,7 @@ class CardController extends AbstractController
     #[Route("/card/deck/draw/{num<\d+>}", name: 'card_init_post', methods: ['POST'])]
     public function initCallback(
         Request $request,
-        SessionInterface $session
+        SessionInterface $session,
     ): Response {
         $numCard = $request->request->get('num_cards');
 
