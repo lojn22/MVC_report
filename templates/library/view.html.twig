@@ -1,0 +1,52 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Library{% endblock %}
+{% block body %}
+<h1>Library</h1>
+<a href="{{ path('book_create')}}" class="custom-button">Add new book</a>
+<div class="book-gallery">
+        {% for book in books %}
+            <div class="book-card">
+                <img src="{{ asset(book.getImage) }}" class="card-img-top" alt="Picture of {{ book.getTitle }}">
+                <div class="card-body text-center">
+                    <h5 class="card-title">{{ book.getTitle }}</h5>
+                    <a href="{{ path('book_view_one', {'id': book.getId})}}" class="btn btn-primary">Info</a>
+                </div>
+            </div>
+        {% endfor %}
+</div>
+<style>
+.book-gallery {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1.5rem;
+}
+.book-card {
+    border: 1px solid #ccc;
+    padding: 1rem;
+    text-align: center;
+}
+.book-card img {
+    max-width: 100%;
+    height: auto;
+}
+
+    .custom-button {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #D67789;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+        font-size: 16px;
+        font-weight: bold;
+        transition: background-color 0.3s ease;
+        margin-bottom: 20px;
+    }
+
+    .custom-button:hover {
+        background-color: #F85176;
+    }
+</style>
+
+{% endblock %}

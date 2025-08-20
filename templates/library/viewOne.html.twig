@@ -1,0 +1,37 @@
+{% extends "base.html.twig" %}
+
+{% block title %}{{ book.getTitle }}{% endblock %}
+{% block body %}
+<h1>Library</h1>
+<div class="container">
+    <div class="book-wrapper">
+            <img src="{{ asset(book.getImage) }}" class="card-img-top" alt="Picture of {{ book.getTitle }}">
+
+        <div class="book-details">
+            <h3 class="card-title">{{ book.getTitle }}</h3>
+            <p><strong>Author: </strong> {{ book.getAuthor }}</p>
+            <p><strong>ISBN:</strong>{{ book.getISBN }}</p>
+            
+            <a href="{{ path('book_update', {id: book.id}) }}">Edit</a>
+            <a href="{{ path('book_delete_by_id', {id: book.id}) }}">Delete</a>
+            <a href="{{ path('library_view_all')}}" class="btn btn-secondary mt-3">Back to library</a>    
+        </div>
+    </div>
+</div> 
+
+    <style>
+        .book-wrapper {
+            display: flex;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .book-details {
+            max-width: 600px;
+        }
+
+        .book-details a {
+            margin-right: 1rem;
+        }
+    </style>
+{% endblock %}

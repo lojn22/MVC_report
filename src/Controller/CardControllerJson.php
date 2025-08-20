@@ -5,6 +5,8 @@ namespace App\Controller;
 use App\Card\CardGraphic;
 use App\Card\CardHand;
 use App\Card\DeckOfCards;
+use App\Entity\Library;
+use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -200,5 +202,48 @@ class CardControllerJson extends AbstractController
         );
 
         return $response;
+    }
+
+    #[Route('api/library/books', name: 'api_books')]
+    public function booksJson(
+        ManagerRegistry $doctrine,
+    ): JsonResponse {
+        $books = $doctrine->getRepository(Library::class)->findAll();
+
+        $data = [];
+
+        foreach ($books as $book) {
+            $data[] = [
+                'id' => $book->getId(),
+                'title' => $book->getTitle(),
+                'author' => $book->getAuthor(),
+                'isbn' => $book->getISBN(),
+                'image' => $book->getImage(),
+            ];
+        }
+
+        return new JsonResponse($data);
+    }
+
+    #[Route('api/library/books/{isbn}', name: 'api_book_by_isbn', methods: ['GET'])]
+    public function booksJsonByIsbn(
+        ManagerRegistry $doctrine,
+        string $isbn,
+    ): JsonResponse {
+        $book = $doctrine->getRepository(Library::class)->findOneBy(['ISBN' => $isbn]);
+
+        if (!$book) {
+            return new JsonResponse(['error' => 'Book not found'], 404);
+        }
+
+        $data = [
+            'id' => $book->getId(),
+            'title' => $book->getTitle(),
+            'author' => $book->getAuthor(),
+            'isbn' => $book->getISBN(),
+            'image' => $book->getImage(),
+        ];
+
+        return new JsonResponse($data);
     }
 }
