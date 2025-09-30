@@ -16,7 +16,11 @@ class Player
 
     public function drawCard(DeckOfCards $deck): void
     {
-        $this->hand->addCard($deck->drawCard());
+        // $this->hand->addCard($deck->drawCard());
+        $card = $deck->drawCard();
+        if ($card !== null) {
+            $this->hand->addCard($card);
+        }
     }
 
     public function getHand(): CardHand

@@ -11,7 +11,7 @@ class QuoteControllerJson
     #[Route('/api/quote', name: 'quote')]
     public function jsonNumber(): Response
     {
-        $number = random_int(0, 2);
+        // $number = random_int(0, 2);
 
         // Tidszonen
         date_default_timezone_set('Europe/Stockholm');

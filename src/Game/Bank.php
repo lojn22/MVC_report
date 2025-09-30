@@ -9,14 +9,18 @@ class Bank
 {
     private CardHand $hand;
 
-    public function __construct(DeckOfCards $deck)
+    public function __construct()
     {
         $this->hand = new CardHand();
     }
 
     public function drawCard(DeckOfCards $deck): void
     {
-        $this->hand->addCard($deck->drawCard());
+        // $this->hand->addCard($deck->drawCard());
+        $card = $deck->drawCard();
+        if ($card !== null) {
+            $this->hand->addCard($card);
+        }
     }
 
     public function getHand(): CardHand

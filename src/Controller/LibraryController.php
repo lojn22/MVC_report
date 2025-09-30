@@ -11,6 +11,7 @@ use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 class LibraryController extends AbstractController
 {
@@ -169,7 +170,7 @@ class LibraryController extends AbstractController
     ): Response {
         $book = $libraryRepository->find($id);
         if (!$book) {
-            throw $this->ceraNotFoundException('There is no more information about the book.');
+            throw $this->createNotFoundException('There is no more information about the book.');
         }
 
         return $this->render('library/viewOne.html.twig', [
@@ -254,5 +255,48 @@ class LibraryController extends AbstractController
         $entityManager->flush();
 
         return new Response('<html><body>Biblioteket har återställts.</body></html>');
+    }
+
+    #[Route('api/library/books', name: 'api_books')]
+    public function booksJson(
+        ManagerRegistry $doctrine,
+    ): JsonResponse {
+        $books = $doctrine->getRepository(Library::class)->findAll();
+
+        $data = [];
+
+        foreach ($books as $book) {
+            $data[] = [
+                'id' => $book->getId(),
+                'title' => $book->getTitle(),
+                'author' => $book->getAuthor(),
+                'isbn' => $book->getISBN(),
+                'image' => $book->getImage(),
+            ];
+        }
+
+        return new JsonResponse($data);
+    }
+
+    #[Route('api/library/books/{isbn}', name: 'api_book_by_isbn', methods: ['GET'])]
+    public function booksJsonByIsbn(
+        ManagerRegistry $doctrine,
+        string $isbn,
+    ): JsonResponse {
+        $book = $doctrine->getRepository(Library::class)->findOneBy(['ISBN' => $isbn]);
+
+        if (!$book) {
+            return new JsonResponse(['error' => 'Book not found'], 404);
+        }
+
+        $data = [
+            'id' => $book->getId(),
+            'title' => $book->getTitle(),
+            'author' => $book->getAuthor(),
+            'isbn' => $book->getISBN(),
+            'image' => $book->getImage(),
+        ];
+
+        return new JsonResponse($data);
     }
 }

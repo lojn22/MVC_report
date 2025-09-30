@@ -88,16 +88,30 @@ var classes = [
                 "public": true,
                 "private": false,
                 "_type": "Hal\\Metric\\FunctionMetric"
+            },
+            {
+                "name": "booksJson",
+                "role": null,
+                "public": true,
+                "private": false,
+                "_type": "Hal\\Metric\\FunctionMetric"
+            },
+            {
+                "name": "booksJsonByIsbn",
+                "role": null,
+                "public": true,
+                "private": false,
+                "_type": "Hal\\Metric\\FunctionMetric"
             }
         ],
-        "nbMethodsIncludingGettersSetters": 12,
-        "nbMethods": 12,
+        "nbMethodsIncludingGettersSetters": 14,
+        "nbMethods": 14,
         "nbMethodsPrivate": 0,
-        "nbMethodsPublic": 12,
+        "nbMethodsPublic": 14,
         "nbMethodsGetter": 0,
         "nbMethodsSetters": 0,
-        "wmc": 23,
-        "ccn": 12,
+        "wmc": 27,
+        "ccn": 14,
         "ccnMethodMax": 6,
         "externals": [
             "Symfony\\Bundle\\FrameworkBundle\\Controller\\AbstractController",
@@ -133,45 +147,51 @@ var classes = [
             "App\\Entity\\Library",
             "App\\Entity\\Library",
             "App\\Entity\\Library",
-            "Symfony\\Component\\HttpFoundation\\Response"
+            "Symfony\\Component\\HttpFoundation\\Response",
+            "Symfony\\Component\\HttpFoundation\\JsonResponse",
+            "Doctrine\\Persistence\\ManagerRegistry",
+            "Symfony\\Component\\HttpFoundation\\JsonResponse",
+            "Symfony\\Component\\HttpFoundation\\JsonResponse",
+            "Doctrine\\Persistence\\ManagerRegistry",
+            "Symfony\\Component\\HttpFoundation\\JsonResponse",
+            "Symfony\\Component\\HttpFoundation\\JsonResponse"
         ],
         "parents": [
             "Symfony\\Bundle\\FrameworkBundle\\Controller\\AbstractController"
         ],
         "implements": [],
-        "lcom": 4,
-        "length": 318,
-        "vocabulary": 95,
-        "volume": 2089.21,
-        "difficulty": 10.1,
-        "effort": 21105.81,
+        "lcom": 6,
+        "length": 372,
+        "vocabulary": 107,
+        "volume": 2507.83,
+        "difficulty": 10.47,
+        "effort": 26244.4,
         "level": 0.1,
-        "bugs": 0.7,
-        "time": 1173,
-        "intelligentContent": 206.81,
-        "number_operators": 64,
-        "number_operands": 254,
+        "bugs": 0.84,
+        "time": 1458,
+        "intelligentContent": 239.64,
+        "number_operators": 73,
+        "number_operands": 299,
         "number_operators_unique": 7,
-        "number_operands_unique": 88,
-        "cloc": 16,
-        "loc": 163,
-        "lloc": 147,
-        "mi": 51.19,
-        "mIwoC": 27.86,
-        "commentWeight": 23.33,
-        "kanDefect": 0.87,
-        "relativeStructuralComplexity": 2704,
-        "relativeDataComplexity": 0.29,
-        "relativeSystemComplexity": 2704.29,
-        "totalStructuralComplexity": 32448,
-        "totalDataComplexity": 3.51,
-        "totalSystemComplexity": 32451.51,
+        "number_operands_unique": 100,
+        "cloc": 18,
+        "loc": 183,
+        "lloc": 165,
+        "mi": 49.29,
+        "mIwoC": 25.94,
+        "commentWeight": 23.35,
+        "kanDefect": 1.17,
+        "relativeStructuralComplexity": 3600,
+        "relativeDataComplexity": 0.3,
+        "relativeSystemComplexity": 3600.3,
+        "totalStructuralComplexity": 50400,
+        "totalDataComplexity": 4.25,
+        "totalSystemComplexity": 50404.25,
         "package": "App\\Controller\\",
         "pageRank": 0.01,
         "afferentCoupling": 0,
-        "efferentCoupling": 7,
+        "efferentCoupling": 8,
         "instability": 1,
-        "numberOfUnitTests": 0,
         "violations": {}
     },
     {
@@ -244,7 +264,6 @@ var classes = [
         "afferentCoupling": 0,
         "efferentCoupling": 1,
         "instability": 1,
-        "numberOfUnitTests": 0,
         "violations": {}
     },
     {
@@ -308,7 +327,6 @@ var classes = [
         "afferentCoupling": 0,
         "efferentCoupling": 2,
         "instability": 1,
-        "numberOfUnitTests": 0,
         "violations": {}
     },
     {
@@ -403,7 +421,6 @@ var classes = [
         "afferentCoupling": 0,
         "efferentCoupling": 5,
         "instability": 1,
-        "numberOfUnitTests": 0,
         "violations": {}
     },
     {
@@ -460,30 +477,16 @@ var classes = [
                 "public": true,
                 "private": false,
                 "_type": "Hal\\Metric\\FunctionMetric"
-            },
-            {
-                "name": "booksJson",
-                "role": null,
-                "public": true,
-                "private": false,
-                "_type": "Hal\\Metric\\FunctionMetric"
-            },
-            {
-                "name": "booksJsonByIsbn",
-                "role": null,
-                "public": true,
-                "private": false,
-                "_type": "Hal\\Metric\\FunctionMetric"
             }
         ],
-        "nbMethodsIncludingGettersSetters": 9,
-        "nbMethods": 9,
+        "nbMethodsIncludingGettersSetters": 7,
+        "nbMethods": 7,
         "nbMethodsPrivate": 0,
-        "nbMethodsPublic": 9,
+        "nbMethodsPublic": 7,
         "nbMethodsGetter": 0,
         "nbMethodsSetters": 0,
-        "wmc": 15,
-        "ccn": 7,
+        "wmc": 11,
+        "ccn": 5,
         "ccnMethodMax": 2,
         "externals": [
             "Symfony\\Bundle\\FrameworkBundle\\Controller\\AbstractController",
@@ -516,52 +519,44 @@ var classes = [
             "Symfony\\Component\\HttpFoundation\\JsonResponse",
             "Symfony\\Component\\HttpFoundation\\Session\\SessionInterface",
             "Symfony\\Component\\HttpFoundation\\JsonResponse",
-            "Symfony\\Component\\HttpFoundation\\JsonResponse",
-            "Symfony\\Component\\HttpFoundation\\JsonResponse",
-            "Doctrine\\Persistence\\ManagerRegistry",
-            "Symfony\\Component\\HttpFoundation\\JsonResponse",
-            "Symfony\\Component\\HttpFoundation\\JsonResponse",
-            "Doctrine\\Persistence\\ManagerRegistry",
-            "Symfony\\Component\\HttpFoundation\\JsonResponse",
             "Symfony\\Component\\HttpFoundation\\JsonResponse"
         ],
         "parents": [
             "Symfony\\Bundle\\FrameworkBundle\\Controller\\AbstractController"
         ],
         "implements": [],
-        "lcom": 9,
-        "length": 340,
-        "vocabulary": 90,
-        "volume": 2207.23,
-        "difficulty": 10.96,
-        "effort": 24199.75,
+        "lcom": 7,
+        "length": 286,
+        "vocabulary": 75,
+        "volume": 1781.44,
+        "difficulty": 11.07,
+        "effort": 19713.75,
         "level": 0.09,
-        "bugs": 0.74,
-        "time": 1344,
-        "intelligentContent": 201.32,
-        "number_operators": 80,
-        "number_operands": 260,
+        "bugs": 0.59,
+        "time": 1095,
+        "intelligentContent": 160.98,
+        "number_operators": 71,
+        "number_operands": 215,
         "number_operators_unique": 7,
-        "number_operands_unique": 83,
-        "cloc": 18,
-        "loc": 132,
-        "lloc": 114,
-        "mi": 57.84,
-        "mIwoC": 30.78,
-        "commentWeight": 27.07,
-        "kanDefect": 0.66,
-        "relativeStructuralComplexity": 1156,
-        "relativeDataComplexity": 0.42,
-        "relativeSystemComplexity": 1156.42,
-        "totalStructuralComplexity": 10404,
-        "totalDataComplexity": 3.77,
-        "totalSystemComplexity": 10407.77,
+        "number_operands_unique": 68,
+        "cloc": 16,
+        "loc": 112,
+        "lloc": 96,
+        "mi": 60.96,
+        "mIwoC": 33.32,
+        "commentWeight": 27.63,
+        "kanDefect": 0.36,
+        "relativeStructuralComplexity": 676,
+        "relativeDataComplexity": 0.43,
+        "relativeSystemComplexity": 676.43,
+        "totalStructuralComplexity": 4732,
+        "totalDataComplexity": 3.04,
+        "totalSystemComplexity": 4735.04,
         "package": "App\\Controller\\",
         "pageRank": 0.01,
         "afferentCoupling": 0,
-        "efferentCoupling": 10,
+        "efferentCoupling": 9,
         "instability": 1,
-        "numberOfUnitTests": 0,
         "violations": {}
     },
     {
@@ -625,7 +620,71 @@ var classes = [
         "afferentCoupling": 0,
         "efferentCoupling": 2,
         "instability": 1,
-        "numberOfUnitTests": 0,
+        "violations": {}
+    },
+    {
+        "name": "App\\Controller\\MetricsController",
+        "interface": false,
+        "abstract": false,
+        "final": false,
+        "methods": [
+            {
+                "name": "metricsReport",
+                "role": null,
+                "public": true,
+                "private": false,
+                "_type": "Hal\\Metric\\FunctionMetric"
+            }
+        ],
+        "nbMethodsIncludingGettersSetters": 1,
+        "nbMethods": 1,
+        "nbMethodsPrivate": 0,
+        "nbMethodsPublic": 1,
+        "nbMethodsGetter": 0,
+        "nbMethodsSetters": 0,
+        "wmc": 1,
+        "ccn": 1,
+        "ccnMethodMax": 1,
+        "externals": [
+            "Symfony\\Bundle\\FrameworkBundle\\Controller\\AbstractController",
+            "Symfony\\Component\\HttpFoundation\\Response"
+        ],
+        "parents": [
+            "Symfony\\Bundle\\FrameworkBundle\\Controller\\AbstractController"
+        ],
+        "implements": [],
+        "lcom": 1,
+        "length": 7,
+        "vocabulary": 7,
+        "volume": 19.65,
+        "difficulty": 0.5,
+        "effort": 9.83,
+        "level": 2,
+        "bugs": 0.01,
+        "time": 1,
+        "intelligentContent": 39.3,
+        "number_operators": 1,
+        "number_operands": 6,
+        "number_operators_unique": 1,
+        "number_operands_unique": 6,
+        "cloc": 1,
+        "loc": 9,
+        "lloc": 8,
+        "mi": 95.8,
+        "mIwoC": 71.11,
+        "commentWeight": 24.69,
+        "kanDefect": 0.15,
+        "relativeStructuralComplexity": 1,
+        "relativeDataComplexity": 0.5,
+        "relativeSystemComplexity": 1.5,
+        "totalStructuralComplexity": 1,
+        "totalDataComplexity": 0.5,
+        "totalSystemComplexity": 1.5,
+        "package": "App\\Controller\\",
+        "pageRank": 0.01,
+        "afferentCoupling": 0,
+        "efferentCoupling": 2,
+        "instability": 1,
         "violations": {}
     },
     {
@@ -692,7 +751,6 @@ var classes = [
         "afferentCoupling": 0,
         "efferentCoupling": 2,
         "instability": 1,
-        "numberOfUnitTests": 0,
         "violations": {}
     },
     {
@@ -832,7 +890,6 @@ var classes = [
         "afferentCoupling": 0,
         "efferentCoupling": 5,
         "instability": 1,
-        "numberOfUnitTests": 0,
         "violations": {}
     },
     {
@@ -985,7 +1042,6 @@ var classes = [
         "afferentCoupling": 0,
         "efferentCoupling": 8,
         "instability": 1,
-        "numberOfUnitTests": 0,
         "violations": {}
     },
     {
@@ -1129,7 +1185,6 @@ var classes = [
         "afferentCoupling": 0,
         "efferentCoupling": 8,
         "instability": 1,
-        "numberOfUnitTests": 0,
         "violations": {}
     },
     {
@@ -1219,7 +1274,6 @@ var classes = [
         "afferentCoupling": 0,
         "efferentCoupling": 2,
         "instability": 1,
-        "numberOfUnitTests": 0,
         "violations": {}
     },
     {
@@ -1294,7 +1348,6 @@ var classes = [
         "afferentCoupling": 0,
         "efferentCoupling": 4,
         "instability": 1,
-        "numberOfUnitTests": 0,
         "violations": {}
     },
     {
@@ -1374,7 +1427,6 @@ var classes = [
         "afferentCoupling": 1,
         "efferentCoupling": 2,
         "instability": 0.67,
-        "numberOfUnitTests": 0,
         "violations": {}
     },
     {
@@ -1454,7 +1506,6 @@ var classes = [
         "afferentCoupling": 1,
         "efferentCoupling": 2,
         "instability": 0.67,
-        "numberOfUnitTests": 0,
         "violations": {}
     },
     {
@@ -1532,7 +1583,6 @@ var classes = [
         "afferentCoupling": 2,
         "efferentCoupling": 0,
         "instability": 0,
-        "numberOfUnitTests": 14,
         "violations": {}
     },
     {
@@ -1602,7 +1652,6 @@ var classes = [
         "afferentCoupling": 1,
         "efferentCoupling": 1,
         "instability": 0.5,
-        "numberOfUnitTests": 0,
         "violations": {}
     },
     {
@@ -1705,7 +1754,6 @@ var classes = [
         "afferentCoupling": 4,
         "efferentCoupling": 1,
         "instability": 0.2,
-        "numberOfUnitTests": 5,
         "violations": {}
     },
     {
@@ -1794,7 +1842,6 @@ var classes = [
         "afferentCoupling": 3,
         "efferentCoupling": 2,
         "instability": 0.4,
-        "numberOfUnitTests": 38,
         "violations": {}
     },
     {
@@ -1879,11 +1926,10 @@ var classes = [
         "totalDataComplexity": 21,
         "totalSystemComplexity": 21,
         "package": "App\\Card\\",
-        "pageRank": 0.09,
+        "pageRank": 0.08,
         "afferentCoupling": 7,
         "efferentCoupling": 1,
         "instability": 0.13,
-        "numberOfUnitTests": 5,
         "violations": {}
     },
     {
@@ -1963,7 +2009,6 @@ var classes = [
         "afferentCoupling": 3,
         "efferentCoupling": 0,
         "instability": 0,
-        "numberOfUnitTests": 1,
         "violations": {}
     },
     {
@@ -2035,7 +2080,6 @@ var classes = [
         "afferentCoupling": 1,
         "efferentCoupling": 1,
         "instability": 0.5,
-        "numberOfUnitTests": 0,
         "violations": {}
     },
     {
@@ -2126,7 +2170,6 @@ var classes = [
         "afferentCoupling": 1,
         "efferentCoupling": 1,
         "instability": 0.5,
-        "numberOfUnitTests": 1,
         "violations": {}
     },
     {
@@ -2225,7 +2268,6 @@ var classes = [
         "afferentCoupling": 1,
         "efferentCoupling": 0,
         "instability": 0,
-        "numberOfUnitTests": 0,
         "violations": {}
     },
     {
@@ -2304,7 +2346,6 @@ var classes = [
         "afferentCoupling": 1,
         "efferentCoupling": 0,
         "instability": 0,
-        "numberOfUnitTests": 0,
         "violations": {}
     },
     {
@@ -2361,7 +2402,6 @@ var classes = [
         "afferentCoupling": 0,
         "efferentCoupling": 1,
         "instability": 1,
-        "numberOfUnitTests": 0,
         "violations": {}
     },
     {
@@ -2461,7 +2501,6 @@ var classes = [
         "afferentCoupling": 1,
         "efferentCoupling": 2,
         "instability": 0.67,
-        "numberOfUnitTests": 5,
         "violations": {}
     },
     {
@@ -2559,7 +2598,6 @@ var classes = [
         "afferentCoupling": 1,
         "efferentCoupling": 2,
         "instability": 0.67,
-        "numberOfUnitTests": 5,
         "violations": {}
     },
     {
@@ -2688,7 +2726,6 @@ var classes = [
         "afferentCoupling": 1,
         "efferentCoupling": 4,
         "instability": 0.8,
-        "numberOfUnitTests": 8,
         "violations": {}
     }
 ]

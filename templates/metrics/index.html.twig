@@ -1,0 +1,141 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Metrics{% endblock %}
+
+{% block body %}
+<div class="two-col-layout">
+        <aside class="aside">
+            <div class="column">
+                <p>Min github sida.</p>
+                    <ul>
+                        <li><a href="https://github.com/lojn22/MVC_report">lojn22</a></li>
+                    </ul>
+            </div>
+            
+            <div class="column">
+                <p>Github kursen MVC.</p>  
+                    <ul>
+                        <li><a href="https://github.com/dbwebb-se/mvc">Kursrepo</a></li>
+                    </ul>
+            </div>
+            <div class="">
+                    <h2> Innehåll</h2>
+                        <ul>
+                            <li><a href="#01">Introduktion</a></li>
+                            <li><a href="#02">Phpmetrics</a></li>
+                            <li><a href="#03">Scrutinizer</a></li>
+                            <li><a href="#04">Förbättringar</a></li>
+                            <li><a href="#05">Diskussion</a></li>
+                        </ul>
+                </div>
+        </aside>
+
+        <main class="main">
+            <h1>Metrics</h1>
+
+            <h2>Clean Code</h2>
+            <h3 id="01">Introduktion</h3>
+                <p><b>Codestyle:</b> Man kan ha bestämt hur koden ska vara strukturerad
+                och vilka regler som gäller vid kodning för att man ska få en enhetlig design på koden
+                oavsett vem som skriver den. 
+                </p>
+                <p><b>Coverage:</b> Visar hur stor del av koden som testas. 
+                </p>
+                <p><b>Complexity:</b> Nyttan av att kolla på Cyclomatic complexity är
+                att man kan räkna hur många testfall som krävs för att täcka alla logiska vägar genom koden.
+                </p>
+                <p><b>Cohesion:</b> Detta visar hur sammanhållande en klass/modul/metod är. Har de ett
+                högt cohesion, visar det att klassen/modulen/metoden har ett tydligt, avgränsande ansvar.
+                Är cohesion lågt, kan det indikerar på att klassen/modulen/metoden gör flera olika saker som inte 
+                är sammanhållande och som inte har samma ansvar.
+                </p>
+                <p><b>Coupling:</b> Ett mätvärde på hur beronde moduler är av andra moduler. Om de är tight kopplade eller löst kopllade. 
+                En låg koppling är att föredra och kan ofta korreleras till hög cohesion.
+                </p>
+                <p><b>CRAP:</b> Change, Risk, Analyzer, Predictor är ett mått baserat på komplexitet och brist
+                på tester som anses vara en indikator på dålig kod. CRAP poängen skapas utifrån cyclomatic compexity
+                och code coverage från automatiserade tester för att göra en uppskattning av ansträngning
+                och risker med att underhålla äldre kod.
+                </p>
+                <p><b>Code smell:</b> Är en indikation på att en kod kan behöva refaktureras eftersom det i
+                framtiden kan ge problem eller att det försämrar det befintliga programmet. Code smell är inte bugar,
+                error eller förhindring av funktionaliteten i ett program utan mer en visning om att det bryter mot desigprincipen/arkitekturen.
+                </p>
+            
+
+            <h3 id="02">Phpmetrics</h3>
+            <a href="{{ asset('img/phpmetrics.png') }}">
+                <img class="imgabout" src="{{ asset('img/phpmetrics.png') }}" alt="phpmetrics">
+            </a>
+            <p>Phpmetrics analysen visar 10 violations. Violations rubriker jag har fått är: 
+            <br><i>Blob/ God object</i> - Kan indidkera på att klassen gör för mycket, att den har för många ansvarsområden. (Controller: Library och Product)</br>
+            <br><i>Probably bugged</i> - Det finns visar mönster i koden som kan leda till buggar i framtiden.(Controller: Library, CardJson, Card, DiceGame)</br>
+            <br><i>Too complex method code</i> - Klassen har en metod som har för hög komplexitet. Det kan därför vara svårt att veta vad metoden gör och
+            det kan vara bättre att refaktorera koden och flytta ut logik i seperata klasser. (Game)</br>
+            </p>
+            <p>LCOM(Lack of Cohesion of Methods) är en mätning på hur sammanhängande en klass är. Ju lägre tal desstu bättre är det eftersom det indikerar
+            till att alla metoder jobbar mot samma data. Om det är högre tal är metoderna mer oberoende, detta kan tyda på att klassen kanske gör 
+            för mycket. I mitt fall så är det LibraryController och CardController som har högst LCOM värde.
+            </p>
+
+            <p>LibraryController toppar listan gällande LLOC(Logical Lines of Code), Volume, IC (Intelligent Content) vilket antyder på att den har mest komplexa klasser och sköter
+            mycket logik, det är mycket kodmassa och kräver mycket mental ansträgning för att förstå klasserna.</p>
+
+            <h3 id="03">Scrutinizer</h3>
+            
+            <a href="https://scrutinizer-ci.com/g/lojn22/MVC_report/build-status/main">
+            <img src="https://scrutinizer-ci.com/g/lojn22/MVC_report/badges/build.png?b=main" alt="Build Status">
+            </a>
+
+            <a href="https://scrutinizer-ci.com/g/lojn22/MVC_report/?branch=main">
+            <img src="https://scrutinizer-ci.com/g/lojn22/MVC_report/badges/coverage.png?b=main" alt="Code Coverage">
+            </a>
+
+            <a href="https://scrutinizer-ci.com/g/lojn22/MVC_report/?branch=main">
+            <img src="https://scrutinizer-ci.com/g/lojn22/MVC_report/badges/quality-score.png?b=main" alt="Scrutinizer Code Quality">
+            </a>
+
+            <a href="{{ asset('img/phpmetrics.png') }}">
+                <img class="imgabout" src="{{ asset('img/issues.png') }}" alt="Scrutinizer Issues">
+            </a>
+
+            <p>Scrutinizer visar att det finns förbättringspotentiel inom följande kategorier:
+            </p>
+            <p><i>Best Practice</i> - Koden följer inte den kodstandarden som finns uppsatt.
+            </p>
+            <p><i>Bug</i> - Identifierade problem som kan påverka kodens funktionalitet.
+            </p>
+            <p><i>Documentation</i> - Saknade dockblocks eller kommentarer, exempelvis för klasser och metoder.
+            </p>
+            <p><i>Unused Code</i> - Kod som aldrig används och därför kan tas bort för att minska komplexiteten.
+            </p>
+
+            <p> De problem som ligger under major och det som bör prioteras är buggar i 3 st controllers (Card, CardJson, Library)
+            och i 2 st repositorys (Library, Product) där jag även har fått best practice taggen.
+            </p>
+
+            <p>
+            Jag har rätt höga CRAP poäng på controllerna Library, Game och DiceGame vilket orsakas av kombinationen av hög komplexitet och låg testtäckning.
+            För att förbättra detta kan jag refaktorera koden och skriva tester.
+            </p>
+
+            <h3 id="04">Förbättringar</h3>
+            <p>Eftersom jag har fått många påpekningar på min LibraryController i både phpmetrics analysen och
+            Scrutinizer, vill jag försöka förbättra den gällande komplexiten. Jag ska försöka bryta ut delar av
+            logiken till services för att göra koden mer överskådlig och för att det ska bli enklare att testa och underhålla
+            i framtiden. Förhhoppningsvis kommer detta att sänka komplexiteten i phpmetrics och öka cohesion efter som
+            klasser och metoder kommer få tydligare ansvar.
+            </p>
+
+            <p> Tänkte även fixa issues från Scrutinizer där jag vill försöka lösa så många buggar som möjligt för att 
+            förebygga en bra grund för kodkörning och öka läsbarheten av koden. Jag hoppas på att antalet buggar ska minska
+            i båda analyserna och få färre best practice problem.
+            </p>
+
+            <p>Jag kommer även att ta bort oanvänd kod som var rapporterad av Scrutinizer för att minska storlek och även
+            se om jag har duplicerad metoder och isåfall flytta de till gemensamma hjälpfunktioner.
+            </p>
+            <h3 id="05">Diskussion</h3>
+        </main>
+    </div>
+{% endblock %}

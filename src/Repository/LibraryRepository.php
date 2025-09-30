@@ -49,7 +49,7 @@ class LibraryRepository extends ServiceEntityRepository
     /**
      * Find all producs having a value above the specified one.
      *
-     * @return Product[] Returns an array of Product objects
+     * @return Book[] Returns an array of Product objects
      */
     public function findByMinimumValue($value): array
     {
@@ -60,12 +60,13 @@ class LibraryRepository extends ServiceEntityRepository
             ->getQuery()
             ->getResult()
         ;
+        return is_array($result) ? $result : [];
     }
 
     /**
      * Find all producs having a value above the specified one with SQL.
      *
-     * @return [][] Returns an array of arrays (i.e. a raw data set)
+     * @return array[] Returns an array of arrays (i.e. a raw data set)
      */
     public function findByMinimumValue2($value): array
     {

@@ -35,12 +35,13 @@ class ProductRepository extends ServiceEntityRepository
             ->getQuery()
             ->getResult()
         ;
+        return is_array($result) ? $result : [];
     }
 
     /**
      * Find all producs having a value above the specified one with SQL.
      *
-     * @return [][] Returns an array of arrays (i.e. a raw data set)
+     * @return array[] Returns an array of arrays (i.e. a raw data set)
      */
     public function findByMinimumValue2($value): array
     {
