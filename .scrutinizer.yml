@@ -6,6 +6,7 @@ filter:
 
 build:
 #     image: default-bionic
+      image: default-focal
 
     nodes:
         my-tests:
