@@ -6,7 +6,7 @@ filter:
 
 build:
       
-#     image: default-bionic
+    image: default-bionic
 
     nodes:
         my-tests:
@@ -23,8 +23,8 @@ build:
     tests:
         override:
             -   
-                # command: "composer phpunit"
-                command: "XDEBUG_MODE=coverage vendor/bin/phpunit"
+                command: "composer phpunit"
+                # command: "XDEBUG_MODE=coverage vendor/bin/phpunit"
                 coverage:
                     file: "docs/coverage.clover"
                     format: "php-clover"
