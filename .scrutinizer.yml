@@ -5,8 +5,8 @@ filter:
     excluded_paths: [vendor/*, test/*]
 
 build:
+      
 #     image: default-bionic
-      image: default-focal
 
     nodes:
         my-tests:
