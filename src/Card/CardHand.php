@@ -67,4 +67,14 @@ class CardHand
     {
         return $this->hand;
     }
+
+     public function add(Card $card): void
+    {
+        $this->addCard($card);
+    }
+
+    public function drawCard(): ?Card
+    {
+        return array_pop($this->hand) ?: null;
+    }
 }

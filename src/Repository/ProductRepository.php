@@ -28,7 +28,8 @@ class ProductRepository extends ServiceEntityRepository
      */
     public function findByMinimumValue($value): array
     {
-        return $this->createQueryBuilder('p')
+        // return $this->createQueryBuilder('p')
+        $result = $this->createQueryBuilder('b')
             ->andWhere('p.value >= :value')
             ->setParameter('value', $value)
             ->orderBy('p.value', 'ASC')

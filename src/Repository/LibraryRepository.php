@@ -53,7 +53,8 @@ class LibraryRepository extends ServiceEntityRepository
      */
     public function findByMinimumValue($value): array
     {
-        return $this->createQueryBuilder('b')
+        // return $this->createQueryBuilder('b')
+        $result = $this->createQueryBuilder('b')
             ->andWhere('b.ISBN >= :value')
             ->setParameter('ISBN', $value)
             ->orderBy('b.ISBN', 'ASC')

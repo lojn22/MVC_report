@@ -66,12 +66,12 @@ class CardController extends AbstractController
 
     #[Route('/card/deck/draw', name: 'draw')]
     public function cardDraw(
-        Request $request,
+        // Request $request,
         SessionInterface $session,
     ): Response {
         $deckOfCards = $session->get('deck_of_cards');
         $card = $deckOfCards->drawCard();
-        $drawCard = $session->set('deck_of_cards', $deckOfCards);
+        // $drawCard = $session->set('deck_of_cards', $deckOfCards);
         $cardsLeft = count($deckOfCards->getDeck());
 
         $data = [
@@ -84,7 +84,7 @@ class CardController extends AbstractController
 
     #[Route('/card/reset', name: 'reset')]
     public function resetDeck(
-        Request $request,
+        // Request $request,
         SessionInterface $session,
     ): Response {
         $session->clear();
@@ -95,7 +95,7 @@ class CardController extends AbstractController
     #[Route("/card/deck/draw/{num<\d+>}", name: 'draw_many')]
     public function drawMany(
         int $num,
-        Request $request,
+        // Request $request,
         SessionInterface $session,
     ): Response {
         if ($num > 52) {
@@ -104,7 +104,7 @@ class CardController extends AbstractController
 
         $deckOfCards = $session->get('deck_of_cards');
         $card = $deckOfCards->drawManyCards($num);
-        $drawCard = $session->set('deck_of_cards', $deckOfCards);
+        // $drawCard = $session->set('deck_of_cards', $deckOfCards);
         $cardsLeft = count($deckOfCards->getDeck());
 
         $data = [

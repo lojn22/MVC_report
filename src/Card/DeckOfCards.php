@@ -47,6 +47,11 @@ class DeckOfCards
         return null;
     }
 
+    public function add(Card $card): void
+    {
+        $this->deck[] = $card;
+    }
+
     public function drawManyCards(int $num): array
     {
         $cards = [];
