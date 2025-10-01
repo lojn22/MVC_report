@@ -18,7 +18,7 @@ class CardControllerJson extends AbstractController
 {
     #[Route('/api/deck', name: 'api_deck')]
     public function jsonDeck(
-        Request $request,
+        // Request $request,
         SessionInterface $session,
     ): Response {
         if ($session->get('deck_of_cards')) {
@@ -42,7 +42,7 @@ class CardControllerJson extends AbstractController
 
     #[Route('/api/deck/shuffle', name: 'api_shuffle')]
     public function jsonShuffle(
-        Request $request,
+        // Request $request,
         SessionInterface $session,
     ): Response {
         $deck = $session->get('deck_of_cards');
@@ -63,7 +63,7 @@ class CardControllerJson extends AbstractController
 
     #[Route('/api/deck/draw', name: 'api_draw')]
     public function jsonDraw(
-        Request $request,
+        // Request $request,
         SessionInterface $session,
     ): Response {
         $deckOfCards = $session->get('deck_of_cards');
@@ -87,7 +87,7 @@ class CardControllerJson extends AbstractController
     #[Route("/api/deck/draw/{num<\d+>}", name: 'api_number')]
     public function jsonDrawMany(
         int $num,
-        Request $request,
+        // Request $request,
         SessionInterface $session,
     ): Response {
         if ($num > 52) {
@@ -96,7 +96,7 @@ class CardControllerJson extends AbstractController
 
         $deckOfCards = $session->get('deck_of_cards');
         $card = $deckOfCards->drawManyCards($num);
-        $drawCard = $session->set('deck_of_cards', $deckOfCards);
+        // $drawCard = $session->set('deck_of_cards', $deckOfCards);
         $cardsLeft = count($deckOfCards->getDeck());
 
         $data = [

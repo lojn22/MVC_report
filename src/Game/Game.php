@@ -40,7 +40,7 @@ class Game
     public function __construct(DeckOfCards $deck)
     {
         $this->player = new Player();
-        $this->bank = new Bank($deck);
+        $this->bank = new Bank();
         $this->deck = $deck;
     }
 
