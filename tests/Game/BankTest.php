@@ -20,7 +20,7 @@ class BankTest extends TestCase
         $deck = $this->createMock(DeckOfCards::class);
         $deck->method('drawCard')->willReturn(new CardGraphic('♥️', 'K'));
 
-        $bank = new Bank($deck);
+        $bank = new Bank();
         $bank->drawCard($deck);
 
         $this->assertEquals(1, $bank->getHand()->getNumberCards());
@@ -33,7 +33,7 @@ class BankTest extends TestCase
     public function testGetHand()
     {
         $deck = $this->createMock(DeckOfCards::class);
-        $bank = new Bank($deck);
+        $bank = new Bank();
 
         $this->assertInstanceOf(CardHand::class, $bank->getHand());
     }
@@ -49,7 +49,7 @@ class BankTest extends TestCase
             new CardGraphic('♦️', '5')
         );
 
-        $bank = new Bank($deck);
+        $bank = new Bank();
         $bank->drawCard($deck);  // K = 13
         $bank->drawCard($deck);  // 5 = 5
 
@@ -69,7 +69,7 @@ class BankTest extends TestCase
             new CardGraphic('♣️', '6')   // 6
         );
 
-        $bank = new Bank($deck);
+        $bank = new Bank();
         $bank->playTurn($deck);
 
         // Eftersom banken måste fortsätta att dra tills summan är 17 eller mer, bör tre kort dras
@@ -85,7 +85,7 @@ class BankTest extends TestCase
         $deck = $this->createMock(DeckOfCards::class);
         $deck->method('drawCard')->willReturn(new CardGraphic('♥️', 'K'));
 
-        $bank = new Bank($deck);
+        $bank = new Bank();
         $bank->drawCard($deck);
         $this->assertEquals(1, $bank->getHand()->getNumberCards());
 

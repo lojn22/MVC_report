@@ -68,7 +68,7 @@ class CardControllerJson extends AbstractController
     ): Response {
         $deckOfCards = $session->get('deck_of_cards');
         $card = $deckOfCards->drawCard();
-        $drawCard = $session->set('deck_of_cards', $deckOfCards);
+        // $drawCard = $session->set('deck_of_cards', $deckOfCards);
         $cardsLeft = count($deckOfCards->getDeck());
 
         $data = [
