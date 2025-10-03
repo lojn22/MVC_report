@@ -19,7 +19,7 @@ class LibraryService
     {
         $book = $this->entityManager->getRepository(Library::class)->find($id);
         if (!$book) {
-            throw $this->createNotFoundException('No book found for id ' . $id);
+            throw new \InvalidArgumentException("No book found for id $id");
         }
         return $book;
     }
@@ -30,7 +30,7 @@ class LibraryService
         $this->entityManager->flush();
     }
 
-    public function updateBook(Library $book): void
+    public function updateBook(): void
     {
         $this->entityManager->flush();
     }

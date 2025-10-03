@@ -23,6 +23,11 @@ class Card
         return $this->suit;
     }
 
+    public function getAsString(): string
+    {
+        return $this->value . $this->suit;
+    }
+
     public function getValueAsNumber(): int
     {
         switch ($this->value) {
