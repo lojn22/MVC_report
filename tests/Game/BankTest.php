@@ -32,7 +32,7 @@ class BankTest extends TestCase
      */
     public function testGetHand()
     {
-        $deck = $this->createMock(DeckOfCards::class);
+        // $deck = $this->createMock(DeckOfCards::class);
         $bank = new Bank();
 
         $this->assertInstanceOf(CardHand::class, $bank->getHand());

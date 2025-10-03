@@ -5,9 +5,10 @@ namespace App\Controller;
 use App\Entity\Library;
 use App\Form\BookType;
 use App\Repository\LibraryRepository;
+use App\Service\FileUploader;
+use App\Service\LibraryService;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -26,7 +27,8 @@ class LibraryController extends AbstractController
     #[Route('/library/create', name: 'book_create')]
     public function createBook(
         Request $request,
-        ManagerRegistry $doctrine,
+        FileUploader $fileUploader,
+        LibraryService $libraryService
     ): Response {
         $book = new Library();
         $form = $this->createForm(BookType::class, $book);
@@ -35,31 +37,11 @@ class LibraryController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $imageFile = $form->get('imageFile')->getData();
 
-            if ($imageFile) {
-                $originalFilename = pathinfo($imageFile->getClientOriginalName(), PATHINFO_FILENAME);
-                $safeFilename = preg_replace('/[^a-zA-Z0-9-_]/', '', $originalFilename);
-                $newFilename = strtolower($safeFilename) . '-' . uniqid() . '.' . $imageFile->guessExtension();
+            $libraryService->handleUploadImage($imageFile, $book, $fileUploader);
+            $libraryService->saveBook($book);
 
-                $destination = $this->getParameter('kernel.project_dir') . '/public/uploads';
-
-                if (!file_exists($destination)) {
-                    mkdir($destination, 0777, true);
-                }
-
-                try {
-                    $imageFile->move($destination, $newFilename);
-                } catch (FileException $e) {
-                    throw new \Exception('Fel vid uppladdning av fil: ' . $e->getMessage());
-                }
-
-                $book->setImage('uploads/' . $newFilename);
-            }
-
-            $entityManager = $doctrine->getManager();
-            $entityManager->persist($book);
-            $entityManager->flush();
-
-            return $this->redirectToRoute('book_success');
+            // return $this->redirectToRoute('book_success');
+            return $this->redirectToRoute('library_view_all');
         }
 
         return $this->render('library/create.html.twig', [
@@ -67,83 +49,44 @@ class LibraryController extends AbstractController
         ]);
     }
 
-    #[Route('/library/success', name: 'book_success')]
-    public function bookSuccess(): Response
-    {
-        return new Response('<h1>Boken har sparats!</h1>');
-    }
-
-    #[Route('/library/show', name: 'library_show_all')]
-    public function showAllProduct(
-        LibraryRepository $libraryRepository,
-    ): Response {
-        $books = $libraryRepository
-            ->findAll();
-
-        // return $this->json($books);
-        $response = $this->json($books);
-        $response->setEncodingOptions(
-            $response->getEncodingOptions() | JSON_PRETTY_PRINT
-        );
-
-        return $response;
-    }
-
-    #[Route('/library/show/{id}', name: 'book_by_id')]
-    public function showProductById(
-        LibraryRepository $libraryRepository,
-        int $id,
-    ): Response {
-        $book = $libraryRepository
-            ->find($id);
-
-        return $this->json($book);
-    }
+    // #[Route('/library/success', name: 'book_success')]
+    // public function bookSuccess(): Response
+    // {
+    //     return new Response('<h1>Boken har sparats!</h1>');
+    // }
 
     #[Route('/library/delete/{id}', name: 'book_delete_by_id')]
     public function deleteBookById(
-        ManagerRegistry $doctrine,
+        LibraryService $libraryService,
         int $id,
     ): Response {
-        $entityManager = $doctrine->getManager();
-        $book = $entityManager->getRepository(Library::class)->find($id);
-
-        if (!$book) {
-            throw $this->createNotFoundException('No book found for id ' . $id);
-        }
-
-        $entityManager->remove($book);
-        $entityManager->flush();
-
-        return $this->redirectToRoute('library_show_all');
+        $libraryService->deleteBookById($id);
+        return $this->redirectToRoute('library_view_all');
     }
 
     #[Route('/library/update/{id}', name: 'book_update', methods: ['GET', 'POST'])]
     public function updateBook(
         Request $request,
-        ManagerRegistry $doctrine,
+        LibraryService $libraryService,
+        FileUploader $fileUploader,
         int $id,
     ): Response {
-        $entityManager = $doctrine->getManager();
-        $book = $entityManager->getRepository(Library::class)->find($id);
-
-        if (!$book) {
-            throw $this->createNotFoundException('No book found for id ' . $id);
-        }
+        $book = $libraryService->findBook($id);
 
         $form = $this->createForm(BookType::class, $book);
-
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager->flush();
+            $imageFile = $form->get('imageFile')->getData();
+            if ($imageFile) {
+                $libraryService->handleUploadImage($imageFile, $book, $fileUploader);
+            }
+            $libraryService-> updateBook($book);
 
-            $this->addFlash('success', 'The book is updated');
-
-            return $this->redirectToRoute('library_show_all');
+            // $this->addFlash('success', 'The book is updated');
+            return $this->redirectToRoute('library_view_all');
         }
 
-        // $book->setISBN($value);
         return $this->render('library/update.html.twig', [
             'form' => $form->createView(),
             'book' => $book,
@@ -155,7 +98,6 @@ class LibraryController extends AbstractController
         LibraryRepository $libraryRepository,
     ): Response {
         $books = $libraryRepository->findAll();
-
         $data = [
             'books' => $books,
         ];
@@ -192,111 +134,11 @@ class LibraryController extends AbstractController
         return $this->render('library/view.html.twig', $data);
     }
 
-    #[Route('/library/show/min/{value}', name: 'book_by_min_value')]
-    public function showProductByMinimumValue(
-        LibraryRepository $libraryRepository,
-        int $value,
-    ): Response {
-        $books = $libraryRepository->findByMinimumValue2($value);
-
-        return $this->json($books);
-    }
-
     #[Route('/library/reset', name: 'library_reset')]
     public function resetLibrary(
-        ManagerRegistry $doctrine,
+        LibraryService $libraryService,
     ): Response {
-        $entityManager = $doctrine->getManager();
-        $repo = $entityManager->getRepository(Library::class);
-
-        // Ta bort befintliga böcker
-        $books = $repo->findAll();
-        foreach ($books as $book) {
-            $entityManager->remove($book);
-        }
-        $entityManager->flush();
-
-        // Default innehåll, minst 3st böcker
-        $book1 = new Library();
-        $book1->setTitle('Spelet');
-        $book1->setISBN(9789189750272);
-        $book1->setAuthor('Elle Kennedy');
-        $book1->setImage('img/spelet.png');
-
-        $book2 = new Library();
-        $book2->setTitle('Snedsteget');
-        $book2->setISBN(9789189889606);
-        $book2->setAuthor('Elle Kennedy');
-        $book2->setImage('img/snedsteget.png');
-
-        $book3 = new Library();
-        $book3->setTitle('Uppgörelsen');
-        $book3->setISBN(9789189928015);
-        $book3->setAuthor('Elle Kennedy');
-        $book3->setImage('img/uppgorelsen.png');
-
-        $book4 = new Library();
-        $book4->setTitle('Målet');
-        $book4->setISBN(9789189889552);
-        $book4->setAuthor('Elle Kennedy');
-        $book4->setImage('img/malet.png');
-
-        $book5 = new Library();
-        $book5->setTitle('Finalen');
-        $book5->setISBN(9789189928206);
-        $book5->setAuthor('Elle Kennedy');
-        $book5->setImage('img/finalen.png');
-
-        $entityManager->persist($book1);
-        $entityManager->persist($book2);
-        $entityManager->persist($book3);
-        $entityManager->persist($book4);
-        $entityManager->persist($book5);
-        $entityManager->flush();
-
+        $libraryService->reset();
         return new Response('<html><body>Biblioteket har återställts.</body></html>');
-    }
-
-    #[Route('api/library/books', name: 'api_books')]
-    public function booksJson(
-        ManagerRegistry $doctrine,
-    ): JsonResponse {
-        $books = $doctrine->getRepository(Library::class)->findAll();
-
-        $data = [];
-
-        foreach ($books as $book) {
-            $data[] = [
-                'id' => $book->getId(),
-                'title' => $book->getTitle(),
-                'author' => $book->getAuthor(),
-                'isbn' => $book->getISBN(),
-                'image' => $book->getImage(),
-            ];
-        }
-
-        return new JsonResponse($data);
-    }
-
-    #[Route('api/library/books/{isbn}', name: 'api_book_by_isbn', methods: ['GET'])]
-    public function booksJsonByIsbn(
-        ManagerRegistry $doctrine,
-        string $isbn,
-    ): JsonResponse {
-        $book = $doctrine->getRepository(Library::class)->findOneBy(['ISBN' => $isbn]);
-
-        if (!$book) {
-            return new JsonResponse(['error' => 'Book not found'], 404);
-        }
-
-        $data = [
-            'id' => $book->getId(),
-            'title' => $book->getTitle(),
-            'author' => $book->getAuthor(),
-            'isbn' => $book->getISBN(),
-            'image' => $book->getImage(),
-        ];
-
-        return new JsonResponse($data);
     }
 }
