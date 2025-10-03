@@ -81,7 +81,7 @@ class LibraryController extends AbstractController
             if ($imageFile) {
                 $libraryService->handleUploadImage($imageFile, $book, $fileUploader);
             }
-            $libraryService-> updateBook($book);
+            $libraryService-> updateBook();
 
             // $this->addFlash('success', 'The book is updated');
             return $this->redirectToRoute('library_view_all');

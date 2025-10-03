@@ -40,7 +40,7 @@ class LibraryService
         $book = $this->entityManager->getRepository(Library::class)->find($id);
 
         if (!$book) {
-            throw $this->createNotFoundException('No book found for id ' . $id);
+            throw new \InvalidArgumentException("No book found for id $id");
         }
 
         $this->entityManager->remove($book);
