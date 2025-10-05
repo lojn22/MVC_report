@@ -36,6 +36,7 @@ class ProductRepository extends ServiceEntityRepository
             ->getQuery()
             ->getResult()
         ;
+
         return is_array($result) ? $result : [];
     }
 

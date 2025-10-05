@@ -6,7 +6,7 @@ use App\Entity\Library;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
-class LibraryService 
+class LibraryService
 {
     private $entityManager;
 
@@ -21,6 +21,7 @@ class LibraryService
         if (!$book) {
             throw new \InvalidArgumentException("No book found for id $id");
         }
+
         return $book;
     }
 
@@ -50,11 +51,11 @@ class LibraryService
     public function handleUploadImage(?UploadedFile $imageFile, Library $book, FileUploader $fileUploader): void
     {
         if ($imageFile) {
-                $newFilename = $fileUploader->upload($imageFile);
-                $book->setImage('uploads/' . $newFilename);
-            } else {
-                $book->setImage('uploads/images.jpg');
-            }
+            $newFilename = $fileUploader->upload($imageFile);
+            $book->setImage('uploads/' . $newFilename);
+        } else {
+            $book->setImage('uploads/images.jpg');
+        }
     }
 
     public function reset(): void
@@ -105,7 +106,7 @@ class LibraryService
         $this->entityManager->persist($book3);
         $this->entityManager->persist($book4);
         $this->entityManager->persist($book5);
-        
+
         $this->entityManager->flush();
     }
 }

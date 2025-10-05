@@ -68,7 +68,7 @@ class CardHand
         return $this->hand;
     }
 
-     public function add(Card $card): void
+    public function add(Card $card): void
     {
         $this->addCard($card);
     }

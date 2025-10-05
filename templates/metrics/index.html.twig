@@ -128,20 +128,26 @@
             </p>
             <h4>Före:</h4>
             <a href="{{ asset('img/cycl-complexity.png') }}">
-                <img class="imgabout" src="{{ asset('img/cycl-complexity.png') }}" alt="Scrutinizer Issues">
+                <img class="imgabout" src="{{ asset('img/cycl-complexity.png') }}" alt="Phpmetrics">
             </a>
 
             <h4>Efter:</h4>
             <a href="{{ asset('img/cycl.png') }}">
-                <img class="imgabout" src="{{ asset('img/cycl.png') }}" alt="Scrutinizer Issues">
+                <img class="imgabout" src="{{ asset('img/cycl.png') }}" alt="Phpmetrics">
             </a>
+
+            <p>Som man kan se i bilderna ovan så har värdena på de flesta rubrikerna sjunkit och detta ha uppnåts genom
+            att flytta ut logik till services vilket ger mig fler metoder. Där emot så har relative system complexity och
+            relative structuraö complexity ökat i värdee på grund av att jag har skapat fler metoder. Detta behöver inte betyda
+            att det är ett dåligt reultat utan man kan se det som en mer läsbar kod.
+            </p>
 
             <p> Tänkte även fixa issues från Scrutinizer där jag vill försöka lösa så många buggar som möjligt för att 
             förebygga en bra grund för kodkörning och öka läsbarheten av koden. Jag hoppas på att antalet buggar ska minska
             i båda analyserna och få färre best practice problem.
             </p>
 
-            <p>Jag kommer även att ta bort oanvänd kod som var rapporterad av Scrutinizer för att minska storlek och även
+            <p>Jag kommer också ta bort oanvänd kod som var rapporterad av Scrutinizer för att minska storlek och även
             se om jag har duplicerade metoder och isåfall flytta de till gemensamma hjälpfunktioner.
             </p>
 
@@ -154,7 +160,17 @@
             <a href="{{ asset('img/issuesE.png') }}">
                 <img class="imgabout" src="{{ asset('img/issuesE.png') }}" alt="Scrutinizer Issues">
             </a>
+            <p>Jag lyckades lösa buggar och har rensat upp bland koden och fått bort kod som inte användes.
+            Analysen har minskat med 23 problem sen första körningen.
+            </p>
+
             <h3 id="05">Diskussion</h3>
+            <p>
+            Det går att jobba med kodkvalite och clean kod på detta sätt som vi har fått göra i detta kmom,
+            men det kan bli väldigt tidskrävande. Fördelen är att det blir mer strukturerat vilket jag personligen gillar.
+            Det som kan förebygga och kanske förbättra arbetet mot clean kod är om man planerar och sätter upp en bra struktur
+            från början som man försöker förhålla sig till.
+            </p>
         </main>
     </div>
 {% endblock %}

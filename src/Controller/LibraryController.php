@@ -7,12 +7,10 @@ use App\Form\BookType;
 use App\Repository\LibraryRepository;
 use App\Service\FileUploader;
 use App\Service\LibraryService;
-use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\HttpFoundation\JsonResponse;
 
 class LibraryController extends AbstractController
 {
@@ -28,7 +26,7 @@ class LibraryController extends AbstractController
     public function createBook(
         Request $request,
         FileUploader $fileUploader,
-        LibraryService $libraryService
+        LibraryService $libraryService,
     ): Response {
         $book = new Library();
         $form = $this->createForm(BookType::class, $book);
@@ -61,6 +59,7 @@ class LibraryController extends AbstractController
         int $id,
     ): Response {
         $libraryService->deleteBookById($id);
+
         return $this->redirectToRoute('library_view_all');
     }
 
@@ -81,7 +80,7 @@ class LibraryController extends AbstractController
             if ($imageFile) {
                 $libraryService->handleUploadImage($imageFile, $book, $fileUploader);
             }
-            $libraryService-> updateBook();
+            $libraryService->updateBook();
 
             // $this->addFlash('success', 'The book is updated');
             return $this->redirectToRoute('library_view_all');
@@ -139,6 +138,7 @@ class LibraryController extends AbstractController
         LibraryService $libraryService,
     ): Response {
         $libraryService->reset();
+
         return new Response('<html><body>Biblioteket har återställts.</body></html>');
     }
 }

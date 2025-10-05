@@ -19,16 +19,16 @@ class FileUploader
         return $this->targetDirectory;
     }
 
-    public function upload(UploadedFile $file) : string
+    public function upload(UploadedFile $file): string
     {
         $originalFilename = pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME);
         $safeFilename = preg_replace('/[^a-zA-Z0-9-_]/', '', $originalFilename);
-        $newFilename = strtolower($safeFilename) . '-' . uniqid() . '.' . $file->guessExtension();
+        $newFilename = strtolower($safeFilename) . '-' . uniqid() . ' . ' . $file->guessExtension();
 
         try {
-                $file->move($this->getTargetDirectory(), $newFilename);
-            } catch (FileException $e) {
-                throw new \Exception('Fel vid uppladdning av fil: ' . $e->getMessage());
+            $file->move($this->getTargetDirectory(), $newFilename);
+        } catch (FileException $e) {
+            throw new \Exception('Fel vid uppladdning av fil: ' . $e->getMessage());
         }
 
         return $newFilename;

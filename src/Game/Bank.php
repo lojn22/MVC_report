@@ -18,7 +18,7 @@ class Bank
     {
         // $this->hand->addCard($deck->drawCard());
         $card = $deck->drawCard();
-        if ($card !== null) {
+        if (null !== $card) {
             $this->hand->addCard($card);
         }
     }
