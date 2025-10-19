@@ -1,0 +1,68 @@
+.town-map {
+  position: relative;
+  /* background-image: url('/img/town.png'); */
+  background-size: cover;
+  background-position: center;
+  width: 90%;
+  height: 460px;
+  border: 2px solid #b47b6b;
+  border-radius: 10px;
+}
+
+.town-map .house {
+    position: absolute;
+    display: block;
+    width: 50px;       /* storlek på symbolen */
+    height: 50px;
+}
+
+.town-map .house img {
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+.house {
+  position: absolute;
+  text-align: center;
+}
+
+/* .house img {
+  width: 120px;
+  height: auto;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+}
+
+.house img:hover {
+  transform: scale(1.1);
+} */
+
+.house.kim {
+    top: 5%;
+    left: 45%;
+}
+
+.house.sookie {
+    top: 45%;
+    right: 5%;
+}
+
+.house.emily {
+    bottom: 5%;
+    left: 45%;
+}
+
+.house.luke {
+    top: 45%;
+    left: 5%;
+}
+
+.alert {
+  background-color: #ffe0e0;
+  padding: 1em;
+  border: 1px solid #cc9999;
+  border-radius: 5px;
+  color: #661111;
+  margin-bottom: 1em;
+}

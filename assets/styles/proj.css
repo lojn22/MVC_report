@@ -1,0 +1,67 @@
+@import "town.css";
+@import "room.css";
+@import "inventory.css";
+@import "twocolumn.css";
+
+body {
+    background-color: rgb(251, 218, 119);
+    margin: 0 auto;
+}
+
+
+.proj-main {
+    margin: 67px;
+    max-width: 1136px;
+}
+
+.proj-h1 {
+    border-bottom: 4px double #ccc;
+}
+
+.proj-site-header {
+    background-size: cover;
+    height: 100px;
+}
+
+.proj-site-title {
+    font-size: 2em;
+}
+
+.proj-navbar {
+    background-color: rgb(254, 252, 252);
+    border-top: 4px solid rgb(254 252 252);
+    text-align: center;
+    font-size: 1.2em;
+}
+
+/*
+ * Style links.
+ */
+.proj-navbar a {
+    display: inline-block;
+    padding: 0.2em 0.5em;
+    color: #dcdddf;
+    text-decoration: none;
+}
+
+.proj-navbar a:hover {
+    color: #fbebac;
+    background-color: #f1f0eb;
+}
+
+/*
+ * Remove bullets, margins and padding from the list.
+ */
+.proj-navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+/*
+ * Put the li items on a line.
+ */
+.proj-navbar li {
+    display: inline;
+}
+

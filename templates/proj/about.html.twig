@@ -1,0 +1,42 @@
+{% extends "proj/base.html.twig" %}
+
+{% block title %}About{% endblock %}
+
+{% block body %}
+    <div class="two-col-layout">
+        <aside class="aside">
+            <div class="column">
+                <p>Min github sida.</p>
+                    <ul>
+                        <li><a href="https://github.com/lojn22/MVC_report">lojn22</a></li>
+                    </ul>
+            </div>
+            
+            <div class="column">
+                <p>Github kursen MVC.</p>  
+                    <ul>
+                        <li><a href="https://github.com/dbwebb-se/mvc">Kursrepo</a></li>
+                    </ul>
+                </div>
+        </aside>
+
+        <main class="main">
+            <h1>About</h1>
+            <h3>The Gilmore Girls Game</h3>
+            <h4>Model View Controll</h4>
+            <p>I denna kursen skall vi lära oss programmera webbapplikationer på ett objektorienterat sätt med
+            fokus på det arkitekturella designmönstret MVC. För att komma igång behöver vi en bas och där har
+            vi valt ramverket Symfony som är ett av de mer kända ramverken inom PHP.</p>
+            <p>Vi börjar med att installera Symfony och bygger en webbplats med en kontroller (C:et i MVC) som ger
+            oss grunden för kursens me-sida som skall innehålla detaljer om dig själv, kursen och dina
+            redovisningstexter. Du använder vyer för att rendera webbsidorna (V:et i MVC). Vi provar även att skapa
+            en sida som genererats med JSON, det blir ett embryo till att se hur man kan bygga en webbtjänst med ett
+            så kallat RESTful API.</p>
+            <p>Vi skall också börja lära oss om grunderna med objektorientering och dess konstruktioner i PHP.</p>
+
+            <a href="{{ asset('img/mvc.svg') }}">
+                <img class="imgabout" src="{{ asset('img/mvc.svg') }}" alt="">
+            </a>
+        </main>
+    </div>
+{% endblock %}

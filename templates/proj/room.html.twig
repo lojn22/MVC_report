@@ -1,0 +1,33 @@
+{% extends "proj/base.html.twig" %}
+
+{% block title %}House{% endblock %}
+
+{% block body %}
+        <main class="proj-main">
+            <h1>Gilmore Girls</h1>
+
+            <div class="room-container">
+                <img class="room-image" src="{{ asset('img/' ~ room.image) }}" alt="{{ room.name }}">
+                <div class="dialogue-box">
+                    {% if message %}
+                        <p class="warning-text">{{ message }}</p>
+                    {% else %}
+                        <p>{{ room.dialogue }}</p>
+                    {% endif %}
+                    <form method="get" action="{{ path('proj_start') }}">
+                        <button>Back to town</button>
+                    </form>
+                </div>
+            </div>
+            
+           
+
+            {% if room.actionText %}
+            <form method="post" action="{{ path('proj_action', { stage: room.stage })}}">
+                <button type="submit">{{ room.actionText }}</button>
+            </form>
+            {% endif %}
+
+
+        </main>
+{% endblock %}

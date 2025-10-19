@@ -1,0 +1,25 @@
+.room-container {
+    display: flex;
+    flex-direction: row;   /* Bild och ruta sida vid sida */
+    align-items: flex-start; 
+    gap: 20px;             /* Avstånd mellan bild och ruta */
+    margin: 20px;
+}
+
+.room-container img.room-image {
+    display: block;        /* Se till att bilden är block */
+    width: 600px;          /* Justera storlek */
+    height: auto;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    flex-shrink: 0;        /* Hindrar bilden från att krympa */
+}
+
+.dialogue-box {
+    flex: 1;               /* Tar upp resten av utrymmet */
+    background-color: #f5f5f5;
+    border: 2px solid #b47b6b;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
+}
