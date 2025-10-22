@@ -17,9 +17,6 @@ class Player
     private ?string $name = null;
 
     #[ORM\Column]
-    private ?int $fullness = 0;
-
-    #[ORM\Column]
     private ?int $current_stage = 0;
 
     #[ORM\Column(type: 'json')]
@@ -28,8 +25,6 @@ class Player
     #[ORM\Column(type: 'json')]
     private array $inventory = [];
 
-    // #[ORM\Column]
-    // private ?bool $has_fork = false;
 
     public function getId(): ?int
     {
@@ -44,18 +39,6 @@ class Player
     public function setName(string $name): self
     {
         $this->name = $name;
-
-        return $this;
-    }
-
-    public function getFullness(): int
-    {
-        return $this->fullness;
-    }
-
-    public function setFullness(int $fullness): self
-    {
-        $this->fullness = $fullness;
 
         return $this;
     }
@@ -97,7 +80,7 @@ class Player
 
     public function getInventory(): array
     {
-        return $this->iventory;
+        return $this->inventory;
     }
 
     public function setInventory(array $inventory): static
@@ -121,24 +104,11 @@ class Player
         return in_array($item, $this->getInventory());
     }
 
-    // public function has_fork(): bool
-    // {
-    //     return $this->hasfork;
-    // }
-
-    // public function setHasFork(bool $has_fork): self
-    // {
-    //     $this->has_fork = $has_fork;
-    //     return $this;
-    // }
-
     public function resetGame(): self
     {
-        $this->fullness = 0;
         $this->current_stage = 0;
         $this->visited_rooms = [];
         $this->inventory = [];
-        // $this->has_fork = false;
         return $this;
     }
 }

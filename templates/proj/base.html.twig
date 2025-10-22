@@ -4,6 +4,7 @@
         <meta charset="UTF-8">
         <title>{% block title %}Projekt{% endblock %}</title>
         <link rel="icon" href="{{ asset('img/glider.svg') }}">
+        <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
         {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
         {% block stylesheets %}
             {{ encore_entry_link_tags('proj') }}
@@ -15,7 +16,7 @@
     </head>
     <body>
         <header class="proj-site-header" style="background-image: url({{ asset('img/leaves.png') }})">
-            <span class="proj-site-title">Adventure Game</span>
+            <span class="proj-site-title">Adventurey Game</span>
         </header>
 
         <nav class="proj-navbar">
@@ -27,6 +28,6 @@
 
         <main>{% block body %}{% endblock %}</main>
 
-        <footer>{% block footer %}©2023 Louise{% endblock %}</footer>
+        <footer>{% block footer %}©2025 Gilmore Girls S3 A9 "A Deep-Fried Korean Thanksgiving" {% endblock %}</footer>
     </body>
 </html>

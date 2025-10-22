@@ -1,4 +1,44 @@
-.inventory {
-  color: antiquewhite;
+/* Inventory under bilden */
+.inventory-container {
+    display: flex;
+    gap: 8px;
+    margin-top: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
 
+.inventory-box {
+    /* position: fixed;
+    bottom: 20px;
+    right: 20px; */
+    background: rgba(255, 248, 240, 0.95);
+    border: 2px solid #b47b6b;
+    border-radius: 10px;
+    padding: 10px;
+    width: 265px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.inventory-box h3 {
+    margin: 0 0 10px 0;
+    font-size: 1.1em;
+    color: #b47b6b;
+    text-align: left;
+    margin-left: 27%;
+}
+
+.inventory-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    justify-content: center;
+}
+
+.inventory-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 5px;
+    border: 1px solid #b47b6b;
+    background-color: #fff;
+    padding: 3px;
 }

@@ -44,7 +44,6 @@ class GameService
 
         $player = new Player();
         $player->setName('Lorelai');
-        $player->setFullness(0);
         $player->setCurrentStage(0);
         $player->setVisitedRooms([]);
         $player->setInventory([]);
@@ -102,8 +101,9 @@ class GameService
         ];
     }
 
-    public function updateFullness(
-        int $stage
+    public function makeChoice(
+        int $stage,
+        string $choice
         ): array
         {
         $player = $this->getPlayer();
@@ -118,22 +118,85 @@ class GameService
             ];
         }
 
+        // Uppdatera inventory
+        $inventory = $player->getInventory();
+        if (!in_array($choice, $inventory)) {
+            $inventory[] = $choice;
+            $player->setInventory($inventory);
+        }
+
+        // // Lägg till att spelaren har spelat rummet
+        // $visited = $player->getVisitedRooms();
+        // $visited[] = $room->getName();
+        // $player->setVisitedRooms($visited);
+
+        // Lägg till att spelaren har spelat rummet
         $visited = $player->getVisitedRooms();
-        $visited[] = $room->getName();
-        $player->setVisitedRooms($visited);
-        
-        $newFullness = $player->getFullness() + $room->getFullnessGain();
-        $player->setFullness($newFullness);
+        if (!in_array($room->getName(), $visited)) {
+            $visited[] = $room->getName();
+            $player->setVisitedRooms($visited);
+        }
+
+        // Uppdatera currentStage
         $player->setCurrentStage($stage);
+
+        // Kolla om alla rum är spelade
+        $totalRooms = count($this->roomRepository->findAll());
+        $gameOver = count($visited) >= $totalRooms;
+
 
         $this->entityManager->persist($player);
         $this->entityManager->flush();
         
-        $gameOver = $newFullness >= 100;
+        if ($gameOver) {
+            $result = $this->checkGameResult($player);
+            $this->session->set('final_result', $result);
+        }
 
         return [
             'gameOver' => $gameOver,
             'player' => $player
         ];
     }
+
+    public function checkGameResult(
+        Player $player,
+    ): array
+    {
+        $items = $player->getInventory();
+        $correctItems = ["napkin", "sookieI", "coffee", "fork"];
+
+        $missing = array_diff($correctItems, $items);
+        $extra = array_diff($items, $correctItems);
+
+        if (empty($missing) && empty($extra)) {
+            return [
+                'status' => 'win',
+                'message' => 'You are a true Gilmore! Fork in hand, desseert on the horizon!'
+            ];
+        }
+
+        if (in_array('fork', $items)) {
+            $mistakes = [];
+            if (in_array('turkey', $items)) $mistakes[] = "Too much turky. ";
+            if (in_array('jackson', $items)) $mistakes[] = "You should have listen to Sookie. ";
+            if (in_array('soda', $items)) $mistakes[] = "You didn't drink enough coffee. ";
+
+            return [
+                'status' => 'partial',
+                'message' => implode('', $mistakes) . "At least you got the fork but your to full for desert."
+            ];
+        }
+
+        return [
+            'status' => 'lose',
+            'message' => 'You stare att the desert... but someone else forked it first. Typical.'
+        ];
+    }
+
+    public function getSession()
+    {
+        return $this->session;
+    }
+
 }

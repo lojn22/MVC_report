@@ -3,26 +3,33 @@
 {% block title %}Final{% endblock %}
 
 {% block body %}
-    <div class="two-col-layout">
-            <aside class="aside">
-                <div class="">
-                    <h2> Innehåll</h2>
-                        <ul>
-                            <li><a href="{{ path('start') }}">Home</a></li>
-                            <li><a href="{{ path('proj_about') }}">About</a></li>
-                        </ul>
-                </div>
-            </aside>
+    <div class="final-contatiner">
+        {% set result = app.session.get('final_result') %}
+        <div class="result-box">
+            {% if result %}
+                {% if result.status == 'win' %}
+                    <p class="win">{{ result.message }}</p>
+                {% elseif result.status == 'partial' %}
+                    <p class="partial">{{ result.message }}</p>
+                {% else %}
+                    <p class="lose">{{ result.message }}</p>
+                {% endif %}
+            {% else %}
+                <p>No results yet. Go play!</p>
+            {% endif %}
+        </div>
 
-        <main class="main">
-            <h1>Thanksgiving Complete</h1>
-            <p>{{ result }}</p>
+        <div class="final-content">
+            <div class="final-left-side">
+                {% include 'proj/inventory.html.twig' with {'player': player} %}
+                <form action="{{ path('proj_restart') }}">
+                    <button class="sign-btn">Play again</button>
+                </form>
+            </div>
 
-            <h2 id="kmom02">Schedule</h2>
-            <p>"Lane's is always superearly so that's easy to catch"<b>(Mrs Kim</b>), <b>Sookie's</b> is midafternoon." "We've to go to my parent's
-            or be brought up on war crimes". 
-            <b>"Luke's</b> the toughie". We can squees him in between Sookie and <b>Emily and Richard</b>.
-            </p>
-        </main>
+            <div class="final-right-side">
+                <img class="paj-img" src="{{ asset('img/paj.png') }}" alt="paj">
+            </div>
+        </div>
     </div>
 {% endblock %}

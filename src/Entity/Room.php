@@ -22,29 +22,14 @@ class Room
     #[ORM\Column(length:300)]
     private ?string $dialogue = null;
 
-    #[ORM\Column(length: 100)]
-    private ?string $actionText = null;
-
-    #[ORM\Column]
-    private ?int $fullnessGain = 0;
-
     #[ORM\Column(length: 255)]
     private ?string $image = null;
     
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $symbol = null;
 
-    #[ORM\Column(type: 'json', nullable: true)]
-    private ?array $interactableItems = [];
-
-    #[ORM\Column(type: 'boolean')]
-    private bool $hasChoices = false;
-
-    // #[ORM\Column(type: 'float')]
-    // private ?float $top = 0.0;
-
-    // #[ORM\Column(type: 'float')]
-    // private ?float $left = 0.0;
+    #[ORM\Column(type: 'json')]
+    private ?array $action_choices = [];
 
     #[ORM\Column(type: 'integer', nullable: true)]
     private ?int $top = null;
@@ -93,26 +78,14 @@ class Room
         return $this;
     }
     
-    public function getActionText(): ?string
+    public function getActionChoices(): array
     {
-        return $this->actionText;
+        return $this->action_choices;
     }
 
-    public function setActionText(string $actionText): static
+    public function setActionChoices(array $choices): static
     {
-        $this->actionText = $actionText;
-
-        return $this;
-    }
-
-    public function getFullnessGain(): ?int
-    {
-        return $this->fullnessGain;
-    }
-
-    public function setFullnessGain(int $fullnessGain): self
-    {
-        $this->fullnessGain = $fullnessGain;
+        $this->action_choices = $choices;
 
         return $this;
     }
@@ -141,23 +114,23 @@ class Room
         return $this;
     }
 
-    public function getTop(): ?int //int
+    public function getTop(): ?int
     {
         return $this->top;
     }
 
-    public function setTop(?int $top): static //int
+    public function setTop(?int $top): static
     {
         $this->top = $top;
         return $this;
     }
 
-    public function getLeft(): ?int //int
+    public function getLeft(): ?int
     {
         return $this->left;
     }
 
-    public function setLeft(?int $left): static //int
+    public function setLeft(?int $left): static
     {
         $this->left = $left;
         return $this;

@@ -6,88 +6,40 @@
     <div class="two-col-layout">
         <main class="proj-main">
             <h1>Gilmore Girls</h1>
-            <h2 id="kmom01">Welcome to Stars Hollow, S3 A9</h2>
-                <p>In the small town Stars Hollow, Lorelai and her dothere Rory have been invited to four different 
-                Thanksgiving dinners. They couldn't get out of her mother emliys inventation and luke seemd a litle bit disepointed when they
-                mention they may not have time to celerbrat it with him. So there are no option to skip any dinners. Rorys only consern is how the are gonna make
-                four hole dinners. Luckly you as Lorelai have a plan and some trick to get thrue the day. 
+            <h2>Welcome to Stars Hollow</h2>
+                <p>In the small town Stars Hollow, Lorelai and her daughter Rory have somehow ended up with four Thanksgiving invitations.
+                There’s no escaping Emily’s dinner, and Luke looked a little heartbroken when they said they might not have time to celebrate with him.
+                So skipping isn’t an option. Rory’s biggest worry? How they’re supposed to survive four full dinners in one day.
+                Luckily, you playing as Lorelai have a plan and a few clever tricks to make it through the day. 
                 </p>
-                <p>Rory: "How are we going to eat four thanksgiving dinners?"</p>
-                 <p>Lorelai: "What are we if not world-campion eaters?"</p>
-            <p>Rory: "It's to much food."</p>
-            <p>Lorelai: "This is what we've trained for our whole lives."</p>
-            <p>"I guarantee you, we will be standing on the olympic platform receiving our gold medals for eating."</p>          
+            <div class="dialogue-wrapper">
+               <div class="dialogue-scene">
+                  <div class="dialogue-line rory">
+                     <span class="name">Rory:</span>
+                     <span class="text">"How are we going to eat four Thanksgiving dinners?"</span>
+                  </div>
 
-            <a href="{{ path('proj_start') }}" class="btn btn-primary">Let's go eat!</a>
+                  <div class="dialogue-line lorelai">
+                     <span class="name">Lorelai:</span>
+                     <span class="text">"What are we if not world-champion eaters?"</span>
+                  </div>
 
+                  <div class="dialogue-line rory">
+                     <span class="name">Rory:</span>
+                     <span class="text">"It's too much food."</span>
+                  </div>
 
-            <h2 id="kmom02">Schedule</h2>
-            <p>"Lane's is always superearly so that's easy to catch"<b>(Mrs Kim</b>), <b>Sookie's</b> is midafternoon." "We've to go to my parent's
-            or be brought up on war crimes". 
-            <b>"Luke's</b> the toughie". We can squees him in between Sookie and <b>Emily and Richard</b>.
-            </p>
-
-            <h2 id="kmom03">Kim</h2>
-           
-               <p>Kim: "Ah the Gilmores, happy Thanksgiving. Come in!"
-               Happy thanksgiving. She is in good mood this year." 
-               They are greating every one and get to the food table.
-               "Oh, mrs.Kim, just a beautiful table, as always." 
-               "Try the tofurkey, turkey made from tofu." 
-               "R: Oh, we definitely will"
-               23:14 </p>
-           
-            
-            <h2 id="kmom04">Sookie</h2>
-
-               <p>"Hi Hon. Happy Thanksgiving". 
-               "Thank god civilization has arrived" 
-               "What's wrong?"
-               Jackson is gonna deep-fry the turkey.
-               "I tried to talk him out of it but he's excited about it."
-               R: "Maybe it won't be that bad"
-               L: "Yeah, Deep-frying is kind of in now"
-               S: "I don't care. You don't deep-fry turkey." </p>
-
-            <h2 id="kmom05">Luke</h2>
-               <p>Lor:"Hey Everybody" 
-               Luke:"Happy thanksgiving"
-               Luke: "I'll be right back. That's our table over there."
-               The girls gets to the table and Jess is joining them for dinner.
-               Luke: "Where are you guys in your day?"
-               Rory:"We hit the kims, we hit Sookie's, and we go to the grandparents from here."
-               Lor: "full day" 
-               Luke: You can skip eating this one if you want. "It's no bigg deal" 17.40
-               Lor: "No way." "You are the main event today my friend."
-               Luke: "Good."
-               Rory: "What's good are the yams."
-               Lor: "Got some more marshmallows?"
-               Luke: "I can grab some." "Jess, refill some coffees."</p>
-
-            <h2 id="kmom06">Emily and Richard</h2>
-               <p>Emily: "Hello"
-               Rory: "Hi, Grandma. Happy thanksgiving."
-               Emily:"Thank you, Rory. Happy thanksgiving, Lorelai."
-               Lorelai: "Happy thanksgiving."
-               The girls walks in to the livingroome to great Richard and the other guestes.
-               "Is this your first american thanksgiving, Claude?"
-               "It is. I've seen it in the movies. People seem to eat until they can't eat any more."
-               Lor: "That's about it."
-               Later at the dinner table Rory gets the question which collage she have apply to. Lorelai is insurten
-               that the only apply to Harvard.
-               Guest: 
-               Rory: Well no. 
-               Lor: "No?" We applied elsewhere?
-               Rory: "Princeton, um.. Yale"
-               Lorelai gets furies becuse she thinks har parent is behaind this choose of collage. 
-               Emily: "You can't even let Rory have one piece of our lives even if it's her choise. You hate us that much."
-               </p>
-
-            <h2 id="kmom07">Final</h2>
-               <p>they got food coma and falls asleep before etaing dessert</p>
-               <p>they did not get full but did not get fork from emily and can eat canolifrom luke's </p>
-               <p>they did not get ful and get the fork from emily and can eat boht pie and canolli from luke's</p>
-               <p></p>
+                  <div class="dialogue-line lorelai">
+                     <span class="name">Lorelai:</span>
+                     <span class="text">
+                           "This is what we've trained for our whole lives."
+                           "I guarantee you, we will be standing on the Olympic platform receiving our gold medals for eating."
+                           <a href="{{ path('proj_start') }}" class="sign-btn">Let's go eat!</a>
+                     </span>
+                  </div>
+               </div>
+               <img src="{{ asset('img/eat.png') }}" alt="eat">
+            </div>
         </main>
     </div>
 {% endblock %}

@@ -22,7 +22,12 @@ class RoomFixture extends Fixture
             [
                 'name' => 'Mrs. Kim’s House',
                 'stage' => 1,
-                'dialogue' => 'Lane is always..',
+                'dialogue' => 'Kim: "Ah the Gilmores, happy Thanksgiving. Come in!" 
+                Lor:"Happy thanksgiving. She is in good mood this year." 
+                They are greating every one and get to the food table. 
+                Lor:"Oh, mrs.Kim, just a beautiful table, as always." 
+                Kim:"Try the tofurkey, turkey made from tofu." 
+                Rory:"Oh, we definitely will"',
                 'actionText' => '',
                 'fullnessGain' => 0,
                 'image' => 'img/kim.png',
@@ -68,3 +73,5 @@ class RoomFixture extends Fixture
         $manager->flush();
     }
 }
+
+ 

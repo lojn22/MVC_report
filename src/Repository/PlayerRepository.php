@@ -22,7 +22,6 @@ class PlayerRepository extends ServiceEntityRepository
     {
         $registry = $this->getManagerRegistry();
 
-            $player->setFullness(0);
             $player->setCurrentStage(0);
             $player->setVisitedRooms([]);
             $player->setInventory([]);

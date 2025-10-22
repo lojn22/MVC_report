@@ -1,0 +1,138 @@
+/* Overlay för choices ovanpå bilden */
+.choices-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* Form och knapp är klickbara */
+.choice-form {
+    position: absolute;
+    pointer-events: auto;
+}
+
+.choice-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+/* Choice-knappar */
+.choices-button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.choices-button:hover {
+    transform: scale(1.1);
+}
+
+.choices-button img {
+    width: auto;
+    height: auto;
+    max-width: 70px;
+    transition: filter 0.2s ease;
+}
+
+.choices-button:hover img {
+    filter: brightness(1.1);
+}
+
+/* Pratbubbla */
+.bubble {
+    position: absolute;
+    bottom: 120%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #fff0f5; /* ljusrosa pastell */
+    color: #4a2e2b; /* mörk chokladfärg som text */
+    padding: 8px 12px;
+    border-radius: 15px;
+    border: 1px solid #d6a2a2;
+    font-family: "Comic Sans MS", "Bradley Hand", cursive; /* handskriftsstil */
+    font-size: 15px;
+    font-style: italic;
+    box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.2s ease;
+}
+
+/* Liten pratbubbelspets */
+.bubble::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 8px;
+    border-style: solid;
+    border-color: #fff0f5 transparent transparent transparent;
+}
+
+/* 🪄 Syns vid hover */
+.choices-button:hover .bubble {
+    opacity: 1;
+    transform: translateX(-50%) translateY(-5px);
+}
+
+.bubble {
+    position: absolute;
+    bottom: 120%; /* standard: ovanför knappen */
+    left: 50%;
+    transform: translateX(-50%);
+    background: #fff0f5;
+    color: #4a2e2b;
+    padding: 8px 12px;
+    border-radius: 15px;
+    border: 1px solid #d6a2a2;
+    font-size: 15px;
+    font-style: italic;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.2s ease;
+    z-index: 999;
+}
+
+/* Pil för bubblan ovanför knappen */
+.bubble::after {
+    content: "";
+    position: absolute;
+    top: 100%; /* placerad nedanför bubblan */
+    left: 50%;
+    margin-left: -6px;
+    border-width: 6px;
+    border-style: solid;
+    border-color: #fff0f5 transparent transparent transparent;
+}
+
+.choices-button:hover .bubble {
+    opacity: 1;
+    transform: translateX(-50%) translateY(-5px);
+}
+
+/* Undantag – bubblan ska ligga UNDER knappen */
+.bubble-bottom {
+    top: 120%;     /* byt till överkant */
+    bottom: auto;  /* ta bort standardplacering */
+}
+
+.choices-button:hover .bubble-bottom {
+    transform: translateX(-50%) translateY(5px);
+}
+
+/* Bubblans pil ska då peka uppåt */
+.bubble-bottom::after {
+    top: auto;
+    bottom: 100%;
+    border-color: transparent transparent #fff0f5 transparent;
+}
+
+.choices-button:hover .bubble-bottom {
+    transform: translateX(-50%) translateY(5px);
+}

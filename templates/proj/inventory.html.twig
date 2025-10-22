@@ -1,0 +1,12 @@
+<div class="inventory-box">
+    <h3>Choices</h3>
+    {% if player and player.inventory is not empty %}
+        <div class="inventory-items">
+            {% for item in player.inventory %}
+                <img src="{{ asset('img/' ~ item ~ '.png') }}" alt="{{ item }}" title="{{ item }}" class="inventory-icon">
+            {% endfor %}
+        </div>
+    {% else %}
+        <p><em>Choose wisely...</em></p>
+    {% endif %}
+</div>

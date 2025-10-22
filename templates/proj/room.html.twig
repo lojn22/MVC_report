@@ -4,30 +4,65 @@
 
 {% block body %}
         <main class="proj-main">
-            <h1>Gilmore Girls</h1>
+            <h1>Thanksgiving</h1>
 
             <div class="room-container">
-                <img class="room-image" src="{{ asset('img/' ~ room.image) }}" alt="{{ room.name }}">
+                <div class="room-left">
+                    <div class="room-image-wrapper">
+                        <img class="room-image" src="{{ asset('img/' ~ room.image) }}" alt="{{ room.name }}">
+                        <div class="choices-overlay">
+                            {% for choice, data in room.actionChoices %}
+                                <form 
+                                method="post" 
+                                action="{{ path('proj_action', { stage: room.stage, choice: choice }) }}"
+                                class="choice-form"
+                                style="top: {{ data.top}}; left: {{ data.left }};"
+                                >
+                                    <button type="submit" class="choices-button">
+                                        <img src="{{ asset('img/' ~ data.image) }}" alt="{{ choice }}">
+                                        <span class="bubble {% if choice == 'sookieI' %}bubble-bottom{% endif %}">
+                                            {% if choice == 'napkin' %}
+                                                "Maybe we can sneak <br> a little tofurkey in there"
+                                            {% elseif choice == 'turkey' %}
+                                                "Yumy <br> Chocolate turkey"
+                                            {% elseif choice == 'coffee' %}
+                                                "Coffee."
+                                            {% elseif choice == 'soda' %}
+                                                "Soda."
+                                            {% elseif choice == 'sookieI' %}
+                                                "Trust Sookie, she’s basically the turkey whisperer."
+                                            {% elseif choice == 'jackson' %}
+                                                "Be brave. Try the deep-fried science experiment."
+                                            {% elseif choice == 'fork' %}
+                                                "Leave the dinner. Fork in hand, sanity optional"
+                                            {% elseif choice == 'dessert' %}
+                                                "Sit tight. Nothing says 'Happy Thanksgiving' like sugar and passive-aggression."
+                                            {% else %}
+                                                "Hmm... interesting choice!"
+                                            {% endif %}
+                                        </span>
+                                    </button>
+                                </form>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    
+                    
+                    <div class="inventory-container">
+                        {% include 'proj/inventory.html.twig' with {'player': player} %}
+                    </div>
+                </div>
+                
                 <div class="dialogue-box">
                     {% if message %}
                         <p class="warning-text">{{ message }}</p>
                     {% else %}
-                        <p>{{ room.dialogue }}</p>
+                        <p>{{ room.dialogue|nl2br }}</p>
                     {% endif %}
                     <form method="get" action="{{ path('proj_start') }}">
-                        <button>Back to town</button>
+                        <button class="sign-btn">Back to town</button>
                     </form>
                 </div>
-            </div>
-            
-           
-
-            {% if room.actionText %}
-            <form method="post" action="{{ path('proj_action', { stage: room.stage })}}">
-                <button type="submit">{{ room.actionText }}</button>
-            </form>
-            {% endif %}
-
-
+            </div>        
         </main>
 {% endblock %}
