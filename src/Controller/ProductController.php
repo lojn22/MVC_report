@@ -26,7 +26,7 @@ class ProductController extends AbstractController
         $entityManager = $doctrine->getManager();
 
         $product = new Product();
-        $product->setName('Keyboard_num_' . rand(1, 9));
+        $product->setName('Keyboard_num_'.rand(1, 9));
         $product->setValue(rand(100, 999));
 
         // tell Doctrine you want to (eventually) save the Product
@@ -36,7 +36,7 @@ class ProductController extends AbstractController
         // actually executes the queries (i.e. the INSERT query)
         $entityManager->flush();
 
-        return new Response('Saved new product with id ' . $product->getId());
+        return new Response('Saved new product with id '.$product->getId());
     }
 
     #[Route('/product/show', name: 'product_show_all')]
@@ -75,7 +75,7 @@ class ProductController extends AbstractController
         $product = $entityManager->getRepository(Product::class)->find($id);
 
         if (!$product) {
-            throw $this->createNotFoundException('No product found for id ' . $id);
+            throw $this->createNotFoundException('No product found for id '.$id);
         }
 
         $entityManager->remove($product);
@@ -94,7 +94,7 @@ class ProductController extends AbstractController
         $product = $entityManager->getRepository(Product::class)->find($id);
 
         if (!$product) {
-            throw $this->createNotFoundException('No product found for id ' . $id);
+            throw $this->createNotFoundException('No product found for id '.$id);
         }
 
         $product->setValue($value);

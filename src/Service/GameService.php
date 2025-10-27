@@ -121,11 +121,6 @@ class GameService
             $player->setInventory($inventory);
         }
 
-        // // Lägg till att spelaren har spelat rummet
-        // $visited = $player->getVisitedRooms();
-        // $visited[] = $room->getName();
-        // $player->setVisitedRooms($visited);
-
         // Lägg till att spelaren har spelat rummet
         $visited = $player->getVisitedRooms();
         if (!in_array($room->getName(), $visited)) {
@@ -184,7 +179,7 @@ class GameService
 
             return [
                 'status' => 'partial',
-                'message' => implode('', $mistakes) . 'At least you got the fork but your to full for desert.',
+                'message' => implode('', $mistakes).'At least you got the fork but your to full for desert.',
             ];
         }
 

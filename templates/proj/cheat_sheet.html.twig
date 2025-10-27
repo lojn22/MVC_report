@@ -1,0 +1,22 @@
+{% extends "proj/base.html.twig" %}
+
+{% block title %}Cheat Sheet{% endblock %}
+
+{% block body %}
+        <main class="proj-main">
+            <h1>How to become a true Gilmore</h1>
+            <h3>The Gilmore Girls Game</h3>
+            <p>Follow this schedule and you'll get through Thanksgiving just fine.</p>
+            
+            <p>1. Start at <b>Lane</b> (north)- choose the <b>Napkin</b> to hide the tofurkey</p>
+            <p>2. Head over to <b>Sookie</b> (east)- stand by your best friend's side, <b>Sookie</b>.</p>
+            <p>3. Stop by <b>Luke</b> (west)- drink <b>Coffee</b> for more energy and better digestion.</p>
+            <p>4. Finish at <b>Emily & Richard</b> (south)- get so frustrated that you storm out of dinner with the <b>Fork</b> in your hand.</p>
+
+            <form action="{{ path('proj_restart') }}">
+                    <button class="sign-btn">Start the game!</button>
+                </form>
+
+           
+        </main>
+{% endblock %}

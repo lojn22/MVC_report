@@ -541,6 +541,66 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/App-Controller-ProductController.html#method_showProductByMinimumValue"
         },                {
+            "fqsen": "\\App\\Controller\\ProjController",
+            "name": "ProjController",
+            "summary": "",
+            "url": "classes/App-Controller-ProjController.html"
+        },                {
+            "fqsen": "\\App\\Controller\\ProjController\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/App-Controller-ProjController.html#method___construct"
+        },                {
+            "fqsen": "\\App\\Controller\\ProjController\u003A\u003Aindex\u0028\u0029",
+            "name": "index",
+            "summary": "",
+            "url": "classes/App-Controller-ProjController.html#method_index"
+        },                {
+            "fqsen": "\\App\\Controller\\ProjController\u003A\u003Arestart\u0028\u0029",
+            "name": "restart",
+            "summary": "",
+            "url": "classes/App-Controller-ProjController.html#method_restart"
+        },                {
+            "fqsen": "\\App\\Controller\\ProjController\u003A\u003Aabout\u0028\u0029",
+            "name": "about",
+            "summary": "",
+            "url": "classes/App-Controller-ProjController.html#method_about"
+        },                {
+            "fqsen": "\\App\\Controller\\ProjController\u003A\u003AtownView\u0028\u0029",
+            "name": "townView",
+            "summary": "",
+            "url": "classes/App-Controller-ProjController.html#method_townView"
+        },                {
+            "fqsen": "\\App\\Controller\\ProjController\u003A\u003AenterHouses\u0028\u0029",
+            "name": "enterHouses",
+            "summary": "",
+            "url": "classes/App-Controller-ProjController.html#method_enterHouses"
+        },                {
+            "fqsen": "\\App\\Controller\\ProjController\u003A\u003AperformAction\u0028\u0029",
+            "name": "performAction",
+            "summary": "",
+            "url": "classes/App-Controller-ProjController.html#method_performAction"
+        },                {
+            "fqsen": "\\App\\Controller\\ProjController\u003A\u003Afinal\u0028\u0029",
+            "name": "final",
+            "summary": "",
+            "url": "classes/App-Controller-ProjController.html#method_final"
+        },                {
+            "fqsen": "\\App\\Controller\\ProjController\u003A\u003A\u0024gameService",
+            "name": "gameService",
+            "summary": "",
+            "url": "classes/App-Controller-ProjController.html#property_gameService"
+        },                {
+            "fqsen": "\\App\\Controller\\ProjControllerJson",
+            "name": "ProjControllerJson",
+            "summary": "",
+            "url": "classes/App-Controller-ProjControllerJson.html"
+        },                {
+            "fqsen": "\\App\\Controller\\ProjControllerJson\u003A\u003Aproj\u0028\u0029",
+            "name": "proj",
+            "summary": "",
+            "url": "classes/App-Controller-ProjControllerJson.html#method_proj"
+        },                {
             "fqsen": "\\App\\Controller\\QuoteControllerJson",
             "name": "QuoteControllerJson",
             "summary": "",
@@ -560,6 +620,16 @@ Search.appendIndex(
             "name": "index",
             "summary": "",
             "url": "classes/App-Controller-SimpleController.html#method_index"
+        },                {
+            "fqsen": "\\App\\DataFixtures\\RoomFixture",
+            "name": "RoomFixture",
+            "summary": "",
+            "url": "classes/App-DataFixtures-RoomFixture.html"
+        },                {
+            "fqsen": "\\App\\DataFixtures\\RoomFixture\u003A\u003Aload\u0028\u0029",
+            "name": "load",
+            "summary": "",
+            "url": "classes/App-DataFixtures-RoomFixture.html#method_load"
         },                {
             "fqsen": "\\App\\Dice\\Dice",
             "name": "Dice",
@@ -721,6 +791,101 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/App-Entity-Library.html#property_image"
         },                {
+            "fqsen": "\\App\\Entity\\Player",
+            "name": "Player",
+            "summary": "",
+            "url": "classes/App-Entity-Player.html"
+        },                {
+            "fqsen": "\\App\\Entity\\Player\u003A\u003AgetId\u0028\u0029",
+            "name": "getId",
+            "summary": "",
+            "url": "classes/App-Entity-Player.html#method_getId"
+        },                {
+            "fqsen": "\\App\\Entity\\Player\u003A\u003AgetName\u0028\u0029",
+            "name": "getName",
+            "summary": "",
+            "url": "classes/App-Entity-Player.html#method_getName"
+        },                {
+            "fqsen": "\\App\\Entity\\Player\u003A\u003AsetName\u0028\u0029",
+            "name": "setName",
+            "summary": "",
+            "url": "classes/App-Entity-Player.html#method_setName"
+        },                {
+            "fqsen": "\\App\\Entity\\Player\u003A\u003AgetCurrentStage\u0028\u0029",
+            "name": "getCurrentStage",
+            "summary": "",
+            "url": "classes/App-Entity-Player.html#method_getCurrentStage"
+        },                {
+            "fqsen": "\\App\\Entity\\Player\u003A\u003AsetCurrentStage\u0028\u0029",
+            "name": "setCurrentStage",
+            "summary": "",
+            "url": "classes/App-Entity-Player.html#method_setCurrentStage"
+        },                {
+            "fqsen": "\\App\\Entity\\Player\u003A\u003AgetVisitedRooms\u0028\u0029",
+            "name": "getVisitedRooms",
+            "summary": "",
+            "url": "classes/App-Entity-Player.html#method_getVisitedRooms"
+        },                {
+            "fqsen": "\\App\\Entity\\Player\u003A\u003AsetVisitedRooms\u0028\u0029",
+            "name": "setVisitedRooms",
+            "summary": "",
+            "url": "classes/App-Entity-Player.html#method_setVisitedRooms"
+        },                {
+            "fqsen": "\\App\\Entity\\Player\u003A\u003AaddVisitedRoom\u0028\u0029",
+            "name": "addVisitedRoom",
+            "summary": "",
+            "url": "classes/App-Entity-Player.html#method_addVisitedRoom"
+        },                {
+            "fqsen": "\\App\\Entity\\Player\u003A\u003AgetInventory\u0028\u0029",
+            "name": "getInventory",
+            "summary": "",
+            "url": "classes/App-Entity-Player.html#method_getInventory"
+        },                {
+            "fqsen": "\\App\\Entity\\Player\u003A\u003AsetInventory\u0028\u0029",
+            "name": "setInventory",
+            "summary": "",
+            "url": "classes/App-Entity-Player.html#method_setInventory"
+        },                {
+            "fqsen": "\\App\\Entity\\Player\u003A\u003AaddItem\u0028\u0029",
+            "name": "addItem",
+            "summary": "",
+            "url": "classes/App-Entity-Player.html#method_addItem"
+        },                {
+            "fqsen": "\\App\\Entity\\Player\u003A\u003AhasItem\u0028\u0029",
+            "name": "hasItem",
+            "summary": "",
+            "url": "classes/App-Entity-Player.html#method_hasItem"
+        },                {
+            "fqsen": "\\App\\Entity\\Player\u003A\u003AresetGame\u0028\u0029",
+            "name": "resetGame",
+            "summary": "",
+            "url": "classes/App-Entity-Player.html#method_resetGame"
+        },                {
+            "fqsen": "\\App\\Entity\\Player\u003A\u003A\u0024id",
+            "name": "id",
+            "summary": "",
+            "url": "classes/App-Entity-Player.html#property_id"
+        },                {
+            "fqsen": "\\App\\Entity\\Player\u003A\u003A\u0024name",
+            "name": "name",
+            "summary": "",
+            "url": "classes/App-Entity-Player.html#property_name"
+        },                {
+            "fqsen": "\\App\\Entity\\Player\u003A\u003A\u0024current_stage",
+            "name": "current_stage",
+            "summary": "",
+            "url": "classes/App-Entity-Player.html#property_current_stage"
+        },                {
+            "fqsen": "\\App\\Entity\\Player\u003A\u003A\u0024visited_rooms",
+            "name": "visited_rooms",
+            "summary": "",
+            "url": "classes/App-Entity-Player.html#property_visited_rooms"
+        },                {
+            "fqsen": "\\App\\Entity\\Player\u003A\u003A\u0024inventory",
+            "name": "inventory",
+            "summary": "",
+            "url": "classes/App-Entity-Player.html#property_inventory"
+        },                {
             "fqsen": "\\App\\Entity\\Product",
             "name": "Product",
             "summary": "",
@@ -765,6 +930,141 @@ Search.appendIndex(
             "name": "value",
             "summary": "",
             "url": "classes/App-Entity-Product.html#property_value"
+        },                {
+            "fqsen": "\\App\\Entity\\Room",
+            "name": "Room",
+            "summary": "",
+            "url": "classes/App-Entity-Room.html"
+        },                {
+            "fqsen": "\\App\\Entity\\Room\u003A\u003AgetId\u0028\u0029",
+            "name": "getId",
+            "summary": "",
+            "url": "classes/App-Entity-Room.html#method_getId"
+        },                {
+            "fqsen": "\\App\\Entity\\Room\u003A\u003AgetName\u0028\u0029",
+            "name": "getName",
+            "summary": "",
+            "url": "classes/App-Entity-Room.html#method_getName"
+        },                {
+            "fqsen": "\\App\\Entity\\Room\u003A\u003AsetName\u0028\u0029",
+            "name": "setName",
+            "summary": "",
+            "url": "classes/App-Entity-Room.html#method_setName"
+        },                {
+            "fqsen": "\\App\\Entity\\Room\u003A\u003AgetStage\u0028\u0029",
+            "name": "getStage",
+            "summary": "",
+            "url": "classes/App-Entity-Room.html#method_getStage"
+        },                {
+            "fqsen": "\\App\\Entity\\Room\u003A\u003AsetStage\u0028\u0029",
+            "name": "setStage",
+            "summary": "",
+            "url": "classes/App-Entity-Room.html#method_setStage"
+        },                {
+            "fqsen": "\\App\\Entity\\Room\u003A\u003AgetDialogue\u0028\u0029",
+            "name": "getDialogue",
+            "summary": "",
+            "url": "classes/App-Entity-Room.html#method_getDialogue"
+        },                {
+            "fqsen": "\\App\\Entity\\Room\u003A\u003AsetDialogue\u0028\u0029",
+            "name": "setDialogue",
+            "summary": "",
+            "url": "classes/App-Entity-Room.html#method_setDialogue"
+        },                {
+            "fqsen": "\\App\\Entity\\Room\u003A\u003AgetActionChoices\u0028\u0029",
+            "name": "getActionChoices",
+            "summary": "",
+            "url": "classes/App-Entity-Room.html#method_getActionChoices"
+        },                {
+            "fqsen": "\\App\\Entity\\Room\u003A\u003AsetActionChoices\u0028\u0029",
+            "name": "setActionChoices",
+            "summary": "",
+            "url": "classes/App-Entity-Room.html#method_setActionChoices"
+        },                {
+            "fqsen": "\\App\\Entity\\Room\u003A\u003AgetImage\u0028\u0029",
+            "name": "getImage",
+            "summary": "",
+            "url": "classes/App-Entity-Room.html#method_getImage"
+        },                {
+            "fqsen": "\\App\\Entity\\Room\u003A\u003AsetImage\u0028\u0029",
+            "name": "setImage",
+            "summary": "",
+            "url": "classes/App-Entity-Room.html#method_setImage"
+        },                {
+            "fqsen": "\\App\\Entity\\Room\u003A\u003AgetSymbol\u0028\u0029",
+            "name": "getSymbol",
+            "summary": "",
+            "url": "classes/App-Entity-Room.html#method_getSymbol"
+        },                {
+            "fqsen": "\\App\\Entity\\Room\u003A\u003AsetSymbol\u0028\u0029",
+            "name": "setSymbol",
+            "summary": "",
+            "url": "classes/App-Entity-Room.html#method_setSymbol"
+        },                {
+            "fqsen": "\\App\\Entity\\Room\u003A\u003AgetTop\u0028\u0029",
+            "name": "getTop",
+            "summary": "",
+            "url": "classes/App-Entity-Room.html#method_getTop"
+        },                {
+            "fqsen": "\\App\\Entity\\Room\u003A\u003AsetTop\u0028\u0029",
+            "name": "setTop",
+            "summary": "",
+            "url": "classes/App-Entity-Room.html#method_setTop"
+        },                {
+            "fqsen": "\\App\\Entity\\Room\u003A\u003AgetLeft\u0028\u0029",
+            "name": "getLeft",
+            "summary": "",
+            "url": "classes/App-Entity-Room.html#method_getLeft"
+        },                {
+            "fqsen": "\\App\\Entity\\Room\u003A\u003AsetLeft\u0028\u0029",
+            "name": "setLeft",
+            "summary": "",
+            "url": "classes/App-Entity-Room.html#method_setLeft"
+        },                {
+            "fqsen": "\\App\\Entity\\Room\u003A\u003A\u0024id",
+            "name": "id",
+            "summary": "",
+            "url": "classes/App-Entity-Room.html#property_id"
+        },                {
+            "fqsen": "\\App\\Entity\\Room\u003A\u003A\u0024name",
+            "name": "name",
+            "summary": "",
+            "url": "classes/App-Entity-Room.html#property_name"
+        },                {
+            "fqsen": "\\App\\Entity\\Room\u003A\u003A\u0024stage",
+            "name": "stage",
+            "summary": "",
+            "url": "classes/App-Entity-Room.html#property_stage"
+        },                {
+            "fqsen": "\\App\\Entity\\Room\u003A\u003A\u0024dialogue",
+            "name": "dialogue",
+            "summary": "",
+            "url": "classes/App-Entity-Room.html#property_dialogue"
+        },                {
+            "fqsen": "\\App\\Entity\\Room\u003A\u003A\u0024image",
+            "name": "image",
+            "summary": "",
+            "url": "classes/App-Entity-Room.html#property_image"
+        },                {
+            "fqsen": "\\App\\Entity\\Room\u003A\u003A\u0024symbol",
+            "name": "symbol",
+            "summary": "",
+            "url": "classes/App-Entity-Room.html#property_symbol"
+        },                {
+            "fqsen": "\\App\\Entity\\Room\u003A\u003A\u0024action_choices",
+            "name": "action_choices",
+            "summary": "",
+            "url": "classes/App-Entity-Room.html#property_action_choices"
+        },                {
+            "fqsen": "\\App\\Entity\\Room\u003A\u003A\u0024top",
+            "name": "top",
+            "summary": "",
+            "url": "classes/App-Entity-Room.html#property_top"
+        },                {
+            "fqsen": "\\App\\Entity\\Room\u003A\u003A\u0024left",
+            "name": "left",
+            "summary": "",
+            "url": "classes/App-Entity-Room.html#property_left"
         },                {
             "fqsen": "\\App\\Form\\BookType",
             "name": "BookType",
@@ -946,6 +1246,16 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/App-Kernel.html"
         },                {
+            "fqsen": "\\App\\Proj\\Player",
+            "name": "Player",
+            "summary": "",
+            "url": "classes/App-Proj-Player.html"
+        },                {
+            "fqsen": "\\App\\Proj\\Player\u003A\u003AgetPlayer\u0028\u0029",
+            "name": "getPlayer",
+            "summary": "",
+            "url": "classes/App-Proj-Player.html#method_getPlayer"
+        },                {
             "fqsen": "\\App\\Repository\\LibraryRepository",
             "name": "LibraryRepository",
             "summary": "",
@@ -966,6 +1276,26 @@ Search.appendIndex(
             "summary": "Find\u0020all\u0020producs\u0020having\u0020a\u0020value\u0020above\u0020the\u0020specified\u0020one\u0020with\u0020SQL.",
             "url": "classes/App-Repository-LibraryRepository.html#method_findByMinimumValue2"
         },                {
+            "fqsen": "\\App\\Repository\\PlayerRepository",
+            "name": "PlayerRepository",
+            "summary": "",
+            "url": "classes/App-Repository-PlayerRepository.html"
+        },                {
+            "fqsen": "\\App\\Repository\\PlayerRepository\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/App-Repository-PlayerRepository.html#method___construct"
+        },                {
+            "fqsen": "\\App\\Repository\\PlayerRepository\u003A\u003AfindByName\u0028\u0029",
+            "name": "findByName",
+            "summary": "",
+            "url": "classes/App-Repository-PlayerRepository.html#method_findByName"
+        },                {
+            "fqsen": "\\App\\Repository\\PlayerRepository\u003A\u003AresetPlayer\u0028\u0029",
+            "name": "resetPlayer",
+            "summary": "",
+            "url": "classes/App-Repository-PlayerRepository.html#method_resetPlayer"
+        },                {
             "fqsen": "\\App\\Repository\\ProductRepository",
             "name": "ProductRepository",
             "summary": "",
@@ -985,6 +1315,26 @@ Search.appendIndex(
             "name": "findByMinimumValue2",
             "summary": "Find\u0020all\u0020producs\u0020having\u0020a\u0020value\u0020above\u0020the\u0020specified\u0020one\u0020with\u0020SQL.",
             "url": "classes/App-Repository-ProductRepository.html#method_findByMinimumValue2"
+        },                {
+            "fqsen": "\\App\\Repository\\RoomRepository",
+            "name": "RoomRepository",
+            "summary": "",
+            "url": "classes/App-Repository-RoomRepository.html"
+        },                {
+            "fqsen": "\\App\\Repository\\RoomRepository\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/App-Repository-RoomRepository.html#method___construct"
+        },                {
+            "fqsen": "\\App\\Repository\\RoomRepository\u003A\u003AgetAllOrdered\u0028\u0029",
+            "name": "getAllOrdered",
+            "summary": "",
+            "url": "classes/App-Repository-RoomRepository.html#method_getAllOrdered"
+        },                {
+            "fqsen": "\\App\\Repository\\RoomRepository\u003A\u003AfindRoom\u0028\u0029",
+            "name": "findRoom",
+            "summary": "",
+            "url": "classes/App-Repository-RoomRepository.html#method_findRoom"
         },                {
             "fqsen": "\\App\\Service\\FileUploader",
             "name": "FileUploader",
@@ -1010,6 +1360,71 @@ Search.appendIndex(
             "name": "targetDirectory",
             "summary": "",
             "url": "classes/App-Service-FileUploader.html#property_targetDirectory"
+        },                {
+            "fqsen": "\\App\\Service\\GameService",
+            "name": "GameService",
+            "summary": "",
+            "url": "classes/App-Service-GameService.html"
+        },                {
+            "fqsen": "\\App\\Service\\GameService\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/App-Service-GameService.html#method___construct"
+        },                {
+            "fqsen": "\\App\\Service\\GameService\u003A\u003AgetPlayer\u0028\u0029",
+            "name": "getPlayer",
+            "summary": "",
+            "url": "classes/App-Service-GameService.html#method_getPlayer"
+        },                {
+            "fqsen": "\\App\\Service\\GameService\u003A\u003AresetPlayer\u0028\u0029",
+            "name": "resetPlayer",
+            "summary": "",
+            "url": "classes/App-Service-GameService.html#method_resetPlayer"
+        },                {
+            "fqsen": "\\App\\Service\\GameService\u003A\u003AshowHouses\u0028\u0029",
+            "name": "showHouses",
+            "summary": "",
+            "url": "classes/App-Service-GameService.html#method_showHouses"
+        },                {
+            "fqsen": "\\App\\Service\\GameService\u003A\u003AenterHouse\u0028\u0029",
+            "name": "enterHouse",
+            "summary": "",
+            "url": "classes/App-Service-GameService.html#method_enterHouse"
+        },                {
+            "fqsen": "\\App\\Service\\GameService\u003A\u003AmakeChoice\u0028\u0029",
+            "name": "makeChoice",
+            "summary": "",
+            "url": "classes/App-Service-GameService.html#method_makeChoice"
+        },                {
+            "fqsen": "\\App\\Service\\GameService\u003A\u003AcheckGameResult\u0028\u0029",
+            "name": "checkGameResult",
+            "summary": "",
+            "url": "classes/App-Service-GameService.html#method_checkGameResult"
+        },                {
+            "fqsen": "\\App\\Service\\GameService\u003A\u003AgetSession\u0028\u0029",
+            "name": "getSession",
+            "summary": "",
+            "url": "classes/App-Service-GameService.html#method_getSession"
+        },                {
+            "fqsen": "\\App\\Service\\GameService\u003A\u003A\u0024playerRepository",
+            "name": "playerRepository",
+            "summary": "",
+            "url": "classes/App-Service-GameService.html#property_playerRepository"
+        },                {
+            "fqsen": "\\App\\Service\\GameService\u003A\u003A\u0024roomRepository",
+            "name": "roomRepository",
+            "summary": "",
+            "url": "classes/App-Service-GameService.html#property_roomRepository"
+        },                {
+            "fqsen": "\\App\\Service\\GameService\u003A\u003A\u0024entityManager",
+            "name": "entityManager",
+            "summary": "",
+            "url": "classes/App-Service-GameService.html#property_entityManager"
+        },                {
+            "fqsen": "\\App\\Service\\GameService\u003A\u003A\u0024session",
+            "name": "session",
+            "summary": "",
+            "url": "classes/App-Service-GameService.html#property_session"
         },                {
             "fqsen": "\\App\\Service\\LibraryService",
             "name": "LibraryService",
@@ -1071,6 +1486,11 @@ Search.appendIndex(
             "summary": "",
             "url": "namespaces/app-controller.html"
         },                {
+            "fqsen": "\\App\\DataFixtures",
+            "name": "DataFixtures",
+            "summary": "",
+            "url": "namespaces/app-datafixtures.html"
+        },                {
             "fqsen": "\\App\\Dice",
             "name": "Dice",
             "summary": "",
@@ -1095,6 +1515,11 @@ Search.appendIndex(
             "name": "App",
             "summary": "",
             "url": "namespaces/app.html"
+        },                {
+            "fqsen": "\\App\\Proj",
+            "name": "Proj",
+            "summary": "",
+            "url": "namespaces/app-proj.html"
         },                {
             "fqsen": "\\App\\Repository",
             "name": "Repository",

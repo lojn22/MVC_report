@@ -134,8 +134,7 @@ class CardControllerJson extends AbstractController
         for ($i = 1; $i <= $numCards; ++$i) {
             // $hand->add(new DeckOfCards());
             $suit = ['♥️', '♦️', '♠️', '♣️'][array_rand(['♥️', '♦️', '♠️', '♣️'])];
-            $rank = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K']
-            [array_rand(['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'])];
+            $rank = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'][array_rand(['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'])];
             $hand->add(new CardGraphic($suit, $rank));
         }
         // $hand->drawCard();

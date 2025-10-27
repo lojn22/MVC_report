@@ -52,7 +52,7 @@ class LibraryService
     {
         if ($imageFile) {
             $newFilename = $fileUploader->upload($imageFile);
-            $book->setImage('uploads/' . $newFilename);
+            $book->setImage('uploads/'.$newFilename);
         } else {
             $book->setImage('uploads/images.jpg');
         }

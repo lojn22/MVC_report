@@ -25,7 +25,7 @@ class Card
 
     public function getAsString(): string
     {
-        return $this->value . $this->suit;
+        return $this->value.$this->suit;
     }
 
     public function getValueAsNumber(): int

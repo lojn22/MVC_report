@@ -19,7 +19,7 @@ class CardGraphic extends Card implements \JsonSerializable
     public function getAsString(): string
     {
         // Skapa strängen som man vill hitta
-        $cardString = $this->getSuit() . $this->getValue();
+        $cardString = $this->getSuit().$this->getValue();
 
         // Leta upp index i representation arrayen
         $index = array_search($cardString, $this->representation);

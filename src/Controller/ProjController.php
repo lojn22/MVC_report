@@ -41,6 +41,12 @@ class ProjController extends AbstractController
             'controller_name' => 'ProjController',
         ]);
     }
+    
+    #[Route('/proj/cheat', name: 'proj_cheat')]
+    public function cheat(): Response
+    {
+        return $this->render('proj/cheat_sheet.html.twig');
+    }
 
     #[Route('proj/town', name: 'proj_start')]
     public function townView(): Response
