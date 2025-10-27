@@ -566,6 +566,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/App-Controller-ProjController.html#method_about"
         },                {
+            "fqsen": "\\App\\Controller\\ProjController\u003A\u003Acheat\u0028\u0029",
+            "name": "cheat",
+            "summary": "",
+            "url": "classes/App-Controller-ProjController.html#method_cheat"
+        },                {
             "fqsen": "\\App\\Controller\\ProjController\u003A\u003AtownView\u0028\u0029",
             "name": "townView",
             "summary": "",
@@ -620,6 +625,16 @@ Search.appendIndex(
             "name": "index",
             "summary": "",
             "url": "classes/App-Controller-SimpleController.html#method_index"
+        },                {
+            "fqsen": "\\App\\DataFixtures\\AppFixtures",
+            "name": "AppFixtures",
+            "summary": "",
+            "url": "classes/App-DataFixtures-AppFixtures.html"
+        },                {
+            "fqsen": "\\App\\DataFixtures\\AppFixtures\u003A\u003Aload\u0028\u0029",
+            "name": "load",
+            "summary": "",
+            "url": "classes/App-DataFixtures-AppFixtures.html#method_load"
         },                {
             "fqsen": "\\App\\DataFixtures\\RoomFixture",
             "name": "RoomFixture",

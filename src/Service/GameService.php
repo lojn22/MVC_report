@@ -86,7 +86,7 @@ class GameService
             return [
                 'room' => $room,
                 'player' => $player,
-                'message' => 'You alredy visited this house. Hurry, the next dinner is waiting!',
+                'message' => 'You already visited this house. Hurry, the next dinner is waiting!',
             ];
         }
 
