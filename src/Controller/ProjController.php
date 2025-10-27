@@ -20,6 +20,7 @@ class ProjController extends AbstractController
     public function index(): Response
     {
         $this->gameService->resetPlayer();
+
         return $this->render('proj/index.html.twig', [
             'controller_name' => 'ProjController',
         ]);
@@ -29,9 +30,10 @@ class ProjController extends AbstractController
     public function restart(): Response
     {
         $this->gameService->resetPlayer();
+
         return $this->redirectToRoute('proj_home');
     }
-    
+
     #[Route('/proj/about', name: 'proj_about')]
     public function about(): Response
     {
@@ -41,7 +43,7 @@ class ProjController extends AbstractController
     }
 
     #[Route('proj/town', name: 'proj_start')]
-    public function townView(): Response 
+    public function townView(): Response
     {
         $player = $this->gameService->getPlayer();
         $rooms = $this->gameService->showHouses();
@@ -49,8 +51,9 @@ class ProjController extends AbstractController
         return $this->render('proj/town.html.twig', [
             'player' => $player,
             'rooms' => $rooms,
-            'message' => 'Lorelai: "Lanes is always superearly so thats easy to catch." "Sookies is midafternoon." "We have to go to my parents
-            or be brought up on war crimes." "Lukes the toughie." We can squeeze him in between Sookie and Emily & Richard.'
+            'message' => 'Lorelai: "Lanes is always superearly so thats easy to catch." 
+            "Sookies is midafternoon." "We have to go to my parents or be brought up on war crimes." 
+            "Lukes the toughie." We can squeeze him in between Sookie and Emily & Richard.',
         ]);
     }
 
@@ -63,18 +66,18 @@ class ProjController extends AbstractController
         return $this->render('proj/room.html.twig', [
             'room' => $result['room'],
             'player' => $result['player'],
-            'message' => $result['message']
+            'message' => $result['message'],
         ]);
     }
 
     #[Route('proj/room/{stage}/action/{choice}', name: 'proj_action', methods: ['POST'])]
     public function performAction(
         int $stage,
-        string $choice
+        string $choice,
     ): Response {
         $result = $this->gameService->makeChoice($stage, $choice);
 
-        if (!empty($result['gameOver']) && $result['gameOver'] === true) {
+        if (!empty($result['gameOver']) && true === $result['gameOver']) {
             return $this->redirectToRoute('proj_final');
         }
 
@@ -82,7 +85,7 @@ class ProjController extends AbstractController
     }
 
     #[Route('proj/final', name: 'proj_final')]
-    public function final(): Response 
+    public function final(): Response
     {
         $player = $this->gameService->getPlayer();
 
@@ -95,7 +98,7 @@ class ProjController extends AbstractController
 
         return $this->render('proj/final.html.twig', [
             'player' => $player,
-            'result' => $result
+            'result' => $result,
         ]);
     }
 }

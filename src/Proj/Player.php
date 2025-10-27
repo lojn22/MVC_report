@@ -9,8 +9,7 @@ class Player
 {
     public function getPlayer(
         ProjRepository $projRepository,
-    ): Response
-    {
+    ): Response {
         player->projRepository->getCurrentPlayer();
     }
 }

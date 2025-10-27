@@ -21,7 +21,7 @@ class RoomRepository extends ServiceEntityRepository
         ->getResult();
     }
 
-    public function findRoom(int $id): ? Room
+    public function findRoom(int $id): ?Room
     {
         return $this->find($id);
     }

@@ -8,7 +8,7 @@ use Doctrine\Persistence\ObjectManager;
 
 class RoomFixture extends Fixture
 {
-    public function load(objectManager $manager): void
+    public function load(ObjectManager $manager): void
     {
         $rooms = [
             [
@@ -58,8 +58,7 @@ class RoomFixture extends Fixture
             ],
         ];
 
-        foreach ($room as $data) 
-        {
+        foreach ($room as $data) {
             $rooom = new Room();
             $room->setName($data['name']);
             $room->setStage($data['stage']);
@@ -73,5 +72,3 @@ class RoomFixture extends Fixture
         $manager->flush();
     }
 }
-
- 

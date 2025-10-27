@@ -244,10 +244,11 @@
                 <p>Äventyrsspelet innebar att man skulle besöka olika rum och kunna sammla och lägga saker i en ryggsäck, ta sig till ett slutgiltligt rum där man som mål skulle
                 låsa upp skatten med hjälp av en nyckel. Mitt spel är ett historie berätttande spel där valen man gör i de olika rummen är det som 
                 läggs i ryggsäcken. För att göra koden dynamiskt och inte hårdkoda varje rum, hämtar jag rummen från databasen. I databas tabellen för rum har jag sparat vilka
-                valmöjligheter som ska finnas för varje rum. I GameSevice har jag lagt all logik för spelet för att försöak hålla 
-                ProjController så ren som möjligt med routers. GameSevice innehåller session som håller koll på om det har skapats en spelare, vilka rum spelaren har besökt och inte besökt. 
-                För de samlade föremålen skpade jag en inevtory array där man håller koll på vilka val spelaren gör under spelets gång. I varje rum har man två valmöjligheter att göra som sedan
-                styr hur väl du klarar dig i spelets slut.
+                valmöjligheter och bilder som ska finnas för varje rum. I GameSevice har jag lagt all logik för spelet för att försöak hålla 
+                ProjController så ren som möjligt med routers. GameSevice innehåller session som håller koll på om det har skapats en spelare, vilka rum spelaren har besökt och inte besökt
+                valen de gör under spelets gång. 
+                För de samlade föremålen skpade jag en inevtory array som visas för spelaren. I varje rum har man två valmöjligheter att göra som sedan
+                styr hur väl du klarar dig i spelets slut. Utgången för speltsslut avgörs genom att jämnföra spelarens arry mot den rätta arrayn.
                 </p>
         </main>
     </div>

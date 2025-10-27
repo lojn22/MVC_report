@@ -25,7 +25,6 @@ class Player
     #[ORM\Column(type: 'json')]
     private array $inventory = [];
 
-
     public function getId(): ?int
     {
         return $this->id;
@@ -86,6 +85,7 @@ class Player
     public function setInventory(array $inventory): static
     {
         $this->inventory = $inventory;
+
         return $this;
     }
 
@@ -96,6 +96,7 @@ class Player
             $inventory[] = $item;
             $this->setInventory($inventory);
         }
+
         return $this;
     }
 
@@ -109,6 +110,7 @@ class Player
         $this->current_stage = 0;
         $this->visited_rooms = [];
         $this->inventory = [];
+
         return $this;
     }
 }

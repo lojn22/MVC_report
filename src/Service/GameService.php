@@ -3,11 +3,11 @@
 namespace App\Service;
 
 use App\Entity\Player;
-use App\Entity\Room;
-use App\Repository\RoomRepository;
 use App\Repository\PlayerRepository;
+use App\Repository\RoomRepository;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\HttpFoundation\RequestStack;
+
 // use Psr\Log\LoggerInterface;
 
 class GameService
@@ -21,17 +21,15 @@ class GameService
         PlayerRepository $playerRepository,
         RoomRepository $roomRepository,
         ManagerRegistry $doctrine,
-        RequestStack $requestStack
-    )
-    {
+        RequestStack $requestStack,
+    ) {
         $this->playerRepository = $playerRepository;
         $this->roomRepository = $roomRepository;
         $this->entityManager = $doctrine->getManager();
         $this->session = $requestStack->getSession();
-
     }
 
-    public function getPlayer(): Player 
+    public function getPlayer(): Player
     {
         $playerId = $this->session->get('player_id');
 
@@ -67,54 +65,52 @@ class GameService
     }
 
     public function enterHouse(
-        int $stage
-        ): array
-    {
+        int $stage,
+    ): array {
         $player = $this->getPlayer();
         $room = $this->roomRepository->findOneBy(['stage' => $stage]);
 
         $nextStage = $player->getCurrentStage() + 1;
 
-        //Om spelaren väljer huset för tidigt
+        // Om spelaren väljer huset för tidigt
         if ($room->getStage() > $nextStage) {
             return [
                 'room' => $room,
                 'player' => $player,
-                'message' => 'You are too early, come back later.'
+                'message' => 'You are too early, come back later.',
             ];
         }
 
-        //Om spelaren väljer huset igen efter att redan har varit där.
+        // Om spelaren väljer huset igen efter att redan har varit där.
         if (in_array($room->getName(), $player->getVisitedRooms())) {
             return [
                 'room' => $room,
                 'player' => $player,
-                'message' => 'You alredy visited this house. Hurry, the next dinner is waiting!'
+                'message' => 'You alredy visited this house. Hurry, the next dinner is waiting!',
             ];
         }
 
-        //Om det är rätt hus i ordning som ska spelas   
+        // Om det är rätt hus i ordning som ska spelas
         return [
             'room' => $room,
             'player' => $player,
-            'message' => null
+            'message' => null,
         ];
     }
 
     public function makeChoice(
         int $stage,
-        string $choice
-        ): array
-        {
+        string $choice,
+    ): array {
         $player = $this->getPlayer();
         $room = $this->roomRepository->findOneBy(['stage' => $stage]);
 
-        //Kontroll om det är huset i den ordning som det ska spelas
+        // Kontroll om det är huset i den ordning som det ska spelas
         if ($player->getCurrentStage() + 1 !== $stage) {
             return [
                 'gameOver' => false,
                 'player' => $player,
-                'message' => 'You cannot eat here yet'
+                'message' => 'You cannot eat here yet',
             ];
         }
 
@@ -144,10 +140,9 @@ class GameService
         $totalRooms = count($this->roomRepository->findAll());
         $gameOver = count($visited) >= $totalRooms;
 
-
         $this->entityManager->persist($player);
         $this->entityManager->flush();
-        
+
         if ($gameOver) {
             $result = $this->checkGameResult($player);
             $this->session->set('final_result', $result);
@@ -155,16 +150,15 @@ class GameService
 
         return [
             'gameOver' => $gameOver,
-            'player' => $player
+            'player' => $player,
         ];
     }
 
     public function checkGameResult(
         Player $player,
-    ): array
-    {
+    ): array {
         $items = $player->getInventory();
-        $correctItems = ["napkin", "sookieI", "coffee", "fork"];
+        $correctItems = ['napkin', 'sookieI', 'coffee', 'fork'];
 
         $missing = array_diff($correctItems, $items);
         $extra = array_diff($items, $correctItems);
@@ -172,25 +166,31 @@ class GameService
         if (empty($missing) && empty($extra)) {
             return [
                 'status' => 'win',
-                'message' => 'You are a true Gilmore! Fork in hand, desseert on the horizon!'
+                'message' => 'You are a true Gilmore! Fork in hand, desseert on the horizon!',
             ];
         }
 
         if (in_array('fork', $items)) {
             $mistakes = [];
-            if (in_array('turkey', $items)) $mistakes[] = "Too much turky. ";
-            if (in_array('jackson', $items)) $mistakes[] = "You should have listen to Sookie. ";
-            if (in_array('soda', $items)) $mistakes[] = "You didn't drink enough coffee. ";
+            if (in_array('turkey', $items)) {
+                $mistakes[] = 'Too much turky. ';
+            }
+            if (in_array('jackson', $items)) {
+                $mistakes[] = 'You should have listen to Sookie. ';
+            }
+            if (in_array('soda', $items)) {
+                $mistakes[] = "You didn't drink enough coffee. ";
+            }
 
             return [
                 'status' => 'partial',
-                'message' => implode('', $mistakes) . "At least you got the fork but your to full for desert."
+                'message' => implode('', $mistakes) . 'At least you got the fork but your to full for desert.',
             ];
         }
 
         return [
             'status' => 'lose',
-            'message' => 'You stare att the desert... but someone else forked it first. Typical.'
+            'message' => 'You stare att the desert... but someone else forked it first. Typical.',
         ];
     }
 
@@ -198,5 +198,4 @@ class GameService
     {
         return $this->session;
     }
-
 }

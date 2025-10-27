@@ -19,12 +19,12 @@ class Room
     #[ORM\Column]
     private ?int $stage = 0;
 
-    #[ORM\Column(length:300)]
+    #[ORM\Column(length: 300)]
     private ?string $dialogue = null;
 
     #[ORM\Column(length: 255)]
     private ?string $image = null;
-    
+
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $symbol = null;
 
@@ -77,7 +77,7 @@ class Room
 
         return $this;
     }
-    
+
     public function getActionChoices(): array
     {
         return $this->action_choices;
@@ -101,7 +101,7 @@ class Room
 
         return $this;
     }
-    
+
     public function getSymbol(): ?string
     {
         return $this->symbol;
@@ -122,6 +122,7 @@ class Room
     public function setTop(?int $top): static
     {
         $this->top = $top;
+
         return $this;
     }
 
@@ -133,6 +134,7 @@ class Room
     public function setLeft(?int $left): static
     {
         $this->left = $left;
+
         return $this;
     }
 }
