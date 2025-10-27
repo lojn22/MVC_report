@@ -1,4 +1,4 @@
-.town-map {
+.proj-game .town-map {
   position: relative;
   /* background-image: url('/img/town.png'); */
   background-size: cover;
@@ -9,56 +9,56 @@
   border-radius: 10px;
 }
 
-.town-map .house {
+.proj-game .town-map .house {
     position: absolute;
     display: block;
     width: 50px;       /* storlek på symbolen */
     height: 50px;
 }
 
-.town-map .house img {
+.proj-game .town-map .house img {
     width: 216%;
     height: 117%;
     cursor: pointer;
 }
 
-.house {
+.proj-game .house {
   position: absolute;
   text-align: center;
 }
 
-/* .house img {
+/* .proj-game .house img {
   width: 120px;
   height: auto;
   cursor: pointer;
   transition: transform 0.2s ease-in-out;
 }
 
-.house img:hover {
+.proj-game .house img:hover {
   transform: scale(1.1);
 } */
 
-.house.kim {
+.proj-game .house.kim {
     top: 5%;
     left: 45%;
 }
 
-.house.sookie {
+.proj-game .house.sookie {
     top: 45%;
     right: 5%;
 }
 
-.house.emily {
+.proj-game .house.emily {
     bottom: 5%;
     left: 45%;
 }
 
-.house.luke {
+.proj-game .house.luke {
     top: 45%;
     left: 5%;
 }
 
-.alert {
+.proj-game .alert {
   background-color: #fff8f0;
   padding: 1em;
   border: 1px solid #cc9999;

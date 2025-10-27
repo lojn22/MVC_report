@@ -3,23 +3,24 @@
 @import "choice.css";
 @import "inventory.css";
 @import "final.css";
+/* @import "twocolumn.css"; */
 
-body {
+.proj-game {
     background-color: rgb(251, 218, 119);
     margin: 0 auto;
 }
 
 
-.proj-main {
+.proj-game .proj-main {
     margin: 67px;
     max-width: 1136px;
 }
 
-.proj-h1 {
+.proj-game .proj-h1 {
     border-bottom: 4px double #ccc;
 }
 
-.proj-site-header {
+.proj-game .proj-site-header {
     background-size: cover;
     height: 100px;
     display: flex;
@@ -27,7 +28,7 @@ body {
     align-items: center;
 }
 
-.proj-site-title {
+.proj-game .proj-site-title {
     font-family: 'Great Vibes', cursive; 
     font-size: 4em;
     font-weight: normal; 
@@ -36,7 +37,7 @@ body {
     text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
 }
 
-.proj-navbar {
+.proj-game .proj-navbar {
     background-color: rgb(254, 252, 252);
     border-top: 4px solid rgb(254 252 252);
     text-align: center;
@@ -46,14 +47,14 @@ body {
 /*
  * Style links.
  */
-.proj-navbar a {
+.proj-game .proj-navbar a {
     display: inline-block;
     padding: 0.2em 0.5em;
     color: #dcdddf;
     text-decoration: none;
 }
 
-.proj-navbar a:hover {
+.proj-game .proj-navbar a:hover {
     color: #fbebac;
     background-color: #f1f0eb;
 }
@@ -61,7 +62,7 @@ body {
 /*
  * Remove bullets, margins and padding from the list.
  */
-.proj-navbar ul {
+.proj-game .proj-navbar ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -70,11 +71,11 @@ body {
 /*
  * Put the li items on a line.
  */
-.proj-navbar li {
+.proj-game .proj-navbar li {
     display: inline;
 }
 
-.dialogue-wrapper {
+.proj-game .dialogue-wrapper {
     display: flex;
     align-items: flex-start; /* justerar toppen av rutorna */
     justify-content: center;
@@ -83,7 +84,7 @@ body {
     max-width: 900px;
 }
 
-.dialogue-scene {
+.proj-game .dialogue-scene {
     background-color: #fff8f0;
     border: 2px solid #c58b7b;
     border-radius: 15px;
@@ -95,7 +96,7 @@ body {
     box-shadow: 3px 3px 10px rgba(0,0,0,0.1);
 }
 
-.eat-image {
+.proj-game .eat-image {
     width: 250px;
     height: auto;
     border-radius: 10px;
@@ -103,12 +104,12 @@ body {
 }
 
 /* Namnformat */
-.dialogue-line .name {
+.proj-game .dialogue-line .name {
     font-weight: bold;
     color: #7b4b3a;
 }
 
-.sign-btn {
+.proj-game .sign-btn {
   position: relative;
   display: inline-block;
   background-color: #1d5e3a; /* mörkgrön vägskyltsfärg */
@@ -127,7 +128,7 @@ body {
 }
 
 /* Pilspetsen */
-.sign-btn::after {
+.proj-game .sign-btn::after {
   content: "";
   position: absolute;
   top: 0px; /* justering för kant */
@@ -140,7 +141,7 @@ body {
 }
 
 /* Vit kant runt pilspetsen */
-.sign-btn::before {
+.proj-game .sign-btn::before {
   content: "";
   position: absolute;
   top: -5px;
@@ -153,18 +154,18 @@ body {
 }
 
 /* Hover-effekt */
-.sign-btn:hover {
+.proj-game .sign-btn:hover {
   background-color: #2d7a4f;
   transform: translateX(3px);
 }
 
-.sign-btn:hover::after {
+.proj-game .sign-btn:hover::after {
   border-left-color: #2d7a4f;
 }
 
 
 @media (max-width: 700px) {
-  .dialogue-wrapper {
+ .proj-game  .dialogue-wrapper {
     flex-direction: column;
     align-items: center;
   }

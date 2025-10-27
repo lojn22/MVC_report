@@ -13,8 +13,8 @@
                             <li><a href="#kmom03">kmom03</a></li>
                             <li><a href="#kmom04">kmom04</a></li>
                             <li><a href="#kmom05">kmom05</a></li>
-                            <li><a href="#kmom05">kmom06</a></li>
-                            <li><a href="#kmom05">kmom07</a></li>
+                            <li><a href="#kmom06">kmom06</a></li>
+                            <li><a href="#kmom07">kmom10</a></li>
                         </ul>
                 </div>
             </aside>
@@ -236,7 +236,19 @@
                 Cyclomatic complexity är att man kan räkna hur många testfall som krävs för att täcka alla logiska vägar genom koden.
                 </p>
             <h2 id="kmom07">Kmom10</h2>
-                <p></p>
+                <p>Krav 1-3</p>
+                <p>Mitt val av fokus i detta projekt blev ett äventyrsspel. För landningsidan av projektet valde jag att göra ett nytt stylesheet som
+                jag importerade i mina twigfiler. I projektets navbar så ligger länkar till about sidan som innehåller information om projektet, projektets startsida
+                och till min startsida i kursen så att man lätt ska kunna navigera tillbaka till de andra sidorna.
+                </p>
+                <p>Äventyrsspelet innebar att man skulle besöka olika rum och kunna sammla och lägga saker i en ryggsäck, ta sig till ett slutgiltligt rum där man som mål skulle
+                låsa upp skatten med hjälp av en nyckel. Mitt spel är ett historie berätttande spel där valen man gör i de olika rummen är det som 
+                läggs i ryggsäcken. För att göra koden dynamiskt och inte hårdkoda varje rum, hämtar jag rummen från databasen. I databas tabellen för rum har jag sparat vilka
+                valmöjligheter som ska finnas för varje rum. I GameSevice har jag lagt all logik för spelet för att försöak hålla 
+                ProjController så ren som möjligt med routers. GameSevice innehåller session som håller koll på om det har skapats en spelare, vilka rum spelaren har besökt och inte besökt. 
+                För de samlade föremålen skpade jag en inevtory array där man håller koll på vilka val spelaren gör under spelets gång. I varje rum har man två valmöjligheter att göra som sedan
+                styr hur väl du klarar dig i spelets slut.
+                </p>
         </main>
     </div>
 {% endblock %}

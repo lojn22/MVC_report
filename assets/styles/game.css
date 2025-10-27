@@ -7,58 +7,78 @@
 } */
 
 .game-board {
-    background-color: #28a745; /* Grön bakgrund */
-    border: 2px solid #218838; /* Mörkare grön kant */
-    border-radius: 15px; /* Rundade hörn */
-    padding: 20px; /* Inre marginaler för innehållet */
-    margin: 20px auto; /* Centrera spelplanen på sidan */
-    max-width: 800px; /* Maximal bredd för spelplanen */
-    color: white; /* Vit text för kontrast */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 90vh;
+    padding: 20px;
+    box-sizing: border-box;
 }
 
-.game-board h2 {
+/* .game-board h2 {
     margin-top: 0;
-}
+} */
 
 .top-left {
     position: absolute;
-    top: 10px;
-    left: 10px;
+    top: 50%;
+    left: calc(50% + 120px); /* flyttar den till höger om kortleken */
+    transform: translateY(-50%);
 }
 
-.button {
+button, .button {
     background-color: #ffcc00;
-    color: black;
+    color: #000;
+    border: none;
+    border-radius: 6px;
     padding: 10px 20px;
-    text-decoration: none;
-    border-radius: 5px;
     font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
 }
 
-.bank, .player {
+button:hover, .button:hover {
+    background-color: #ffd633;
+}
+
+/* .bank, .player {
     text-align: center;
     margin: 20px;
-}
+} */
 
 .bank {
-    position: absolute;
-    top: 50px;
-    width: 100%;
+      text-align: center;
+}
+
+.bank h2 {
+    margin-bottom: 10px;
+    font-size: 1.5em;
+}
+
+.bank p, .player p {
+    font-size: 1.1em;
+    margin-top: 5px;
 }
 
 .player {
-    position: absolute;
-    bottom: 50px;
-    width: 100%;
+    text-align: center;
+}
+
+.player h2 {
+    margin-bottom: 10px;
 }
 
 .deck {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.deck:hover {
+    transform: scale(1.1);
 }
 
 .deck img {
@@ -66,29 +86,45 @@
     height: auto;
 }
 
-.hand {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-    display: flex; /* Använder flexbox för att placera elementen i rad */
-    gap: 10px;
+.deck-text {
+    margin-top: 10px;
+    font-size: 1.1em;
+    color: #f8f8f8;
 }
 
-.hand li {
+.hand {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    list-style: none;
+    padding: 0;
+    margin: 10px 0;
+}
+
+/* .hand li {
     display: inline-block;
     margin: 5px;
     font-size: 18px;
     font-weight: bold;
-}
+} */
 
 .result {
-    position: absolute;
-    top: 20%;
+    position: fixed;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: rgba(0, 0, 0, 0.7);
-    padding: 20px;
-    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.85);
+    padding: 30px 50px;
+    border-radius: 12px;
     text-align: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+    z-index: 1000;
+    animation: fadeIn 0.4s ease;
+}
+
+.result h2 {
+    margin: 0;
+    font-size: 2em;
+    color: #ffcc00;
 }
 

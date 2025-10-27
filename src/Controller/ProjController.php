@@ -19,7 +19,7 @@ class ProjController extends AbstractController
     #[Route('/proj', name: 'proj_home')]
     public function index(): Response
     {
-
+        $this->gameService->resetPlayer();
         return $this->render('proj/index.html.twig', [
             'controller_name' => 'ProjController',
         ]);
@@ -50,7 +50,7 @@ class ProjController extends AbstractController
             'player' => $player,
             'rooms' => $rooms,
             'message' => 'Lorelai: "Lanes is always superearly so thats easy to catch." "Sookies is midafternoon." "We have to go to my parents
-            or be brought up on war crimes." "Lukes the toughie." We can squeeze him in between Sookie and Emily and Richard.'
+            or be brought up on war crimes." "Lukes the toughie." We can squeeze him in between Sookie and Emily & Richard.'
         ]);
     }
 
@@ -72,14 +72,8 @@ class ProjController extends AbstractController
         int $stage,
         string $choice
     ): Response {
-        // $choice = $request->query->get('choice');
         $result = $this->gameService->makeChoice($stage, $choice);
 
-        // if ($result['gameOver']){
-        //     return $this->redirectToRoute('proj_final');
-        // }
-
-        // Om spelet är över – spara resultatet i session och gå till final
         if (!empty($result['gameOver']) && $result['gameOver'] === true) {
             return $this->redirectToRoute('proj_final');
         }

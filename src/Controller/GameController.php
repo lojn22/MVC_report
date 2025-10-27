@@ -14,18 +14,12 @@ class GameController extends AbstractController
     #[Route('/game', name: 'game')]
     public function home(SessionInterface $session): Response
     {
-        // Initiera spelet och spara det i sessionen om det inte redan existerar
-        if (!$session->has('game')) {
-            $deck = new DeckOfCards();
-            $deck->deckShuffle();
-            // $shuffledDeck = $deck->getDeck();
-            // echo "Korts ordning efter blandning:\n";
-            // foreach ($shuffledDeck as $card) {
-            //     echo $card->getAsString() . "\n";
-            // }
-            $game = new Game($deck);
-            $session->set('game', $game);
-        }
+        $session->remove('game');
+
+        $deck = new DeckOfCards();
+        $deck->deckShuffle();
+        $game = new Game($deck);
+        $session->set('game', $game);
 
         return $this->render('game/home.html.twig');
     }

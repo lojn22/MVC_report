@@ -1,4 +1,4 @@
-.final-container {
+.proj-game .final-container {
     max-width: 900px;
     margin: 40px auto;
     padding: 20px;
@@ -9,7 +9,7 @@
 }
 
 /* Resultatrutan */
-.result-box {
+.proj-game .result-box {
     margin-top: 10px;
     max-width: 70%;
     margin-left: 15%;
@@ -21,40 +21,40 @@
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
-.result {
+.proj-game .result {
     font-size: 1.4rem;
     font-weight: bold;
     margin: 0;
 }
 
 /* Olika resultatfärger */
-.result.win {
+.proj-game .result.win {
     color: #2e7d32;
     background-color: #e8f5e9;
     border-radius: 8px;
     padding: 10px;
 }
 
-.result.partial {
+.proj-game .result.partial {
     color: #ff9800;
     background-color: #fff3e0;
     border-radius: 8px;
     padding: 10px;
 }
 
-.result.lose {
+.proj-game .result.lose {
     color: #b71c1c;
     background-color: #ffebee;
     border-radius: 8px;
     padding: 10px;
 }
 
-.result.none {
+.proj-game .result.none {
     color: #777;
 }
 
 /* Layout för inventory, bild och knapp */
-.final-content {
+.proj-game .final-content {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -62,7 +62,7 @@
     gap: 30px;
 }
 
-.final-left-side {
+.proj-game .final-left-side {
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -72,14 +72,14 @@
     margin-left: 3%;
 }
 
-.final-right-side {
+.proj-game .final-right-side {
     flex: 1;
     display: flex;
     justify-content: left;
     align-items: center;
 }
 
-.paj-img {
+.proj-game .paj-img {
     width: 50%;
     height: auto;
     border-radius: 10px;

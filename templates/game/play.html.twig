@@ -2,88 +2,64 @@
 
 {% block title %}21{% endblock %}
 {% block body %}
-<!-- Knapp för att starta en ny omgång -->
     <div class="top-left">
         <button class="button" onclick="window.location.href='{{ path('game_reset') }}'">Starta ny omgång</button>
     </div>
 
     <div class="game-board">
-        <!-- Banken -->
-        <div class="bank">
-            <h2>Banken</h2>
-            <ul class="hand">
-                {% for card in bankHand.getCards() %}
-                    {% set suit = card.getSuit() %}
-                    {% set value = card.getValue() %}
 
-                    {% if suit == '♥️' or suit == '♦️' %}
-                        <div class="card red">
-                            {{ value }}{{ suit }}
-                        </div>
-                    {% else %}
-                        <div class="card">
-                            {{ value }}{{ suit }}
-                        </div>
-                    {% endif %}
-                {% endfor %}
-            </ul>
-            {% if bankHand.getSum() > 0 %}
-                <p>Summa: {{ bankHand.getSum() }}</p>
-            {% endif %}
-        </div>
-
-        <!-- Kontrollera om det finns en vinnare -->
-        {% if game.getWinner() %}
-            <!-- Visa vinnaren och inaktivera kortleken -->
-            <div class="deck">
-                <img src="{{ asset('img/deck.png') }}" alt="Kortlek" style="width: 50px; height: auto;">
-
-                <p>Spelet är över</p> <!-- Meddelande att spelet är över -->
-            </div>
-        {% else %}
-            <!-- Kortleken i mitten -->
-            <div class="deck" onclick="window.location.href='{{ path('play', {'action': 'draw'}) }}'">
-                <img src="{{ asset('img/deck.png') }}" alt="Kortlek" class="deck-image">
-                <p class="deck-text">Klicka för att dra ett kort</p>
-            </div>
+    <div class="bank">
+        <h2>Banken</h2>
+        <ul class="hand">
+            {% for card in bankHand.getCards() %}
+                {% set suit = card.getSuit() %}
+                {% set value = card.getValue() %}
+                <div class="card {% if suit in ['♥️','♦️'] %}red{% endif %}">
+                    {{ value }}{{ suit }}
+                </div>
+            {% endfor %}
+        </ul>
+        {% if bankHand.getSum() > 0 %}
+            <p>Summa: {{ bankHand.getSum() }}</p>
         {% endif %}
+    </div>
 
-
-        <!-- Spelaren -->
-        <div class="player">
-            <h2>Spelare</h2>
-            <ul class="hand">
-                {% for card in playerHand.cards %}
-                    {% set suit = card.getSuit() %}
-                    {% set value = card.getValue() %}
-
-                    {% if suit == '♥️' or suit == '♦️' %}
-                        <div class="card red">
-                            {{ value }}{{ suit }}
-                        </div>
-                    {% else %}
-                        <div class="card">
-                            {{ value }}{{ suit }}
-                        </div>
-                    {% endif %}
-                {% endfor %}
-            </ul>
-            <p>Summa: {{ playerHand.getSum() }}</p>
-
-            <!-- Stanna-knappen visas endast om spelaren har dragit kort -->
-            {% if playerHand.getSum() > 0 %}
-                <form method="post" action="{{ path('play', {'action': 'stay'}) }}">
-                    <button type="submit">Stanna</button>
-                </form>
-            {% endif %}
+    {% if game.getWinner() %}
+        <div class="deck">
+            <img src="{{ asset('img/deck.png') }}" alt="Kortlek">
+            <p>Spelet är över</p>
         </div>
-    </div>
-
-
-    <!-- Resultatmeddelande visas efter att banken har spelat -->
-    {% if winner is not null %}
-    <div class="result">
-        <h2>{{ winner == 'Player' ? 'Du vann!' : 'Banken vann!' }}</h2>
-    </div>
+    {% else %}
+        <div class="deck" onclick="window.location.href='{{ path('play', {'action': 'draw'}) }}'">
+            <img src="{{ asset('img/deck.png') }}" alt="Kortlek">
+            <p class="deck-text">Klicka för att dra ett kort</p>
+        </div>
     {% endif %}
+
+    <div class="player">
+        <h2>Spelare</h2>
+        <ul class="hand">
+            {% for card in playerHand.cards %}
+                {% set suit = card.getSuit() %}
+                {% set value = card.getValue() %}
+                <div class="card {% if suit in ['♥️','♦️'] %}red{% endif %}">
+                    {{ value }}{{ suit }}
+                </div>
+            {% endfor %}
+        </ul>
+        <p>Summa: {{ playerHand.getSum() }}</p>
+        {% if playerHand.getSum() > 0 %}
+            <form method="post" action="{{ path('play', {'action': 'stay'}) }}">
+                <button type="submit">Stanna</button>
+            </form>
+        {% endif %}
+    </div>
+</div>
+
+{% if winner is not null %}
+<div class="result">
+    <h2>{{ winner == 'Player' ? 'Du vann!' : 'Banken vann!' }}</h2>
+</div>
+{% endif %}
+
 {% endblock %}

@@ -1,12 +1,19 @@
 .card {
-    background-color: rgb(230, 66, 66);
-    width: 10px;
-    height: 100px;
-    margin: 5px;
-    border-radius: 5px;
+    background-color: white;
+    color: black;
+    border-radius: 8px;
+    width: 60px;
+    height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 20px;
+    box-shadow: 2px 3px 6px rgba(0, 0, 0, 0.3);
+    border: 1px solid #ccc;
 }
 
-.deck {
+/* .deck {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -17,8 +24,8 @@
     border-radius: 10px;
     padding: 20px;
     box-shadow: 0px 0px 10px rgba(0, 0 , 0, 0.5);
-}
+} */
 
-.red {
+.card.red {
     color: firebrick;
 }
