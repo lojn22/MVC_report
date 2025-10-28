@@ -1,0 +1,42 @@
+{
+    "avg": {
+        "wmc": 5.83,
+        "ccn": 3.17,
+        "bugs": 0.11,
+        "kanDefect": 0.31,
+        "relativeSystemComplexity": 107.11,
+        "relativeDataComplexity": 1.68,
+        "relativeStructuralComplexity": 105.43,
+        "volume": 322.79,
+        "commentWeight": 19.07,
+        "intelligentContent": 65.79,
+        "lcom": 1.6,
+        "instability": 0.69,
+        "afferentCoupling": 0.98,
+        "efferentCoupling": 2.64,
+        "difficulty": 5.31,
+        "mi": 78.86,
+        "distance": 0.26,
+        "incomingCDep": 1.91,
+        "incomingPDep": 1.09,
+        "outgoingCDep": 4.27,
+        "outgoingPDep": 2.82,
+        "classesPerPackage": 3.82
+    },
+    "sum": {
+        "loc": 2028,
+        "cloc": 318,
+        "lloc": 1703,
+        "nbMethods": 154,
+        "nbClasses": 42,
+        "nbInterfaces": 0,
+        "nbPackages": 11,
+        "violations": {
+            "total": 10,
+            "information": 0,
+            "warning": 8,
+            "error": 2,
+            "critical": 0
+        }
+    }
+}
