@@ -6,9 +6,9 @@ use App\Entity\Room;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 
-class RoomFixture extends Fixture
+class RoomFixtures extends Fixture
 {
-    public function load(objectManager $manager): void
+    public function load(ObjectManager $manager): void
     {
         $rooms = [
             [
@@ -110,9 +110,9 @@ class RoomFixture extends Fixture
             ],
         ];
 
-        foreach ($room as $data) 
+        foreach ($rooms as $data) 
         {
-            $rooom = new Room();
+            $room = new Room();
             $room->setName($data['id']);
             $room->setName($data['name']);
             $room->setStage($data['stage']);

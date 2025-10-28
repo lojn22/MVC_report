@@ -236,20 +236,47 @@
                 Cyclomatic complexity är att man kan räkna hur många testfall som krävs för att täcka alla logiska vägar genom koden.
                 </p>
             <h2 id="kmom07">Kmom10</h2>
-                <p>Krav 1-3</p>
+                <i>Krav 1-3</i>
+                <h4>Innehåll och utseende</h4>
                 <p>Mitt val av fokus i detta projekt blev ett äventyrsspel. För landningsidan av projektet valde jag att göra ett nytt stylesheet som
-                jag importerade i mina twigfiler. I projektets navbar så ligger länkar till about sidan som innehåller information om projektet, projektets startsida
+                jag importerade i mina twigfiler. Jag valde en ny bakgrundsfärg och en ny bild till min header där jag även ändrade stilen på texten.
+                I projektets navbar så ligger länkar till about sidan som innehåller information om projektet, projektets startsida
                 och till min startsida i kursen så att man lätt ska kunna navigera tillbaka till de andra sidorna.
                 </p>
                 <p>Äventyrsspelet innebar att man skulle besöka olika rum och kunna sammla och lägga saker i en ryggsäck, ta sig till ett slutgiltligt rum där man som mål skulle
                 låsa upp skatten med hjälp av en nyckel. Mitt spel är ett historie berätttande spel där valen man gör i de olika rummen är det som 
                 läggs i ryggsäcken. För att göra koden dynamiskt och inte hårdkoda varje rum, hämtar jag rummen från databasen. I databas tabellen för rum har jag sparat vilka
                 valmöjligheter och bilder som ska finnas för varje rum. I GameSevice har jag lagt all logik för spelet för att försöak hålla 
-                ProjController så ren som möjligt med routers. GameSevice innehåller session som håller koll på om det har skapats en spelare, vilka rum spelaren har besökt och inte besökt
+                ProjController så ren som möjligt med fokus på routers. GameSevice innehåller session som håller koll på om det har skapats en spelare, vilka rum spelaren har besökt och inte besökt
                 valen de gör under spelets gång. 
                 För de samlade föremålen skpade jag en inevtory array som visas för spelaren. I varje rum har man två valmöjligheter att göra som sedan
-                styr hur väl du klarar dig i spelets slut. Utgången för speltsslut avgörs genom att jämnföra spelarens arry mot den rätta arrayn.
+                styr hur väl du klarar dig i spelets slut. Utgången för spelts slut avgörs genom att jämnföra spelarens arry mot den rätta arrayn.
                 </p>
+
+                <h4>Repo och dokumentation</h4>
+                <p>På github kompletterade jag min readme sida med information om repot, instruktioner för hur man klonar repot.
+                Jag skapade även tester för min GameService klass för att öka kodtäckning och se till att logiken fungerade som tänkt.
+                Dessutom uppdaterade jag dokumentationen och projektets metrics för att ge en tydlig överblick av kodstrukturen och testresultaten.
+                </p>
+
+                <i>Krav 5</i>
+                <h4>ORM</h4>
+                <p>Jag planerade för ORM databas redan i början av projektet och implemterade det genom att skapa repository och entity filer för
+                tabellerna player och room. Jag lade till en länk på about sidan som går till databas sidan.
+                </p>
+
+                <h4>Genomförande och Tankar om kursen</h4>
+                <p>Det gick ganska bra att genomföra projektet men det har tagit lång tid tycker jag. Väldigt mycket som ska göras men tycker att det var ett bra 
+                avslut på kursen som innehåller det vi har gått igenom under kursens gång. Det var kul att man hade valmöjligheter för slutprojektet. Jag hade lite problem
+                med session, vilket löste sig när jag gick över till RequestStack eftersom SessionInterface inte passar i de nya versionerna av Symfony. Det var även lite klurigt att 
+                få ihop en bra spellogik, först tänkte jag ha en logik där man fick poäng på de val man gjorde. Poängen skulle sen avgöra om man hade ätit förmycket,
+                lagom eller förlite. Det blev svårt för mig att räkna ut hur mycket poäng man skulle få i varje rum och vrt man skulle dra gränsen till vad som vad godkänt och inte godkänt.
+                Jag tänkte att det måste finnas ett enkalre sätt att avgöra slutet och tillsut kom jag på att de är enklare om det bara finns bra eller bättre val att göra och sedan jämföra
+                spelarens array med den array som jag sätter till rätt array. 
+                </p>
+                <p>Om jag skulle göra om kursen från början hde jag velat skapa bättre struktur bland filerna från början och sperear logiken mer från mina controllers genom att ha fler services.
+                Det har varit en bra kurs annars och jag har till och med börjat tycke det känns lite roligt med PHP vilket jag inte tyckte i Webteckursen då var det rena mardrömmen. På en skala 1-10 ger jag 
+                kursen 9 av 10.</p>
         </main>
     </div>
 {% endblock %}
